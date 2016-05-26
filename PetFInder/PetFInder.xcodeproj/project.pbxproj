@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		703A55302EA6D9767EB843EE /* Pods_PetFInder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1227D18E5099CA6D5863ED65 /* Pods_PetFInder.framework */; };
 		EC20164F1CF682AA00CD8FCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC20164E1CF682AA00CD8FCA /* AppDelegate.swift */; };
 		EC2016541CF682AA00CD8FCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2016521CF682AA00CD8FCA /* Main.storyboard */; };
 		EC2016561CF682AA00CD8FCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC2016551CF682AA00CD8FCA /* Assets.xcassets */; };
 		EC2016591CF682AA00CD8FCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2016571CF682AA00CD8FCA /* LaunchScreen.storyboard */; };
 		EC43B9351CF6926B00D8A0BF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC43B9341CF6926B00D8A0BF /* HomeViewController.swift */; };
+		ECF212651CF6959D0029B569 /* MyNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF212641CF6959D0029B569 /* MyNavigationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1227D18E5099CA6D5863ED65 /* Pods_PetFInder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFInder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		36820E96CCE2D3B704766777 /* Pods-PetFInder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFInder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PetFInder/Pods-PetFInder.debug.xcconfig"; sourceTree = "<group>"; };
+		3AE29AB9DC909C7C73CC54E9 /* Pods-PetFInder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFInder.release.xcconfig"; path = "Pods/Target Support Files/Pods-PetFInder/Pods-PetFInder.release.xcconfig"; sourceTree = "<group>"; };
 		EC20164B1CF682AA00CD8FCA /* PetFInder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFInder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC20164E1CF682AA00CD8FCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC2016531CF682AA00CD8FCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -22,6 +27,7 @@
 		EC2016581CF682AA00CD8FCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC20165A1CF682AA00CD8FCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC43B9341CF6926B00D8A0BF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ECF212641CF6959D0029B569 /* MyNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				703A55302EA6D9767EB843EE /* Pods_PetFInder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		74CBA874107290273CCCBE95 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				36820E96CCE2D3B704766777 /* Pods-PetFInder.debug.xcconfig */,
+				3AE29AB9DC909C7C73CC54E9 /* Pods-PetFInder.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7A179E8AC8EFE16814242AEB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1227D18E5099CA6D5863ED65 /* Pods_PetFInder.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EC2016421CF682AA00CD8FCA = {
 			isa = PBXGroup;
 			children = (
 				EC20164D1CF682AA00CD8FCA /* PetFInder */,
 				EC20164C1CF682AA00CD8FCA /* Products */,
+				74CBA874107290273CCCBE95 /* Pods */,
+				7A179E8AC8EFE16814242AEB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +93,7 @@
 		EC43B9361CF6927200D8A0BF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ECF212641CF6959D0029B569 /* MyNavigationViewController.swift */,
 				EC43B9341CF6926B00D8A0BF /* HomeViewController.swift */,
 			);
 			name = Controllers;
@@ -79,9 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC20165D1CF682AA00CD8FCA /* Build configuration list for PBXNativeTarget "PetFInder" */;
 			buildPhases = (
+				9CB2793178101E8BA90FC8FE /* 📦 Check Pods Manifest.lock */,
 				EC2016471CF682AA00CD8FCA /* Sources */,
 				EC2016481CF682AA00CD8FCA /* Frameworks */,
 				EC2016491CF682AA00CD8FCA /* Resources */,
+				4ED049F4141115670AD1CCC8 /* 📦 Embed Pods Frameworks */,
+				784BF98B1442CE5487B7C48E /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -138,12 +168,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4ED049F4141115670AD1CCC8 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PetFInder/Pods-PetFInder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		784BF98B1442CE5487B7C48E /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PetFInder/Pods-PetFInder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9CB2793178101E8BA90FC8FE /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EC2016471CF682AA00CD8FCA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				EC20164F1CF682AA00CD8FCA /* AppDelegate.swift in Sources */,
+				ECF212651CF6959D0029B569 /* MyNavigationViewController.swift in Sources */,
 				EC43B9351CF6926B00D8A0BF /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,6 +334,7 @@
 		};
 		EC20165E1CF682AA00CD8FCA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36820E96CCE2D3B704766777 /* Pods-PetFInder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PetFInder/Info.plist;
@@ -266,6 +346,7 @@
 		};
 		EC20165F1CF682AA00CD8FCA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AE29AB9DC909C7C73CC54E9 /* Pods-PetFInder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PetFInder/Info.plist;

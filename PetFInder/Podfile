@@ -6,5 +6,6 @@ target 'PetFInder' do
   use_frameworks!
 
   # Pods for PetFInder
+pod 'ENSwiftSideMenu', '~> 0.1.1'
 
 end
