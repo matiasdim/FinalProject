@@ -5,8 +5,10 @@
 //  Created by Matías  Gil Echavarría on 5/25/16.
 //  Copyright © 2016 Matías Gil Echavarría. All rights reserved.
 //
+//menu icon from: http://www.flaticon.com/free-icon/
 
 import UIKit
+import ENSwiftSideMenu
 
 class MyNavigationViewController: ENSideMenuNavigationController {
 
@@ -19,7 +21,8 @@ class MyNavigationViewController: ENSideMenuNavigationController {
         //sideMenu?.bouncingEnabled = false
         //sideMenu?.allowPanGesture = false
         // make navigation bar showing over side menu
-        view.bringSubviewToFront(navigationBar)    }
+        view.bringSubviewToFront(navigationBar)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -8,4 +8,5 @@ target 'PetFInder' do
   # Pods for PetFInder
 pod 'ENSwiftSideMenu', '~> 0.1.1'
 
+link_with 'PetFinder', 'PetFinder Dev', 'PetFinder Tests'
 end

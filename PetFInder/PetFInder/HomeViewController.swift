@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import ENSwiftSideMenu
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, ENSideMenuDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.sideMenuController()?.sideMenu?.delegate = self
     }
 
     override func didReceiveMemoryWarning() {

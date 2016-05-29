@@ -34,10 +34,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tST-Ic-c6f"/>
+                    <navigationItem key="navigationItem" id="tST-Ic-c6f">
+                        <barButtonItem key="leftBarButtonItem" image="menu_icon" id="a1B-L0-Scl"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="367" y="337"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu_icon" width="90" height="90"/>
+    </resources>
 </document>
