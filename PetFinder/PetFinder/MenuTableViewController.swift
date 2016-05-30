@@ -99,6 +99,11 @@ class MenuTableViewController: UITableViewController {
         return true
     }
 
+    @IBAction func loginButtonPressed(sender: AnyObject) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewControllerWithIdentifier("loginVC")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
