@@ -12,11 +12,19 @@ class MenuTableViewController: UITableViewController {
 
     let menuItems = ["Home", "Register Your Pet", "Registered Pet", "Reports of your Pets", "Report Pet Found", "About Us"]
     
+    @IBOutlet weak var loginButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Pet Finder"
+        //self.navigationItem.title = "Pet Finder"
         
+        let defaults = NSUserDefaults.standardUserDefaults()
+
+        if defaults.objectForKey("loginStatus") != nil{
+            self.navigationItem.rightBarButtonItem?.title = "Log Out"
+        }else{
+            self.navigationItem.rightBarButtonItem?.title = "Log In/Sign Up"
+        }
     }
 
     override func didReceiveMemoryWarning() {

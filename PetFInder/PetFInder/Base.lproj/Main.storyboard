@@ -44,14 +44,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Registration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPb-c6-ECV">
-                                <rect key="frame" x="9" y="120" width="92" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pet Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q09-IO-huA">
+                                <rect key="frame" x="20" y="99" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NMy-Jz-cMm">
+                                <rect key="frame" x="20" y="128" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zl-yz-XRY">
+                                <rect key="frame" x="282" y="176" width="36" height="30"/>
+                                <state key="normal" title="Send"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NMy-Jz-cMm" firstAttribute="trailing" secondItem="2qL-lv-arM" secondAttribute="trailingMargin" id="Egq-jj-UbP"/>
+                            <constraint firstItem="NMy-Jz-cMm" firstAttribute="leading" secondItem="q09-IO-huA" secondAttribute="leading" id="FvH-bT-NRI"/>
+                            <constraint firstItem="q09-IO-huA" firstAttribute="leading" secondItem="2qL-lv-arM" secondAttribute="leadingMargin" id="KbW-0p-wnX"/>
+                            <constraint firstItem="NMy-Jz-cMm" firstAttribute="top" secondItem="q09-IO-huA" secondAttribute="bottom" constant="8" symbolic="YES" id="bbX-AG-wsF"/>
+                            <constraint firstItem="q09-IO-huA" firstAttribute="top" secondItem="kzE-2b-d8u" secondAttribute="bottom" constant="35" id="skU-3q-edI"/>
+                            <constraint firstItem="8zl-yz-XRY" firstAttribute="top" secondItem="NMy-Jz-cMm" secondAttribute="bottom" constant="18" id="wVH-83-nQY"/>
+                            <constraint firstItem="8zl-yz-XRY" firstAttribute="centerX" secondItem="NMy-Jz-cMm" secondAttribute="centerX" id="zjA-yx-hhn"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XFD-Ku-JpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -246,8 +264,10 @@
                                 <segue destination="lxZ-24-94R" kind="show" identifier="reportFromButtonSegue" id="cTh-32-Rzl"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Cbf-2r-q9I"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="loginButton" destination="Cbf-2r-q9I" id="L6f-QS-fm4"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="homeSegue" id="wNV-AV-Szq"/>
                         <segue destination="pih-EV-Z19" kind="show" identifier="registrationSegue" id="Bas-kv-GWI"/>
                         <segue destination="lxZ-24-94R" kind="show" identifier="reportSegue" id="bl6-4D-EkL"/>
