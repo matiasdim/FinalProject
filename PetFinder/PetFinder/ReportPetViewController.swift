@@ -1,17 +1,18 @@
 //
-//  HomeViewController.swift
+//  ReportPetViewController.swift
 //  PetFinder
 //
-//  Created by Matías  Gil Echavarría on 5/29/16.
+//  Created by Matías  Gil Echavarría on 5/30/16.
 //  Copyright © 2016 Matías Gil Echavarría. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class ReportPetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Report Pet Found"
 
         // Do any additional setup after loading the view.
     }
