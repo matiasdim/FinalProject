@@ -1,30 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wuq-vG-hNd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VKi-QY-hmv">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="sp9-wB-vGl">
-            <objects>
-                <navigationController id="Wuq-vG-hNd" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mcs-ZU-HWs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hbJ-uo-9t7"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zqe-5l-5xi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-343" y="337"/>
-        </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="PetFInder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="PetFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -32,18 +17,254 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLH-cA-WCg">
+                                <rect key="frame" x="145" y="108" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tST-Ic-c6f">
-                        <barButtonItem key="leftBarButtonItem" image="menu_icon" id="a1B-L0-Scl"/>
-                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="367" y="337"/>
+            <point key="canvasLocation" x="1032" y="-543"/>
+        </scene>
+        <!--Pet Registration View Controller-->
+        <scene sceneID="nVt-di-n46">
+            <objects>
+                <viewController id="pih-EV-Z19" customClass="PetRegistrationViewController" customModule="PetFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kzE-2b-d8u"/>
+                        <viewControllerLayoutGuide type="bottom" id="xoj-3I-3ip"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2qL-lv-arM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Registration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPb-c6-ECV">
+                                <rect key="frame" x="9" y="120" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XFD-Ku-JpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1093" y="102"/>
+        </scene>
+        <!--Registered Pets Table View Controller-->
+        <scene sceneID="2as-Et-skY">
+            <objects>
+                <tableViewController id="n8z-nT-2S7" customClass="RegisteredPetsTableViewController" customModule="PetFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pib-d4-UM2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Gzl-W4-uJl">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gzl-W4-uJl" id="0De-b4-9UG">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="n8z-nT-2S7" id="csU-BW-Bkd"/>
+                            <outlet property="delegate" destination="n8z-nT-2S7" id="dX7-Ce-g9f"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YBU-uZ-Cpj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1093" y="758"/>
+        </scene>
+        <!--About Us View Controller-->
+        <scene sceneID="FV3-sj-tiG">
+            <objects>
+                <viewController id="Me3-Ky-KTW" customClass="AboutUsViewController" customModule="PetFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MPg-Xc-kzp"/>
+                        <viewControllerLayoutGuide type="bottom" id="BTP-Zd-rdh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UuQ-fX-DUr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efa-BS-O1p">
+                                <rect key="frame" x="135" y="127" width="47" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AYn-7h-Ag6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141" y="1173"/>
+        </scene>
+        <!--Reported Pets Table View Controller-->
+        <scene sceneID="3jd-Pa-aZf">
+            <objects>
+                <tableViewController id="JLJ-Hr-FBh" customClass="ReportedPetsTableViewController" customModule="PetFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ulg-Yc-7V1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="m7m-B3-xfR">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m7m-B3-xfR" id="ZEe-Fg-Y66">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JLJ-Hr-FBh" id="KxY-di-dQw"/>
+                            <outlet property="delegate" destination="JLJ-Hr-FBh" id="IdY-Mk-Rb6"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2as-YU-jun" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="771" y="1400"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3mD-gk-4rb">
+            <objects>
+                <navigationController id="VKi-QY-hmv" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wlr-TZ-hk0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JQT-kM-0hc" kind="relationship" relationship="rootViewController" id="ioY-XK-zRC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0zH-dC-5Jv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-369" y="229"/>
+        </scene>
+        <!--Report Pet View Controller-->
+        <scene sceneID="U4w-ht-8nx">
+            <objects>
+                <viewController id="lxZ-24-94R" customClass="ReportPetViewController" customModule="PetFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Aj-a9-5D9"/>
+                        <viewControllerLayoutGuide type="bottom" id="3UK-fu-udV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ibP-mY-mxI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="haJ-kL-6y0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="346" y="-636"/>
+        </scene>
+        <!--Menu Table View Controller-->
+        <scene sceneID="big-Ob-I6k">
+            <objects>
+                <tableViewController id="JQT-kM-0hc" customClass="MenuTableViewController" customModule="PetFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Wa-sL-dYI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="staticCell" rowHeight="162" id="fUy-ae-IR6">
+                                <rect key="frame" x="0.0" y="92" width="600" height="162"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="fUy-ae-IR6" id="D3I-yM-XpZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="161"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1k-2v-cn3">
+                                            <rect key="frame" x="8" y="8" width="584" height="145"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Adj-10-dbd">
+                                                    <rect key="frame" x="0.0" y="0.0" width="292" height="145"/>
+                                                    <color key="backgroundColor" red="1" green="0.48037440015643607" blue="0.47929143975806965" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PetFinder small description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUx-yx-aFX">
+                                                    <rect key="frame" x="292" y="0.0" width="292" height="145"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="I1k-2v-cn3" secondAttribute="bottom" id="HD8-xW-rKj"/>
+                                        <constraint firstItem="I1k-2v-cn3" firstAttribute="top" secondItem="D3I-yM-XpZ" secondAttribute="topMargin" id="buB-V7-MDo"/>
+                                        <constraint firstItem="I1k-2v-cn3" firstAttribute="leading" secondItem="D3I-yM-XpZ" secondAttribute="leadingMargin" id="hQ5-Ph-7Px"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="I1k-2v-cn3" secondAttribute="trailing" id="tOv-ZR-lYC"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="GkI-kP-0Ah" rowHeight="56" style="IBUITableViewCellStyleDefault" id="wcV-Ue-cgm">
+                                <rect key="frame" x="0.0" y="254" width="600" height="56"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wcV-Ue-cgm" id="4XG-EW-mDq">
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="55"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GkI-kP-0Ah">
+                                            <rect key="frame" x="15" y="0.0" width="550" height="55"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JQT-kM-0hc" id="BhZ-if-zes"/>
+                            <outlet property="delegate" destination="JQT-kM-0hc" id="Man-8b-96w"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="uaX-JK-xeW">
+                        <barButtonItem key="leftBarButtonItem" image="qrIcon" id="Mk5-z8-HsR">
+                            <connections>
+                                <segue destination="lxZ-24-94R" kind="show" identifier="reportFromButtonSegue" id="cTh-32-Rzl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="homeSegue" id="wNV-AV-Szq"/>
+                        <segue destination="pih-EV-Z19" kind="show" identifier="registrationSegue" id="Bas-kv-GWI"/>
+                        <segue destination="lxZ-24-94R" kind="show" identifier="reportSegue" id="bl6-4D-EkL"/>
+                        <segue destination="n8z-nT-2S7" kind="show" identifier="registeredPetSegue" id="LEq-cb-LsW"/>
+                        <segue destination="JLJ-Hr-FBh" kind="show" identifier="retportsSegue" id="7Dw-us-gP2"/>
+                        <segue destination="Me3-Ky-KTW" kind="show" identifier="aboutSegue" id="2Dh-GJ-iXr"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xb6-we-ctn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="313" y="229"/>
         </scene>
     </scenes>
     <resources>
-        <image name="menu_icon" width="90" height="90"/>
+        <image name="qrIcon" width="21" height="21"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="cTh-32-Rzl"/>
+    </inferredMetricsTieBreakers>
 </document>

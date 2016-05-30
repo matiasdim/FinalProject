@@ -5,6 +5,7 @@
 //  Created by Matías  Gil Echavarría on 5/29/16.
 //  Copyright © 2016 Matías Gil Echavarría. All rights reserved.
 //
+/// qrIcon: http://www.flaticon.com/free-icon/
 
 import UIKit
 
@@ -12,7 +13,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.title = "Home"
         // Do any additional setup after loading the view.
     }
 

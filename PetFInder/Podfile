@@ -1,12 +1,20 @@
 # Uncomment this line to define a global platform for your project
- platform :ios, '9.0'
+# platform :ios, '9.0'
 
-target 'PetFInder' do
+target 'PetFinder' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for PetFInder
-pod 'ENSwiftSideMenu', '~> 0.1.1'
+  # Pods for PetFinder
 
-link_with 'PetFinder', 'PetFinder Dev', 'PetFinder Tests'
+  target 'PetFinderTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'PetFinderUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
 end

@@ -7,94 +7,149 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		703A55302EA6D9767EB843EE /* Pods_PetFInder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1227D18E5099CA6D5863ED65 /* Pods_PetFInder.framework */; };
-		EC20164F1CF682AA00CD8FCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC20164E1CF682AA00CD8FCA /* AppDelegate.swift */; };
-		EC2016541CF682AA00CD8FCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2016521CF682AA00CD8FCA /* Main.storyboard */; };
-		EC2016591CF682AA00CD8FCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2016571CF682AA00CD8FCA /* LaunchScreen.storyboard */; };
-		EC3F29921CFB6A5000256562 /* MyMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3F29911CFB6A5000256562 /* MyMenuTableViewController.swift */; };
-		EC43B9351CF6926B00D8A0BF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC43B9341CF6926B00D8A0BF /* HomeViewController.swift */; };
-		ECF212651CF6959D0029B569 /* MyNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF212641CF6959D0029B569 /* MyNavigationViewController.swift */; };
+		EC7200101CFBCD66004ED765 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC72000F1CFBCD66004ED765 /* AppDelegate.swift */; };
+		EC7200151CFBCD66004ED765 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC7200131CFBCD66004ED765 /* Main.storyboard */; };
+		EC7200181CFBCD66004ED765 /* PetFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC7200161CFBCD66004ED765 /* PetFinder.xcdatamodeld */; };
+		EC72001A1CFBCD66004ED765 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC7200191CFBCD66004ED765 /* Assets.xcassets */; };
+		EC72001D1CFBCD66004ED765 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC72001B1CFBCD66004ED765 /* LaunchScreen.storyboard */; };
+		EC7200281CFBCD66004ED765 /* PetFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7200271CFBCD66004ED765 /* PetFinderTests.swift */; };
+		EC7200331CFBCD66004ED765 /* PetFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7200321CFBCD66004ED765 /* PetFinderUITests.swift */; };
+		EC7200421CFBD61B004ED765 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7200411CFBD61B004ED765 /* MenuTableViewController.swift */; };
+		EC7200441CFBD62C004ED765 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7200431CFBD62C004ED765 /* HomeViewController.swift */; };
+		EC7200461CFC8DD1004ED765 /* PetRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7200451CFC8DD1004ED765 /* PetRegistrationViewController.swift */; };
+		EC7200481CFCA54E004ED765 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7200471CFCA54E004ED765 /* AboutUsViewController.swift */; };
+		EC72004A1CFCA561004ED765 /* ReportPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7200491CFCA561004ED765 /* ReportPetViewController.swift */; };
+		EC72004E1CFCA589004ED765 /* RegisteredPetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC72004D1CFCA589004ED765 /* RegisteredPetsTableViewController.swift */; };
+		EC7200501CFCA674004ED765 /* ReportedPetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC72004F1CFCA674004ED765 /* ReportedPetsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		EC7200241CFBCD66004ED765 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC7200041CFBCD66004ED765 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC72000B1CFBCD66004ED765;
+			remoteInfo = PetFinder;
+		};
+		EC72002F1CFBCD66004ED765 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC7200041CFBCD66004ED765 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC72000B1CFBCD66004ED765;
+			remoteInfo = PetFinder;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		1227D18E5099CA6D5863ED65 /* Pods_PetFInder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFInder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		36820E96CCE2D3B704766777 /* Pods-PetFInder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFInder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PetFInder/Pods-PetFInder.debug.xcconfig"; sourceTree = "<group>"; };
-		3AE29AB9DC909C7C73CC54E9 /* Pods-PetFInder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFInder.release.xcconfig"; path = "Pods/Target Support Files/Pods-PetFInder/Pods-PetFInder.release.xcconfig"; sourceTree = "<group>"; };
-		EC20164B1CF682AA00CD8FCA /* PetFInder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFInder.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC20164E1CF682AA00CD8FCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EC2016531CF682AA00CD8FCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EC2016581CF682AA00CD8FCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EC20165A1CF682AA00CD8FCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC3F29911CFB6A5000256562 /* MyMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMenuTableViewController.swift; sourceTree = "<group>"; };
-		EC43B9341CF6926B00D8A0BF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		ECF212641CF6959D0029B569 /* MyNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigationViewController.swift; sourceTree = "<group>"; };
+		EC72000C1CFBCD66004ED765 /* PetFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC72000F1CFBCD66004ED765 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EC7200141CFBCD66004ED765 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EC7200171CFBCD66004ED765 /* PetFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PetFinder.xcdatamodel; sourceTree = "<group>"; };
+		EC7200191CFBCD66004ED765 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EC72001C1CFBCD66004ED765 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EC72001E1CFBCD66004ED765 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC7200231CFBCD66004ED765 /* PetFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PetFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC7200271CFBCD66004ED765 /* PetFinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetFinderTests.swift; sourceTree = "<group>"; };
+		EC7200291CFBCD66004ED765 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC72002E1CFBCD66004ED765 /* PetFinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PetFinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC7200321CFBCD66004ED765 /* PetFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetFinderUITests.swift; sourceTree = "<group>"; };
+		EC7200341CFBCD66004ED765 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC7200411CFBD61B004ED765 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		EC7200431CFBD62C004ED765 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EC7200451CFC8DD1004ED765 /* PetRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetRegistrationViewController.swift; sourceTree = "<group>"; };
+		EC7200471CFCA54E004ED765 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		EC7200491CFCA561004ED765 /* ReportPetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportPetViewController.swift; sourceTree = "<group>"; };
+		EC72004D1CFCA589004ED765 /* RegisteredPetsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteredPetsTableViewController.swift; sourceTree = "<group>"; };
+		EC72004F1CFCA674004ED765 /* ReportedPetsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportedPetsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EC2016481CF682AA00CD8FCA /* Frameworks */ = {
+		EC7200091CFBCD66004ED765 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				703A55302EA6D9767EB843EE /* Pods_PetFInder.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC7200201CFBCD66004ED765 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC72002B1CFBCD66004ED765 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		74CBA874107290273CCCBE95 /* Pods */ = {
+		EC7200031CFBCD66004ED765 = {
 			isa = PBXGroup;
 			children = (
-				36820E96CCE2D3B704766777 /* Pods-PetFInder.debug.xcconfig */,
-				3AE29AB9DC909C7C73CC54E9 /* Pods-PetFInder.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		7A179E8AC8EFE16814242AEB /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1227D18E5099CA6D5863ED65 /* Pods_PetFInder.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EC2016421CF682AA00CD8FCA = {
-			isa = PBXGroup;
-			children = (
-				EC20164D1CF682AA00CD8FCA /* PetFInder */,
-				EC20164C1CF682AA00CD8FCA /* Products */,
-				74CBA874107290273CCCBE95 /* Pods */,
-				7A179E8AC8EFE16814242AEB /* Frameworks */,
+				EC72000E1CFBCD66004ED765 /* PetFinder */,
+				EC7200261CFBCD66004ED765 /* PetFinderTests */,
+				EC7200311CFBCD66004ED765 /* PetFinderUITests */,
+				EC72000D1CFBCD66004ED765 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		EC20164C1CF682AA00CD8FCA /* Products */ = {
+		EC72000D1CFBCD66004ED765 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC20164B1CF682AA00CD8FCA /* PetFInder.app */,
+				EC72000C1CFBCD66004ED765 /* PetFinder.app */,
+				EC7200231CFBCD66004ED765 /* PetFinderTests.xctest */,
+				EC72002E1CFBCD66004ED765 /* PetFinderUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EC20164D1CF682AA00CD8FCA /* PetFInder */ = {
+		EC72000E1CFBCD66004ED765 /* PetFinder */ = {
 			isa = PBXGroup;
 			children = (
-				EC43B9361CF6927200D8A0BF /* Controllers */,
-				EC20164E1CF682AA00CD8FCA /* AppDelegate.swift */,
-				EC2016521CF682AA00CD8FCA /* Main.storyboard */,
-				EC2016571CF682AA00CD8FCA /* LaunchScreen.storyboard */,
-				EC20165A1CF682AA00CD8FCA /* Info.plist */,
+				EC7200401CFBD607004ED765 /* Controllers */,
+				EC72000F1CFBCD66004ED765 /* AppDelegate.swift */,
+				EC7200131CFBCD66004ED765 /* Main.storyboard */,
+				EC7200191CFBCD66004ED765 /* Assets.xcassets */,
+				EC72001B1CFBCD66004ED765 /* LaunchScreen.storyboard */,
+				EC72001E1CFBCD66004ED765 /* Info.plist */,
+				EC7200161CFBCD66004ED765 /* PetFinder.xcdatamodeld */,
 			);
-			path = PetFInder;
+			path = PetFinder;
 			sourceTree = "<group>";
 		};
-		EC43B9361CF6927200D8A0BF /* Controllers */ = {
+		EC7200261CFBCD66004ED765 /* PetFinderTests */ = {
 			isa = PBXGroup;
 			children = (
-				ECF212641CF6959D0029B569 /* MyNavigationViewController.swift */,
-				EC3F29911CFB6A5000256562 /* MyMenuTableViewController.swift */,
-				EC43B9341CF6926B00D8A0BF /* HomeViewController.swift */,
+				EC7200271CFBCD66004ED765 /* PetFinderTests.swift */,
+				EC7200291CFBCD66004ED765 /* Info.plist */,
+			);
+			path = PetFinderTests;
+			sourceTree = "<group>";
+		};
+		EC7200311CFBCD66004ED765 /* PetFinderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EC7200321CFBCD66004ED765 /* PetFinderUITests.swift */,
+				EC7200341CFBCD66004ED765 /* Info.plist */,
+			);
+			path = PetFinderUITests;
+			sourceTree = "<group>";
+		};
+		EC7200401CFBD607004ED765 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EC7200411CFBD61B004ED765 /* MenuTableViewController.swift */,
+				EC7200431CFBD62C004ED765 /* HomeViewController.swift */,
+				EC7200451CFC8DD1004ED765 /* PetRegistrationViewController.swift */,
+				EC72004D1CFCA589004ED765 /* RegisteredPetsTableViewController.swift */,
+				EC72004F1CFCA674004ED765 /* ReportedPetsTableViewController.swift */,
+				EC7200491CFCA561004ED765 /* ReportPetViewController.swift */,
+				EC7200471CFCA54E004ED765 /* AboutUsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -102,42 +157,83 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EC20164A1CF682AA00CD8FCA /* PetFInder */ = {
+		EC72000B1CFBCD66004ED765 /* PetFinder */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC20165D1CF682AA00CD8FCA /* Build configuration list for PBXNativeTarget "PetFInder" */;
+			buildConfigurationList = EC7200371CFBCD66004ED765 /* Build configuration list for PBXNativeTarget "PetFinder" */;
 			buildPhases = (
-				9CB2793178101E8BA90FC8FE /* 📦 Check Pods Manifest.lock */,
-				EC2016471CF682AA00CD8FCA /* Sources */,
-				EC2016481CF682AA00CD8FCA /* Frameworks */,
-				EC2016491CF682AA00CD8FCA /* Resources */,
-				4ED049F4141115670AD1CCC8 /* 📦 Embed Pods Frameworks */,
-				784BF98B1442CE5487B7C48E /* 📦 Copy Pods Resources */,
+				EC7200081CFBCD66004ED765 /* Sources */,
+				EC7200091CFBCD66004ED765 /* Frameworks */,
+				EC72000A1CFBCD66004ED765 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = PetFInder;
-			productName = PetFInder;
-			productReference = EC20164B1CF682AA00CD8FCA /* PetFInder.app */;
+			name = PetFinder;
+			productName = PetFinder;
+			productReference = EC72000C1CFBCD66004ED765 /* PetFinder.app */;
 			productType = "com.apple.product-type.application";
+		};
+		EC7200221CFBCD66004ED765 /* PetFinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC72003A1CFBCD66004ED765 /* Build configuration list for PBXNativeTarget "PetFinderTests" */;
+			buildPhases = (
+				EC72001F1CFBCD66004ED765 /* Sources */,
+				EC7200201CFBCD66004ED765 /* Frameworks */,
+				EC7200211CFBCD66004ED765 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC7200251CFBCD66004ED765 /* PBXTargetDependency */,
+			);
+			name = PetFinderTests;
+			productName = PetFinderTests;
+			productReference = EC7200231CFBCD66004ED765 /* PetFinderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EC72002D1CFBCD66004ED765 /* PetFinderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC72003D1CFBCD66004ED765 /* Build configuration list for PBXNativeTarget "PetFinderUITests" */;
+			buildPhases = (
+				EC72002A1CFBCD66004ED765 /* Sources */,
+				EC72002B1CFBCD66004ED765 /* Frameworks */,
+				EC72002C1CFBCD66004ED765 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC7200301CFBCD66004ED765 /* PBXTargetDependency */,
+			);
+			name = PetFinderUITests;
+			productName = PetFinderUITests;
+			productReference = EC72002E1CFBCD66004ED765 /* PetFinderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EC2016431CF682AA00CD8FCA /* Project object */ = {
+		EC7200041CFBCD66004ED765 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Matías Gil Echavarría";
 				TargetAttributes = {
-					EC20164A1CF682AA00CD8FCA = {
+					EC72000B1CFBCD66004ED765 = {
 						CreatedOnToolsVersion = 7.3.1;
+					};
+					EC7200221CFBCD66004ED765 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = EC72000B1CFBCD66004ED765;
+					};
+					EC72002D1CFBCD66004ED765 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = EC72000B1CFBCD66004ED765;
 					};
 				};
 			};
-			buildConfigurationList = EC2016461CF682AA00CD8FCA /* Build configuration list for PBXProject "PetFInder" */;
+			buildConfigurationList = EC7200071CFBCD66004ED765 /* Build configuration list for PBXProject "PetFinder" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -145,103 +241,106 @@
 				en,
 				Base,
 			);
-			mainGroup = EC2016421CF682AA00CD8FCA;
-			productRefGroup = EC20164C1CF682AA00CD8FCA /* Products */;
+			mainGroup = EC7200031CFBCD66004ED765;
+			productRefGroup = EC72000D1CFBCD66004ED765 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EC20164A1CF682AA00CD8FCA /* PetFInder */,
+				EC72000B1CFBCD66004ED765 /* PetFinder */,
+				EC7200221CFBCD66004ED765 /* PetFinderTests */,
+				EC72002D1CFBCD66004ED765 /* PetFinderUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EC2016491CF682AA00CD8FCA /* Resources */ = {
+		EC72000A1CFBCD66004ED765 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC2016591CF682AA00CD8FCA /* LaunchScreen.storyboard in Resources */,
-				EC2016541CF682AA00CD8FCA /* Main.storyboard in Resources */,
+				EC72001D1CFBCD66004ED765 /* LaunchScreen.storyboard in Resources */,
+				EC72001A1CFBCD66004ED765 /* Assets.xcassets in Resources */,
+				EC7200151CFBCD66004ED765 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC7200211CFBCD66004ED765 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC72002C1CFBCD66004ED765 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		4ED049F4141115670AD1CCC8 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PetFInder/Pods-PetFInder-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		784BF98B1442CE5487B7C48E /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PetFInder/Pods-PetFInder-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9CB2793178101E8BA90FC8FE /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		EC2016471CF682AA00CD8FCA /* Sources */ = {
+		EC7200081CFBCD66004ED765 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC3F29921CFB6A5000256562 /* MyMenuTableViewController.swift in Sources */,
-				EC20164F1CF682AA00CD8FCA /* AppDelegate.swift in Sources */,
-				ECF212651CF6959D0029B569 /* MyNavigationViewController.swift in Sources */,
-				EC43B9351CF6926B00D8A0BF /* HomeViewController.swift in Sources */,
+				EC7200181CFBCD66004ED765 /* PetFinder.xcdatamodeld in Sources */,
+				EC7200461CFC8DD1004ED765 /* PetRegistrationViewController.swift in Sources */,
+				EC72004E1CFCA589004ED765 /* RegisteredPetsTableViewController.swift in Sources */,
+				EC7200101CFBCD66004ED765 /* AppDelegate.swift in Sources */,
+				EC72004A1CFCA561004ED765 /* ReportPetViewController.swift in Sources */,
+				EC7200421CFBD61B004ED765 /* MenuTableViewController.swift in Sources */,
+				EC7200501CFCA674004ED765 /* ReportedPetsTableViewController.swift in Sources */,
+				EC7200481CFCA54E004ED765 /* AboutUsViewController.swift in Sources */,
+				EC7200441CFBD62C004ED765 /* HomeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC72001F1CFBCD66004ED765 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC7200281CFBCD66004ED765 /* PetFinderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC72002A1CFBCD66004ED765 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC7200331CFBCD66004ED765 /* PetFinderUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		EC7200251CFBCD66004ED765 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC72000B1CFBCD66004ED765 /* PetFinder */;
+			targetProxy = EC7200241CFBCD66004ED765 /* PBXContainerItemProxy */;
+		};
+		EC7200301CFBCD66004ED765 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC72000B1CFBCD66004ED765 /* PetFinder */;
+			targetProxy = EC72002F1CFBCD66004ED765 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		EC2016521CF682AA00CD8FCA /* Main.storyboard */ = {
+		EC7200131CFBCD66004ED765 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EC2016531CF682AA00CD8FCA /* Base */,
+				EC7200141CFBCD66004ED765 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		EC2016571CF682AA00CD8FCA /* LaunchScreen.storyboard */ = {
+		EC72001B1CFBCD66004ED765 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EC2016581CF682AA00CD8FCA /* Base */,
+				EC72001C1CFBCD66004ED765 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -249,7 +348,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		EC20165B1CF682AA00CD8FCA /* Debug */ = {
+		EC7200351CFBCD66004ED765 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -286,7 +385,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				"HEADER_SEARCH_PATHS[arch=*]" = "\"${PODS_ROOT}/\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -295,7 +393,7 @@
 			};
 			name = Debug;
 		};
-		EC20165C1CF682AA00CD8FCA /* Release */ = {
+		EC7200361CFBCD66004ED765 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -326,7 +424,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				"HEADER_SEARCH_PATHS[arch=*]" = "\"${PODS_ROOT}/\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -334,52 +431,127 @@
 			};
 			name = Release;
 		};
-		EC20165E1CF682AA00CD8FCA /* Debug */ = {
+		EC7200381CFBCD66004ED765 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36820E96CCE2D3B704766777 /* Pods-PetFInder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = PetFInder/Info.plist;
+				INFOPLIST_FILE = PetFinder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.matiasdim.PetFInder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matiasdim.PetFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		EC20165F1CF682AA00CD8FCA /* Release */ = {
+		EC7200391CFBCD66004ED765 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3AE29AB9DC909C7C73CC54E9 /* Pods-PetFInder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = PetFInder/Info.plist;
+				INFOPLIST_FILE = PetFinder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.matiasdim.PetFInder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matiasdim.PetFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EC72003B1CFBCD66004ED765 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PetFinderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matiasdim.PetFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PetFinder.app/PetFinder";
+			};
+			name = Debug;
+		};
+		EC72003C1CFBCD66004ED765 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PetFinderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matiasdim.PetFinderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PetFinder.app/PetFinder";
+			};
+			name = Release;
+		};
+		EC72003E1CFBCD66004ED765 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PetFinderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matiasdim.PetFinderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PetFinder;
+			};
+			name = Debug;
+		};
+		EC72003F1CFBCD66004ED765 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PetFinderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.matiasdim.PetFinderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PetFinder;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EC2016461CF682AA00CD8FCA /* Build configuration list for PBXProject "PetFInder" */ = {
+		EC7200071CFBCD66004ED765 /* Build configuration list for PBXProject "PetFinder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EC20165B1CF682AA00CD8FCA /* Debug */,
-				EC20165C1CF682AA00CD8FCA /* Release */,
+				EC7200351CFBCD66004ED765 /* Debug */,
+				EC7200361CFBCD66004ED765 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EC20165D1CF682AA00CD8FCA /* Build configuration list for PBXNativeTarget "PetFInder" */ = {
+		EC7200371CFBCD66004ED765 /* Build configuration list for PBXNativeTarget "PetFinder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EC20165E1CF682AA00CD8FCA /* Debug */,
-				EC20165F1CF682AA00CD8FCA /* Release */,
+				EC7200381CFBCD66004ED765 /* Debug */,
+				EC7200391CFBCD66004ED765 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC72003A1CFBCD66004ED765 /* Build configuration list for PBXNativeTarget "PetFinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC72003B1CFBCD66004ED765 /* Debug */,
+				EC72003C1CFBCD66004ED765 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC72003D1CFBCD66004ED765 /* Build configuration list for PBXNativeTarget "PetFinderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC72003E1CFBCD66004ED765 /* Debug */,
+				EC72003F1CFBCD66004ED765 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EC7200161CFBCD66004ED765 /* PetFinder.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EC7200171CFBCD66004ED765 /* PetFinder.xcdatamodel */,
+			);
+			currentVersion = EC7200171CFBCD66004ED765 /* PetFinder.xcdatamodel */;
+			path = PetFinder.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
-	rootObject = EC2016431CF682AA00CD8FCA /* Project object */;
+	rootObject = EC7200041CFBCD66004ED765 /* Project object */;
 }

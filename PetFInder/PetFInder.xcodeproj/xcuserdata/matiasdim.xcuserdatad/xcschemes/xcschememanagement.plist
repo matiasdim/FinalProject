@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>PetFInder.xcscheme</key>
+		<key>PetFinder.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>EC20164A1CF682AA00CD8FCA</key>
+		<key>EC72000B1CFBCD66004ED765</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EC7200221CFBCD66004ED765</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EC72002D1CFBCD66004ED765</key>
 		<dict>
 			<key>primary</key>
 			<true/>

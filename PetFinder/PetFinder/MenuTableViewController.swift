@@ -10,18 +10,13 @@ import UIKit
 
 class MenuTableViewController: UITableViewController {
 
-   let menuItems = ["Home", "Register Your Pet", "Registered Pet", "Reports of your Pets", "Report Pet Found", "About Us"]
+    let menuItems = ["Home", "Register Your Pet", "Registered Pet", "Reports of your Pets", "Report Pet Found", "About Us"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = "Pet Finder"
         
-        let image = UIImage(named: "qrIcon.png")
-//        image = image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(scanTapped))
-        
-//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Camera, target: self, action: #selector(scanTapped))
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,13 +83,6 @@ class MenuTableViewController: UITableViewController {
         return 55.0
     }
     
-//    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil) //if bundle is nil the main bundle will be used
-//        
-//        return storyboard.instantiateViewControllerWithIdentifier("headerMenuCell").view
-//    }
-    
     override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool
     {
         if indexPath.section == 0{
@@ -102,10 +90,7 @@ class MenuTableViewController: UITableViewController {
         }
         return true
     }
-    
-    func scanTapped()
-    {
-    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

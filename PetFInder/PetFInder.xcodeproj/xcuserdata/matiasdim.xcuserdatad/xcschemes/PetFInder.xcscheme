@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EC20164A1CF682AA00CD8FCA"
-               BuildableName = "PetFInder.app"
-               BlueprintName = "PetFInder"
-               ReferencedContainer = "container:PetFInder.xcodeproj">
+               BlueprintIdentifier = "EC72000B1CFBCD66004ED765"
+               BuildableName = "PetFinder.app"
+               BlueprintName = "PetFinder"
+               ReferencedContainer = "container:PetFinder.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,14 +28,34 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "EC7200221CFBCD66004ED765"
+               BuildableName = "PetFinderTests.xctest"
+               BlueprintName = "PetFinderTests"
+               ReferencedContainer = "container:PetFinder.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "EC72002D1CFBCD66004ED765"
+               BuildableName = "PetFinderUITests.xctest"
+               BlueprintName = "PetFinderUITests"
+               ReferencedContainer = "container:PetFinder.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EC20164A1CF682AA00CD8FCA"
-            BuildableName = "PetFInder.app"
-            BlueprintName = "PetFInder"
-            ReferencedContainer = "container:PetFInder.xcodeproj">
+            BlueprintIdentifier = "EC72000B1CFBCD66004ED765"
+            BuildableName = "PetFinder.app"
+            BlueprintName = "PetFinder"
+            ReferencedContainer = "container:PetFinder.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EC20164A1CF682AA00CD8FCA"
-            BuildableName = "PetFInder.app"
-            BlueprintName = "PetFInder"
-            ReferencedContainer = "container:PetFInder.xcodeproj">
+            BlueprintIdentifier = "EC72000B1CFBCD66004ED765"
+            BuildableName = "PetFinder.app"
+            BlueprintName = "PetFinder"
+            ReferencedContainer = "container:PetFinder.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +94,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EC20164A1CF682AA00CD8FCA"
-            BuildableName = "PetFInder.app"
-            BlueprintName = "PetFInder"
-            ReferencedContainer = "container:PetFInder.xcodeproj">
+            BlueprintIdentifier = "EC72000B1CFBCD66004ED765"
+            BuildableName = "PetFinder.app"
+            BlueprintName = "PetFinder"
+            ReferencedContainer = "container:PetFinder.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
