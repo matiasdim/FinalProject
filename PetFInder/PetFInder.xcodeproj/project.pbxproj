@@ -23,6 +23,8 @@
 		EC7200501CFCA674004ED765 /* ReportedPetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC72004F1CFCA674004ED765 /* ReportedPetsTableViewController.swift */; };
 		EC7200521CFCBFC5004ED765 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7200511CFCBFC5004ED765 /* LoginViewController.swift */; };
 		EC7200541CFCC464004ED765 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7200531CFCC464004ED765 /* SignupViewController.swift */; };
+		EC72005D1CFD24CE004ED765 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC72005C1CFD24CE004ED765 /* User.swift */; };
+		EC87F0EC1CFD2BD6007ECD46 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87F0EB1CFD2BD6007ECD46 /* Pet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		EC72004F1CFCA674004ED765 /* ReportedPetsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportedPetsTableViewController.swift; sourceTree = "<group>"; };
 		EC7200511CFCBFC5004ED765 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC7200531CFCC464004ED765 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		EC72005C1CFD24CE004ED765 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EC87F0EB1CFD2BD6007ECD46 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 		EC72000E1CFBCD66004ED765 /* PetFinder */ = {
 			isa = PBXGroup;
 			children = (
+				EC7200551CFCC7B1004ED765 /* Models */,
 				EC7200401CFBD607004ED765 /* Controllers */,
 				EC72000F1CFBCD66004ED765 /* AppDelegate.swift */,
 				EC7200131CFBCD66004ED765 /* Main.storyboard */,
@@ -158,6 +163,15 @@
 				EC7200531CFCC464004ED765 /* SignupViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		EC7200551CFCC7B1004ED765 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC72005C1CFD24CE004ED765 /* User.swift */,
+				EC87F0EB1CFD2BD6007ECD46 /* Pet.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,8 +313,10 @@
 				EC72004A1CFCA561004ED765 /* ReportPetViewController.swift in Sources */,
 				EC7200421CFBD61B004ED765 /* MenuTableViewController.swift in Sources */,
 				EC7200501CFCA674004ED765 /* ReportedPetsTableViewController.swift in Sources */,
+				EC72005D1CFD24CE004ED765 /* User.swift in Sources */,
 				EC7200481CFCA54E004ED765 /* AboutUsViewController.swift in Sources */,
 				EC7200521CFCBFC5004ED765 /* LoginViewController.swift in Sources */,
+				EC87F0EC1CFD2BD6007ECD46 /* Pet.swift in Sources */,
 				EC7200441CFBD62C004ED765 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
