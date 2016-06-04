@@ -7,6 +7,13 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
+
+extension DefaultsKeys {
+    static let emailKey = DefaultsKey<String>("email")
+    static let userAuthenticated = DefaultsKey<Bool>("authenticated")
+}
+
 
 class MenuTableViewController: UITableViewController {
 
@@ -18,13 +25,19 @@ class MenuTableViewController: UITableViewController {
         
         //self.navigationItem.title = "Pet Finder"
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-
-        if defaults.objectForKey("loginStatus") != nil{
-            self.navigationItem.rightBarButtonItem?.title = "Log Out"
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if Defaults.hasKey(.userAuthenticated) {
+            if Defaults[.userAuthenticated] {
+                self.navigationItem.rightBarButtonItem?.title = "Log Out"
+            }else{
+                self.navigationItem.rightBarButtonItem?.title = "Log In/Sign Up"
+            }
         }else{
             self.navigationItem.rightBarButtonItem?.title = "Log In/Sign Up"
         }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -100,9 +113,20 @@ class MenuTableViewController: UITableViewController {
     }
 
     @IBAction func loginButtonPressed(sender: AnyObject) {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewControllerWithIdentifier("loginVC")
-        self.navigationController?.pushViewController(vc, animated: true)
+        if Defaults.hasKey(.userAuthenticated) {
+            if Defaults[.userAuthenticated] {
+                Defaults.remove(.userAuthenticated)
+                self.navigationItem.rightBarButtonItem?.title = "Log In/Sign Up"
+            }else{
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                let vc = sb.instantiateViewControllerWithIdentifier("loginVC")
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }else{
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewControllerWithIdentifier("loginVC")
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     /*
     // Override to support conditional editing of the table view.

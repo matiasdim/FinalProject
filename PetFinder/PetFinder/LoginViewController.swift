@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }
@@ -23,7 +25,8 @@ class LoginViewController: UIViewController {
     
 
     @IBAction func sendPressed(sender: AnyObject) {
-    
+        Defaults[.userAuthenticated] = true
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     @IBAction func signupPressed(sender: AnyObject) {
         let sb = UIStoryboard(name: "Main", bundle: nil)

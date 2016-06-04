@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class User {
+    //To manage user defaults easly
+    
+    
     var email: String
     var password: String
+    
+    
     
     init?(email: String, password: String){
         if email.isEmpty || password.isEmpty {
@@ -21,7 +27,8 @@ class User {
     }
     
     func logUser(email: String) -> Void {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setValue("Berlin", forKey: "userCity")
+        Defaults[.emailKey] = self.email
+        Defaults[.userAuthenticated] = true
+        
     }
 }

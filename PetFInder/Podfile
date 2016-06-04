@@ -6,6 +6,7 @@ target 'PetFinder' do
   use_frameworks!
 
   # Pods for PetFinder
+    pod 'SwiftyUserDefaults'
 
   target 'PetFinderTests' do
     inherit! :search_paths

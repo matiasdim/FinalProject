@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-PetFinder.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-PetFinderTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-PetFinderUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyUserDefaults.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>00D61F0DADBCA14B97D336D34B05E360</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>87EC671DF01B299D100ED14901E1F630</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AEE3EFCBC5107F9D2A0CB64D5971D428</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DF977BA77118177292C4D23269A5F351</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
