@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class ReportedPetsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !Defaults.hasKey(.userAuthenticated) {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewControllerWithIdentifier("loginVC")
+            self.navigationController?.pushViewController(vc, animated: false)
+        }
+
         self.navigationItem.title = "Reports of your pets"
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBar.hidden = false
     }
 
     override func didReceiveMemoryWarning() {

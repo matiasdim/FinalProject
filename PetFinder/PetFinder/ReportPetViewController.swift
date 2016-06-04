@@ -7,12 +7,20 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class ReportPetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !Defaults.hasKey(.userAuthenticated) {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewControllerWithIdentifier("loginVC")
+            self.navigationController?.pushViewController(vc, animated: false)
+        }
+
         self.navigationItem.title = "Report Pet Found"
+        self.navigationController?.navigationBar.hidden = false
 
         // Do any additional setup after loading the view.
     }

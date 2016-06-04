@@ -7,13 +7,22 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class PetRegistrationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Register your Pet"
+        if !Defaults.hasKey(.userAuthenticated) {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewControllerWithIdentifier("loginVC")
+            self.navigationController?.pushViewController(vc, animated: false)
+        }
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBar.hidden = false
     }
 
     override func didReceiveMemoryWarning() {

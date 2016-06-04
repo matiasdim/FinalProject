@@ -28,6 +28,8 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBar.hidden = false
+        
         if Defaults.hasKey(.userAuthenticated) {
             if Defaults[.userAuthenticated] {
                 self.navigationItem.rightBarButtonItem?.title = "Log Out"
@@ -116,6 +118,7 @@ class MenuTableViewController: UITableViewController {
         if Defaults.hasKey(.userAuthenticated) {
             if Defaults[.userAuthenticated] {
                 Defaults.remove(.userAuthenticated)
+                Defaults.remove(.emailKey)
                 self.navigationItem.rightBarButtonItem?.title = "Log In/Sign Up"
             }else{
                 let sb = UIStoryboard(name: "Main", bundle: nil)

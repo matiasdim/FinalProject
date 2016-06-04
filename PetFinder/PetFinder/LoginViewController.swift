@@ -1,4 +1,4 @@
-//
+    //
 //  LoginViewController.swift
 //  PetFinder
 //
@@ -8,14 +8,15 @@
 
 import UIKit
 import SwiftyUserDefaults
+import RappleProgressHUD
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        // Do any additional setup after loading the view.
+                // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,15 +24,41 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBar.hidden = true
+    }
+    
 
     @IBAction func sendPressed(sender: AnyObject) {
-        Defaults[.userAuthenticated] = true
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        RappleActivityIndicatorView.startAnimatingWithLabel("Loging user...", attributes: RappleAppleAttributes)
+        User(email: email.text!, password: password.text!)?.login(
+            { (response) in
+                RappleActivityIndicatorView.stopAnimating()
+                Defaults[.userAuthenticated] = true
+                let userObject: Dictionary = (response as? Dictionary<String, AnyObject>)!
+                Defaults[.emailKey] = userObject["email"] as! String
+                    
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.navigationController?.popToRootViewControllerAnimated(false)
+                })
+            },
+            failCallback: { (error) in
+                RappleActivityIndicatorView.stopAnimating()
+                dispatch_async(dispatch_get_main_queue(),{
+                    let alert = UIAlertController(title: "Alert", message: "Login error. \n Try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                })
+        })
     }
+    
     @IBAction func signupPressed(sender: AnyObject) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewControllerWithIdentifier("signupVC")
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func closePressed(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(false)
     }
     /*
     // MARK: - Navigation

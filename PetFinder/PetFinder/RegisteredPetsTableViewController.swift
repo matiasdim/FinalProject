@@ -7,14 +7,24 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class RegisteredPetsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !Defaults.hasKey(.userAuthenticated) {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewControllerWithIdentifier("loginVC")
+            self.navigationController?.pushViewController(vc, animated: false)
+        }
         self.navigationItem.title = "Your Pets"
       }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBar.hidden = false
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

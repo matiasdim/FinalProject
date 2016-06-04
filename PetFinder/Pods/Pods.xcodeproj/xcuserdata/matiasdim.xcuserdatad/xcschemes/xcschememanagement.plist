@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-PetFinder.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -19,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RappleProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyUserDefaults.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,7 +37,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>00D61F0DADBCA14B97D336D34B05E360</key>
+		<key>41C4FBE61AC7C01C8532F53C07DCF1C5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -37,12 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AEE3EFCBC5107F9D2A0CB64D5971D428</key>
+		<key>DF977BA77118177292C4D23269A5F351</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DF977BA77118177292C4D23269A5F351</key>
+		<key>EC15EE6179B95072BF823D72B0A8D189</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F909C72F069B032EB9361656E6041E68</key>
 		<dict>
 			<key>primary</key>
 			<true/>

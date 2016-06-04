@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
+import RappleProgressHUD
 
 class SignupViewController: UIViewController {
 
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var email: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.title = "Sign Up"
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBar.hidden = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,7 +30,29 @@ class SignupViewController: UIViewController {
     }
     
     @IBAction func sendPressed(sender: AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        RappleActivityIndicatorView.startAnimatingWithLabel("Loging user...", attributes: RappleAppleAttributes)
+        User.init(email: email.text!, password: password.text!)?.create(
+            { (response) in
+                RappleActivityIndicatorView.stopAnimating()
+                Defaults[.userAuthenticated] = true
+                let userObject: Dictionary = (response as? Dictionary<String, AnyObject>)!
+                Defaults[.emailKey] = userObject["email"] as! String
+                
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.navigationController?.popToRootViewControllerAnimated(false)
+                })
+            },
+            failCallback: { (error) in
+                RappleActivityIndicatorView.stopAnimating()
+                dispatch_async(dispatch_get_main_queue(),{
+                    let alert = UIAlertController(title: "Alert", message: "Login error. \n Try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                })
+        })
+    }
+    @IBAction func closePressed(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(false)
     }
 
     /*
