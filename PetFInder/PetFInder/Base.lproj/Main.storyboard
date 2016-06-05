@@ -216,6 +216,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWI-xG-q6p">
+                                <rect key="frame" x="20" y="254" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closePressed:" destination="4vw-xy-QYG" eventType="touchUpInside" id="j3g-sv-amR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -226,13 +233,19 @@
                             <constraint firstItem="KUv-p6-Oih" firstAttribute="leading" secondItem="rj9-GF-WN8" secondAttribute="leading" id="JM1-Th-jlG"/>
                             <constraint firstItem="rj9-GF-WN8" firstAttribute="leading" secondItem="KPU-hM-Ijb" secondAttribute="leading" id="K2f-us-dKZ"/>
                             <constraint firstItem="KUv-p6-Oih" firstAttribute="top" secondItem="kSY-UF-C4R" secondAttribute="bottom" constant="8" symbolic="YES" id="PH5-3Y-Srt"/>
+                            <constraint firstItem="cWI-xG-q6p" firstAttribute="top" secondItem="3B0-Mp-5vu" secondAttribute="bottom" constant="8" symbolic="YES" id="Rst-rn-fhM"/>
                             <constraint firstItem="KPU-hM-Ijb" firstAttribute="top" secondItem="rj9-GF-WN8" secondAttribute="bottom" constant="8" symbolic="YES" id="VwD-qv-zrH"/>
                             <constraint firstItem="kSY-UF-C4R" firstAttribute="leading" secondItem="L2z-lt-0u6" secondAttribute="leadingMargin" constant="1" id="csh-o3-Cql"/>
                             <constraint firstItem="kSY-UF-C4R" firstAttribute="top" secondItem="VjH-VA-Biz" secondAttribute="bottom" constant="33" id="e4H-fb-Coq"/>
                             <constraint firstItem="KUv-p6-Oih" firstAttribute="trailing" secondItem="KPU-hM-Ijb" secondAttribute="trailing" id="gon-KU-Gdx"/>
+                            <constraint firstItem="cWI-xG-q6p" firstAttribute="leading" secondItem="3B0-Mp-5vu" secondAttribute="leading" id="jGn-dg-Dt7"/>
                             <constraint firstItem="3B0-Mp-5vu" firstAttribute="top" secondItem="KPU-hM-Ijb" secondAttribute="bottom" constant="30" id="zo4-QG-mCr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="KUv-p6-Oih" id="JFD-TX-Boh"/>
+                        <outlet property="password" destination="KPU-hM-Ijb" id="qMA-JE-ACF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5W-yr-LkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -286,6 +299,13 @@
                                     <action selector="signupPressed:" destination="xeM-mD-pWh" eventType="touchUpInside" id="hTf-1W-MBl"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxX-Zl-3l3">
+                                <rect key="frame" x="20" y="254" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closePressed:" destination="xeM-mD-pWh" eventType="touchUpInside" id="lKQ-0m-gIT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -299,12 +319,18 @@
                             <constraint firstItem="Wlg-2z-1II" firstAttribute="top" secondItem="oAm-pN-wVC" secondAttribute="bottom" constant="33" id="WdN-DE-jg8"/>
                             <constraint firstItem="t8A-jF-B5Y" firstAttribute="top" secondItem="o90-03-zHB" secondAttribute="bottom" constant="30" id="Wgr-iF-24r"/>
                             <constraint firstItem="y7j-Vz-nFS" firstAttribute="top" secondItem="y7V-sD-Zoq" secondAttribute="bottom" constant="15" id="WkT-me-n8F"/>
+                            <constraint firstItem="DxX-Zl-3l3" firstAttribute="top" secondItem="t8A-jF-B5Y" secondAttribute="bottom" constant="8" symbolic="YES" id="bob-aR-Afs"/>
                             <constraint firstItem="y7j-Vz-nFS" firstAttribute="leading" secondItem="o90-03-zHB" secondAttribute="leading" id="fYb-G1-GOq"/>
                             <constraint firstItem="t8A-jF-B5Y" firstAttribute="baseline" secondItem="ynq-NS-Y6S" secondAttribute="baseline" id="ikV-0g-nJN"/>
                             <constraint firstItem="y7V-sD-Zoq" firstAttribute="leading" secondItem="rTV-of-Tik" secondAttribute="leadingMargin" id="lRc-9L-eJY"/>
                             <constraint firstItem="y7V-sD-Zoq" firstAttribute="trailing" secondItem="rTV-of-Tik" secondAttribute="trailingMargin" id="o84-x4-sEN"/>
+                            <constraint firstItem="DxX-Zl-3l3" firstAttribute="leading" secondItem="t8A-jF-B5Y" secondAttribute="leading" id="wTP-Tj-pt6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="y7V-sD-Zoq" id="0ig-RC-TZQ"/>
+                        <outlet property="password" destination="o90-03-zHB" id="vvF-8Y-mLg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jus-p4-3a0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

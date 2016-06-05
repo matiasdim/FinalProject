@@ -12,37 +12,20 @@ import Alamofire
 typealias CallbackSuccessBlock = ([String: AnyObject])
 typealias CallbackFailBlock = (String)
 
-class Manager: NSObject {
+class NetworkManager {
     
     let manager = Alamofire.NetworkReachabilityManager(host: "www.apple.com")
+    let url = "http://peaceful-gorge-92356.herokuapp.com"
     
-    override init()
-    {
-        super.init()
-//        startMonitoringInternet()
-    }
-//    func basicPost(<#parameters#>) -> <#return type#> {
-//        Alamofire.upload(
-//            .POST,
-//            "http://api.imagga.com/v1/content",
-//            headers: ["Authorization" : "Basic xxx"],
-//            multipartFormData: { multipartFormData in
-//                multipartFormData.appendBodyPart(data: imageData, name: "imagefile",
-//                    fileName: "image.jpg", mimeType: "image/jpeg")
-//            },
-//            encodingCompletion: { encodingResult in
-//            }
-//        )
-//    }
-//    
-//    func basicPut(<#parameters#>) -> <#return type#> {
-//        <#function body#>
-//    }
-
+    // MARK: - Basic calls
     
-    func basicGet(apiPath: String, timeOut: Int, successCallback: (CallbackSuccessBlock) -> Void, failCallback: (CallbackFailBlock) -> Void) -> Void
+    func basicPost(apiPath: String,
+                   parameters: Dictionary<String, String>,
+                   timeOut: Int,
+                   successCallback: (CallbackSuccessBlock) -> Void,
+                   failCallback: (CallbackFailBlock) -> Void) -> Void
     {
-        Alamofire.request(.GET, "https://httpbin.org/get", parameters: ["foo": "bar"])
+        Alamofire.request(.POST, url + apiPath, parameters: parameters)
             .validate()
             .responseJSON { response in
                 switch response.result {
@@ -54,32 +37,61 @@ class Manager: NSObject {
         }
     }
     
-    func createuser(email: String, password: String, successCallback: (CallbackSuccessBlock) -> Void, failCallback: (CallbackFailBlock) -> Void) -> Void
+    func basicPut(apiPath: String,
+                   parameters: Dictionary<String, String>,
+                   timeOut: Int,
+                   successCallback: (CallbackSuccessBlock) -> Void,
+                   failCallback: (CallbackFailBlock) -> Void) -> Void
     {
-        basicGet("users/create?password=\(password)&email=\(email)", timeOut: 240, successCallback:
-        { (CallbackSuccessBlock) in
-            successCallback(CallbackSuccessBlock)
-        }) { (CallbackFailBlock) in
-            failCallback(CallbackFailBlock)
+        Alamofire.request(.PUT, url + apiPath, parameters: parameters)
+            .validate()
+            .responseJSON { response in
+                switch response.result {
+                case .Success:
+                    successCallback((response.result.value as? [String: AnyObject])!)
+                case .Failure(let error):
+                    failCallback(error.description)
+                }
         }
     }
-
-
-//    func startMonitoringInternet() -> Bool{
-//        manager?.listener = { status in
-//            switch status {
-//            case .NotReachable:
-//                return false
-//                break
-//            case .Reachable(_), .Unknown:
-//                return true
-//                break
-//            }
-//            default
-//                return false
-//                break
-//        }
-//        manager?.startListening()
-//    }
+    
+    func basicGet(apiPath: String,
+                  timeOut: Int,
+                  successCallback: (CallbackSuccessBlock) -> Void,
+                  failCallback: (CallbackFailBlock) -> Void) -> Void
+    {
+        Alamofire.request(.GET, url + apiPath, parameters: ["foo": "bar"])
+            .validate()
+            .responseJSON { response in
+                switch response.result {
+                case .Success:
+                    successCallback((response.result.value as? [String: AnyObject])!)
+                case .Failure(let error):
+                    failCallback(error.description)
+                }
+        }
+    }
+    
+    // MARK: - User calls
+    
+    func createUser(parameters: Dictionary<String,String>, successCallback: (AnyObject) -> (), failCallback: (String) -> ())
+    {
+        basicPost("/users/create", parameters: parameters, timeOut: 240, successCallback:
+            { (response) in
+                successCallback(response)
+            }) {(error) in
+                failCallback(error)
+            }
+    }
+    
+    func loginUser(parameters: Dictionary<String,String>, successCallback: (AnyObject) -> (), failCallback: (String) -> ())
+    {
+        basicPut("/users/update", parameters: parameters, timeOut: 240, successCallback:
+            { (response) in
+                successCallback(response)
+            }) { (error) in
+                failCallback(error)
+            }
+    }
 
 }

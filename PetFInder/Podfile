@@ -7,6 +7,9 @@ target 'PetFinder' do
 
   # Pods for PetFinder
     pod 'SwiftyUserDefaults'
+    pod 'Alamofire'
+    pod 'RappleProgressHUD'
+
 
   target 'PetFinderTests' do
     inherit! :search_paths

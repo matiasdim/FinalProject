@@ -30,7 +30,7 @@ class SignupViewController: UIViewController {
     }
     
     @IBAction func sendPressed(sender: AnyObject) {
-        RappleActivityIndicatorView.startAnimatingWithLabel("Loging user...", attributes: RappleAppleAttributes)
+        RappleActivityIndicatorView.startAnimatingWithLabel("Registring user...", attributes: RappleAppleAttributes)
         User.init(email: email.text!, password: password.text!)?.create(
             { (response) in
                 RappleActivityIndicatorView.stopAnimating()

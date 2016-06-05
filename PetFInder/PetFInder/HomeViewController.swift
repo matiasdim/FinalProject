@@ -16,6 +16,9 @@ class HomeViewController: UIViewController {
         self.navigationItem.title = "Home"
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBar.hidden = false
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

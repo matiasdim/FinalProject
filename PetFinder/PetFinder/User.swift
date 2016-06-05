@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyUserDefaults
 import Alamofire
+
 //import NetworkManager
 
 class User {
@@ -17,8 +18,7 @@ class User {
     let url: String
     var email: String
     var password: String
-    
-    
+    let networkManager: NetworkManager = NetworkManager()
     
     init?(email: String, password: String){
         if email.isEmpty || password.isEmpty {
@@ -34,46 +34,29 @@ class User {
         Defaults[.userAuthenticated] = true
         
     }
-
+    
     func create(successCallback: (AnyObject) -> (), failCallback: (String) -> ())
     {
-        let parameters = [
-            "email": email,
-            "password": password,
-        ]
-        let path = "/users/create"
-        Alamofire.request(.POST, url + path, parameters: parameters)
-            .validate()
-            .responseJSON { response in
-                switch response.result {
-                case .Success:
-                    successCallback(response.result.value!)
-                case .Failure(let error):
-                    failCallback(error.description)
-                }
+        let parameters = ["email": email,"password": password]
+        
+        networkManager.createUser(parameters, successCallback:
+            { (response) in
+                successCallback(response)
+        }) { (error) in
+            failCallback(error)
         }
     }
     
-    func login(successCallback: (AnyObject) -> (), failCallback: (String) -> ()){
-        let parameters = [
-            "email": email,
-            "password": password,
-            ]
-        let path = "/users/update"
-        Alamofire.request(.PUT, url + path, parameters: parameters)
-            .validate()
-            .responseJSON { response in
-                switch response.result {
-                case .Success:                    
-                    successCallback(response.result.value!)
-                case .Failure(let error):
-                    failCallback(error.description)
-                }
+    func login(successCallback: (AnyObject) -> (), failCallback: (String) -> ())
+    {
+        let parameters = ["email": email, "password": password]
+        
+        networkManager.loginUser(parameters, successCallback:
+            { (response) in
+                successCallback(response)
+        }) { (error) in
+            failCallback(error)
         }
     }
     
-//    func createUser(successCallback: (CallbackSuccessBlock) -> Void, failCallback: (CallbackFailBlock) -> Void) -> Void
-//    {
-//        NetworkManager
-//    }
 }
