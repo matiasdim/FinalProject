@@ -125,4 +125,36 @@ class NetworkManager {
         }
     }
     
+    // MARK: - Report calls
+    func createReport(parameters: Dictionary<String,String>, successCallback: (AnyObject) -> (), failCallback: (String) -> ())
+    {
+        basicPost("/reports", parameters: parameters, timeOut: 240, successCallback:
+            { (response) in
+                successCallback(response)
+        }) {(error) in
+            failCallback(error)
+        }
+    }
+    
+    func listUserReports(parameters: Dictionary<String,String>, successCallback: (AnyObject) -> (), failCallback: (String) -> ())
+    {
+        basicGet("/reports?email=\(parameters["email"]!)", timeOut: 240, successCallback:
+            { (response) in
+                successCallback(response)
+        }) { (error) in
+            failCallback(error)
+        }
+    }
+    
+    func showReport(parameters: Dictionary<String,String>, successCallback: (AnyObject) -> (), failCallback: (String) -> ())
+    {
+        basicGet("/reports/\(parameters["reportId"])", timeOut: 240, successCallback:
+            { (response) in
+                successCallback(response)
+        }) { (error) in
+            failCallback(error)
+        }
+    }
+
+    
 }

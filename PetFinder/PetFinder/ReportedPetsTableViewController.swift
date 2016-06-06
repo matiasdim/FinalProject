@@ -8,22 +8,54 @@
 
 import UIKit
 import SwiftyUserDefaults
+import RappleProgressHUD
 
 class ReportedPetsTableViewController: UITableViewController {
 
+    var reports = [AnyObject]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        if !Defaults.hasKey(.userAuthenticated) {
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewControllerWithIdentifier("loginVC")
-            self.navigationController?.pushViewController(vc, animated: false)
-        }
-
-        self.navigationItem.title = "Reports of your pets"
+        self.navigationItem.title = "Reports"
     }
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBar.hidden = false
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if !Defaults.hasKey(.userAuthenticated) {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewControllerWithIdentifier("loginVC")
+            self.navigationController?.pushViewController(vc, animated: false)
+        }else{
+            RappleActivityIndicatorView.startAnimatingWithLabel("Getting Reports...", attributes: RappleAppleAttributes)
+            let report = Report()
+            report.petOwnerEmail = Defaults[.emailKey]
+            report.list(
+                { (response) in
+                    if let topLevelObj = response as? Array<AnyObject> {
+                        self.reports.removeAll()
+                        for i in topLevelObj {
+                            self.reports.append(i)
+                        }
+                    }
+                    dispatch_async(dispatch_get_main_queue(), {
+                        RappleActivityIndicatorView.stopAnimating()
+                        self.tableView.reloadData()
+                    })
+
+                }, failCallback:
+                { (error) in
+                    dispatch_async(dispatch_get_main_queue(),{
+                        RappleActivityIndicatorView.stopAnimating()
+                        let alert = UIAlertController(title: "Alert!", message: "There was an error fetching the reports", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+                            self.navigationController?.popToRootViewControllerAnimated(false)
+                        }))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    })
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,67 +67,38 @@ class ReportedPetsTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return reports.count
     }
-
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("reportCell", forIndexPath: indexPath)
+        
+        //        cell.textLabel!.text = object.description
+        if let object = reports[indexPath.row] as? Dictionary<String, AnyObject> {
+            
+            // setup text.
+            if let pet = object["pet"] as? Dictionary<String, AnyObject> {
+                cell.textLabel!.text = "Report about: " + (pet["name"]! as! String)
+            }
+            cell.detailTextLabel?.text = "Reporter: \(object["reporterName"]! as! String) - \(object["reporterEmail"]! as! String)"
+        }
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "reportDetailSegue" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let report = reports[indexPath.row] as! Dictionary<String,AnyObject>
+                let controller = segue.destinationViewController as! ReportDetailViewController
+                controller.detailItem = report
+            }
+        }
     }
-    */
 
 }

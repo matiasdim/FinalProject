@@ -19,11 +19,14 @@ class User {
     let networkManager: NetworkManager = NetworkManager()
     
     init?(email: String, password: String){
-        if email.isEmpty || password.isEmpty {
+        if email.isEmpty || password.isEmpty  {
             return nil
         }
         self.email = email
         self.password = password
+//        if !self.isValidEmail(){
+//            return nil
+//        }
     }
     
     func create(successCallback: (AnyObject) -> (), failCallback: (String) -> ())
@@ -48,6 +51,15 @@ class User {
         }) { (error) in
             failCallback(error)
         }
+    }
+    
+    //Validations
+    func isValidEmail() -> Bool {
+        // println("validate calendar: \(testStr)")
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluateWithObject(email)
     }
     
 }

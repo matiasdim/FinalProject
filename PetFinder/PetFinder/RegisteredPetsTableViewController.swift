@@ -15,11 +15,6 @@ class RegisteredPetsTableViewController: UITableViewController {
     var pets = [AnyObject]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        if !Defaults.hasKey(.userAuthenticated) {
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewControllerWithIdentifier("loginVC")
-            self.navigationController?.pushViewController(vc, animated: false)
-        }
         self.navigationItem.title = "Your Pets"
       }
     
@@ -28,21 +23,26 @@ class RegisteredPetsTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        let pet = Pet()
-        pet.email = Defaults[.emailKey]
-        RappleActivityIndicatorView.startAnimatingWithLabel("Getting your pets...", attributes: RappleAppleAttributes)
-        pet.list(
-            { (response) in
-                // retrieve the individual videos from the JSON document.
-                if let topLevelObj = response as? Array<AnyObject> {
-                    for i in topLevelObj {
-                        self.pets.append(i)
+        if !Defaults.hasKey(.userAuthenticated) {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewControllerWithIdentifier("loginVC")
+            self.navigationController?.pushViewController(vc, animated: false)
+        }else{
+            let pet = Pet()
+            pet.email = Defaults[.emailKey]
+            RappleActivityIndicatorView.startAnimatingWithLabel("Getting your pets...", attributes: RappleAppleAttributes)
+            pet.list(
+                { (response) in
+                    if let topLevelObj = response as? Array<AnyObject> {
+                        self.pets.removeAll()
+                        for i in topLevelObj {
+                            self.pets.append(i)
+                        }
                     }
-                }
-                dispatch_async(dispatch_get_main_queue(), {
-                    RappleActivityIndicatorView.stopAnimating()
-                    self.tableView.reloadData()
-                })
+                    dispatch_async(dispatch_get_main_queue(), {
+                        RappleActivityIndicatorView.stopAnimating()
+                        self.tableView.reloadData()
+                    })
             }) { (error) in
                 dispatch_async(dispatch_get_main_queue(),{
                     RappleActivityIndicatorView.stopAnimating()
@@ -52,7 +52,7 @@ class RegisteredPetsTableViewController: UITableViewController {
                     }))
                     self.presentViewController(alert, animated: true, completion: nil)
                 })
-                
+            }
         }
     }
     
@@ -88,50 +88,14 @@ class RegisteredPetsTableViewController: UITableViewController {
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "petDetailSegue" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let pet = pets[indexPath.row] as! Dictionary<String,AnyObject>
+                let controller = segue.destinationViewController as! PetDetailViewController
+                controller.detailItem = pet
+            }
+        }
     }
-    */
 
 }

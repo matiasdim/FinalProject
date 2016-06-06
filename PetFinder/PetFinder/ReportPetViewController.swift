@@ -19,7 +19,7 @@ class ReportPetViewController: UIViewController {
             self.navigationController?.pushViewController(vc, animated: false)
         }
 
-        self.navigationItem.title = "Report Pet Found"
+        self.navigationItem.title = "Report Pet"
         self.navigationController?.navigationBar.hidden = false
 
         // Do any additional setup after loading the view.

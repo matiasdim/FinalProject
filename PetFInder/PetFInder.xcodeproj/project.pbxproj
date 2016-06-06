@@ -10,6 +10,9 @@
 		2E67874755CE87F89C353FBC /* Pods_PetFinderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99431BE44A47AC566DB3443C /* Pods_PetFinderTests.framework */; };
 		3D059BA8DCDE80BF9F1C6088 /* Pods_PetFinderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51E7636BDC544C7BE5EB84EB /* Pods_PetFinderUITests.framework */; };
 		73F86F378787DC24D30C5CE1 /* Pods_PetFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE45B9CCE60485A9D2705E68 /* Pods_PetFinder.framework */; };
+		EC30897F1D05FC200082FC55 /* PetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30897E1D05FC200082FC55 /* PetDetailViewController.swift */; };
+		EC3089811D060EB20082FC55 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3089801D060EB20082FC55 /* Report.swift */; };
+		EC3089841D06325A0082FC55 /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3089831D06325A0082FC55 /* ReportDetailViewController.swift */; };
 		EC7200101CFBCD66004ED765 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC72000F1CFBCD66004ED765 /* AppDelegate.swift */; };
 		EC7200151CFBCD66004ED765 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC7200131CFBCD66004ED765 /* Main.storyboard */; };
 		EC7200181CFBCD66004ED765 /* PetFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC7200161CFBCD66004ED765 /* PetFinder.xcdatamodeld */; };
@@ -56,6 +59,9 @@
 		99431BE44A47AC566DB3443C /* Pods_PetFinderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFinderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA75F02C08BB09D78A7BC5B /* Pods-PetFinderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFinderUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PetFinderUITests/Pods-PetFinderUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E33EEF4A414662BFA7554DA9 /* Pods-PetFinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFinderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PetFinderUITests/Pods-PetFinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC30897E1D05FC200082FC55 /* PetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetDetailViewController.swift; sourceTree = "<group>"; };
+		EC3089801D060EB20082FC55 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		EC3089831D06325A0082FC55 /* ReportDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
 		EC72000C1CFBCD66004ED765 /* PetFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC72000F1CFBCD66004ED765 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC7200141CFBCD66004ED765 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -199,7 +205,9 @@
 				EC7200431CFBD62C004ED765 /* HomeViewController.swift */,
 				EC7200451CFC8DD1004ED765 /* PetRegistrationViewController.swift */,
 				EC72004D1CFCA589004ED765 /* RegisteredPetsTableViewController.swift */,
+				EC30897E1D05FC200082FC55 /* PetDetailViewController.swift */,
 				EC72004F1CFCA674004ED765 /* ReportedPetsTableViewController.swift */,
+				EC3089831D06325A0082FC55 /* ReportDetailViewController.swift */,
 				EC7200491CFCA561004ED765 /* ReportPetViewController.swift */,
 				EC7200471CFCA54E004ED765 /* AboutUsViewController.swift */,
 				EC7200511CFCBFC5004ED765 /* LoginViewController.swift */,
@@ -213,6 +221,7 @@
 			children = (
 				EC72005C1CFD24CE004ED765 /* User.swift */,
 				EC87F0EB1CFD2BD6007ECD46 /* Pet.swift */,
+				EC3089801D060EB20082FC55 /* Report.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -220,9 +229,9 @@
 		EC87F0ED1CFD2ED0007ECD46 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EC7200131CFBCD66004ED765 /* Main.storyboard */,
 				EC7200191CFBCD66004ED765 /* Assets.xcassets */,
 				EC72001B1CFBCD66004ED765 /* LaunchScreen.storyboard */,
-				EC7200131CFBCD66004ED765 /* Main.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -500,8 +509,11 @@
 				EC7200181CFBCD66004ED765 /* PetFinder.xcdatamodeld in Sources */,
 				EC7200461CFC8DD1004ED765 /* PetRegistrationViewController.swift in Sources */,
 				EC7200541CFCC464004ED765 /* SignupViewController.swift in Sources */,
+				EC3089811D060EB20082FC55 /* Report.swift in Sources */,
+				EC30897F1D05FC200082FC55 /* PetDetailViewController.swift in Sources */,
 				EC72004E1CFCA589004ED765 /* RegisteredPetsTableViewController.swift in Sources */,
 				EC7200101CFBCD66004ED765 /* AppDelegate.swift in Sources */,
+				EC3089841D06325A0082FC55 /* ReportDetailViewController.swift in Sources */,
 				EC72004A1CFCA561004ED765 /* ReportPetViewController.swift in Sources */,
 				EC7200421CFBD61B004ED765 /* MenuTableViewController.swift in Sources */,
 				EC7200501CFCA674004ED765 /* ReportedPetsTableViewController.swift in Sources */,

@@ -39,7 +39,8 @@ class LoginViewController: UIViewController {
                     
                 dispatch_async(dispatch_get_main_queue(),{
                     RappleActivityIndicatorView.stopAnimating()
-                    self.navigationController?.popToRootViewControllerAnimated(false)
+                    self.navigationController?.popViewControllerAnimated(false)
+                    //self.navigationController?.popToRootViewControllerAnimated(false)
                 })
             },
             failCallback: { (error) in

@@ -17,13 +17,12 @@ class PetRegistrationViewController: UIViewController {
     @IBOutlet weak var observationText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Register your Pet"
-        if !Defaults.hasKey(.userAuthenticated) {
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewControllerWithIdentifier("loginVC")
-            self.navigationController?.pushViewController(vc, animated: false)
-        }
-        // Do any additional setup after loading the view.
+        self.navigationItem.title = "Register Pet"
+        
+        let borderColor = UIColor(colorLiteralRed: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
+        observationText.layer.borderColor = borderColor.CGColor;
+        observationText.layer.borderWidth = 1.0;
+        observationText.layer.cornerRadius = 5.0;
     }
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBar.hidden = false
@@ -32,6 +31,14 @@ class PetRegistrationViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if !Defaults.hasKey(.userAuthenticated) {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewControllerWithIdentifier("loginVC")
+            self.navigationController?.pushViewController(vc, animated: false)
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)

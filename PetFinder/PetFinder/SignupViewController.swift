@@ -45,7 +45,7 @@ class SignupViewController: UIViewController {
             failCallback: { (error) in
                 dispatch_async(dispatch_get_main_queue(),{
                     RappleActivityIndicatorView.stopAnimating()
-                    let alert = UIAlertController(title: "Alert", message: "Login error. \n Try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                    let alert = UIAlertController(title: "Alert", message: "Sign up error. \n Try again!", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
                 })

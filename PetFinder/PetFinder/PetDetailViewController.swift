@@ -1,22 +1,33 @@
 //
-//  HomeViewController.swift
+//  PetDetailViewController.swift
 //  PetFinder
 //
-//  Created by Matías  Gil Echavarría on 5/29/16.
+//  Created by Matías  Gil Echavarría on 6/6/16.
 //  Copyright © 2016 Matías Gil Echavarría. All rights reserved.
 //
-/// qrIcon: http://www.flaticon.com/free-icon/
 
 import UIKit
-import SwiftyUserDefaults
 
-class HomeViewController: UIViewController {
+class PetDetailViewController: UIViewController {
+    
+    @IBOutlet weak var petObservations: UITextView!
+    @IBOutlet weak var petName: UILabel!
+    var detailItem: AnyObject?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Home"
-        // Do any additional setup after loading the view.
+        self.navigationItem.title = "Pet Detail"
+        let borderColor = UIColor(colorLiteralRed: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
+        petObservations.layer.borderColor = borderColor.CGColor;
+        petObservations.layer.borderWidth = 1.0;
+        petObservations.layer.cornerRadius = 5.0;
+        
+        if let pet = detailItem as? Dictionary<String,AnyObject> {
+            petName.text = pet["name"]  as? String
+            petObservations.text = pet["observations"] as? String
+        }
     }
+    
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBar.hidden = false
     }

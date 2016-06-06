@@ -26,24 +26,46 @@ class PetFinderTests: XCTestCase {
         
         let noPasswordUser = User(email: "m@m.co", password: "")
         XCTAssertNil(noPasswordUser, "Empty password is invalid")
+    }
+    
+    //MARK: User model validations
+    func testUserValidations(){
+        let userValidEmail = User(email: "email@email.co", password: "123123123")
+        XCTAssertTrue(userValidEmail!.isValidEmail(), "This is a valid email")
         
+        let userInvalidEmail = User(email: "This is not an email", password: "123123123")
+        XCTAssertFalse(userInvalidEmail!.isValidEmail(), "This is an invalid email")
     }
     
     //MARK: Pet model test
     func testPetInitialization() {
         // Success case.
-        let pet = Pet(email: "email@email.co", name: "A Name", observations: "The observations for testing purposes", petId: "1")
-        XCTAssertNotNil(pet)
+        let petNoInitParams = Pet()
+        XCTAssertNotNil(petNoInitParams)
         
         // Failure cases.
-        let noEmailPet = Pet(email: "", name: "A Name", observations: "The observations for testing purposes", petId: "1")
-        XCTAssertNil(noEmailPet, "Empty email is invalid")
+        let setEmailToPet = Pet()
+        setEmailToPet.email = "email@email.com"
+        XCTAssertNotNil(setEmailToPet.email)
         
-        let noNamePet = Pet(email: "email@email.com", name: "", observations: "The observations for testing purposes", petId: "1")
-        XCTAssertNil(noNamePet, "Empty name is invalid")
+        let setNameToPet = Pet()
+        setNameToPet.name = "Pet Name"
+        XCTAssertNotNil(setNameToPet)
         
-        let noIdPet = Pet(email: "email@email.co", name: "A Name", observations: "The observations for testing purposes", petId: "")
-        XCTAssertNil(noIdPet, "Empty ID is invalid")
+        let setObservationsToPet = Pet()
+        setObservationsToPet.observations = "The observations"
+        XCTAssertNotNil(setObservationsToPet)
+    }
+    
+    //MARK: Pet model validations
+    func testPetValidations(){
+        let petValidEmail = Pet()
+        petValidEmail.email = "testemail@email.co"
+        XCTAssertTrue(petValidEmail.isValidEmail(), "This is a valid email")
+        
+        let petInvalidEmail = Pet()
+        petInvalidEmail.email = "this is not an email"
+        XCTAssertFalse(petInvalidEmail.isValidEmail(), "This is an invalid email")
     }
     
     // MARK: - Network tests
@@ -111,6 +133,7 @@ class PetFinderTests: XCTestCase {
                 XCTFail("waitForExpectationsWithTimeout errored: \(error)")
             }
         }
+        
     }
     
     func testNetworkManagerListUserPets()
