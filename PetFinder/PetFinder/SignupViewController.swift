@@ -33,18 +33,18 @@ class SignupViewController: UIViewController {
         RappleActivityIndicatorView.startAnimatingWithLabel("Registring user...", attributes: RappleAppleAttributes)
         User.init(email: email.text!, password: password.text!)?.create(
             { (response) in
-                RappleActivityIndicatorView.stopAnimating()
                 Defaults[.userAuthenticated] = true
                 let userObject: Dictionary = (response as? Dictionary<String, AnyObject>)!
                 Defaults[.emailKey] = userObject["email"] as! String
                 
                 dispatch_async(dispatch_get_main_queue(),{
+                    RappleActivityIndicatorView.stopAnimating()
                     self.navigationController?.popToRootViewControllerAnimated(false)
                 })
             },
             failCallback: { (error) in
-                RappleActivityIndicatorView.stopAnimating()
                 dispatch_async(dispatch_get_main_queue(),{
+                    RappleActivityIndicatorView.stopAnimating()
                     let alert = UIAlertController(title: "Alert", message: "Login error. \n Try again!", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)

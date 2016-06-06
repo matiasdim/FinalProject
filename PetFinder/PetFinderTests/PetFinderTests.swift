@@ -29,6 +29,23 @@ class PetFinderTests: XCTestCase {
         
     }
     
+    //MARK: Pet model test
+    func testPetInitialization() {
+        // Success case.
+        let pet = Pet(email: "email@email.co", name: "A Name", observations: "The observations for testing purposes", petId: "1")
+        XCTAssertNotNil(pet)
+        
+        // Failure cases.
+        let noEmailPet = Pet(email: "", name: "A Name", observations: "The observations for testing purposes", petId: "1")
+        XCTAssertNil(noEmailPet, "Empty email is invalid")
+        
+        let noNamePet = Pet(email: "email@email.com", name: "", observations: "The observations for testing purposes", petId: "1")
+        XCTAssertNil(noNamePet, "Empty name is invalid")
+        
+        let noIdPet = Pet(email: "email@email.co", name: "A Name", observations: "The observations for testing purposes", petId: "")
+        XCTAssertNil(noIdPet, "Empty ID is invalid")
+    }
+    
     // MARK: - Network tests
     
     //MARK: User calls
@@ -74,4 +91,68 @@ class PetFinderTests: XCTestCase {
         }
     }
     
+    //MARK: Pet calls
+    func testNetworkManagerCreatePet()
+    {
+        let asyncExpectation = expectationWithDescription("asynchronous request")
+        
+        let nm = NetworkManager()
+        nm.createPet(["email": "m@m.test","name": "A Name", "observations": "An Observation"], successCallback:
+            { (response) in
+                XCTAssertNotNil(response, "WebServices succesfully called. Pet created")
+                asyncExpectation.fulfill()
+        }) { (error) in
+            XCTAssertNotNil(error, "WebServices succesfully called. Pet not created")
+            asyncExpectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(5) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func testNetworkManagerListUserPets()
+    {
+        let asyncExpectation = expectationWithDescription("asynchronous request")
+        
+        let nm = NetworkManager()
+        nm.listUserPets(["email": "m@m.test"], successCallback:
+            { (response) in
+                XCTAssertNotNil(response, "WebServices succesfully called. Pets fetched")
+                asyncExpectation.fulfill()
+        }) { (error) in
+            XCTAssertNotNil(error, "WebServices succesfully called. Pets not fetched")
+            asyncExpectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(5) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func testNetworkManagerShowPets()
+    {
+        let asyncExpectation = expectationWithDescription("asynchronous request")
+        
+        let nm = NetworkManager()
+        nm.showPet(["petId": "1"], successCallback:
+            { (response) in
+                XCTAssertNotNil(response, "WebServices succesfully called. Pet fetched")
+                asyncExpectation.fulfill()
+        }) { (error) in
+            XCTAssertNotNil(error, "WebServices succesfully called. Pet not fetched")
+            asyncExpectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(5) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+
 }

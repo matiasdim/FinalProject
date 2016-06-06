@@ -14,9 +14,7 @@ import Alamofire
 
 class User {
     //To manage user defaults easly
-    
-    let url: String
-    var email: String
+        var email: String
     var password: String
     let networkManager: NetworkManager = NetworkManager()
     
@@ -26,13 +24,6 @@ class User {
         }
         self.email = email
         self.password = password
-        self.url = "http://peaceful-gorge-92356.herokuapp.com"
-    }
-    
-    func logUser(email: String) -> Void {
-        Defaults[.emailKey] = self.email
-        Defaults[.userAuthenticated] = true
-        
     }
     
     func create(successCallback: (AnyObject) -> (), failCallback: (String) -> ())

@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-typealias CallbackSuccessBlock = ([String: AnyObject])
+typealias CallbackSuccessBlock = (AnyObject)
 typealias CallbackFailBlock = (String)
 
 class NetworkManager {
@@ -60,12 +60,12 @@ class NetworkManager {
                   successCallback: (CallbackSuccessBlock) -> Void,
                   failCallback: (CallbackFailBlock) -> Void) -> Void
     {
-        Alamofire.request(.GET, url + apiPath, parameters: ["foo": "bar"])
+        Alamofire.request(.GET, url + apiPath, parameters: nil)
             .validate()
             .responseJSON { response in
                 switch response.result {
                 case .Success:
-                    successCallback((response.result.value as? [String: AnyObject])!)
+                    successCallback((response.result.value)!)
                 case .Failure(let error):
                     failCallback(error.description)
                 }
@@ -93,5 +93,36 @@ class NetworkManager {
                 failCallback(error)
             }
     }
-
+    
+     // MARK: - Pet calls
+    func createPet(parameters: Dictionary<String,String>, successCallback: (AnyObject) -> (), failCallback: (String) -> ())
+    {
+        basicPost("/pets", parameters: parameters, timeOut: 240, successCallback:
+            { (response) in
+                successCallback(response)
+        }) {(error) in
+            failCallback(error)
+        }
+    }
+    
+    func listUserPets(parameters: Dictionary<String,String>, successCallback: (AnyObject) -> (), failCallback: (String) -> ())
+    {
+        basicGet("/pets?email=\(parameters["email"]!)", timeOut: 240, successCallback:
+            { (response) in
+                successCallback(response)
+        }) { (error) in
+            failCallback(error)
+        }
+    }
+    
+    func showPet(parameters: Dictionary<String,String>, successCallback: (AnyObject) -> (), failCallback: (String) -> ())
+    {
+        basicGet("/pets/\(parameters["petId"])", timeOut: 240, successCallback:
+            { (response) in
+                successCallback(response)
+        }) { (error) in
+            failCallback(error)
+        }
+    }
+    
 }

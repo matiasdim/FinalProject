@@ -8,9 +8,13 @@
 
 import UIKit
 import SwiftyUserDefaults
+import RappleProgressHUD
 
 class PetRegistrationViewController: UIViewController {
 
+
+    @IBOutlet weak var nameText: UITextField!
+    @IBOutlet weak var observationText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Register your Pet"
@@ -35,6 +39,32 @@ class PetRegistrationViewController: UIViewController {
         view.endEditing(true)
     }
     
+    @IBAction func sendPressed(sender: AnyObject) {
+        RappleActivityIndicatorView.startAnimatingWithLabel("Creating pet...", attributes: RappleAppleAttributes)
+        let pet = Pet()
+        pet.email = Defaults[.emailKey]
+        pet.observations = observationText.text!
+        pet.name = nameText.text!
+        pet.create(
+            { (response) in
+                dispatch_async(dispatch_get_main_queue(),{
+                    RappleActivityIndicatorView.stopAnimating()
+                    let alert = UIAlertController(title: "Success", message: "Pet successfully created", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+                        self.navigationController?.popToRootViewControllerAnimated(false)
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+
+                })
+            }, failCallback: { (error) in
+                dispatch_async(dispatch_get_main_queue(),{
+                    RappleActivityIndicatorView.stopAnimating()
+                    let alert = UIAlertController(title: "Alert", message: "Error creating pet. Try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                })
+        })
+    }
 
     /*
     // MARK: - Navigation

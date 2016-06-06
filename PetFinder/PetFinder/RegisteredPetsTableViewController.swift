@@ -8,9 +8,11 @@
 
 import UIKit
 import SwiftyUserDefaults
+import RappleProgressHUD
 
 class RegisteredPetsTableViewController: UITableViewController {
 
+    var pets = [AnyObject]()
     override func viewDidLoad() {
         super.viewDidLoad()
         if !Defaults.hasKey(.userAuthenticated) {
@@ -25,6 +27,35 @@ class RegisteredPetsTableViewController: UITableViewController {
         self.navigationController?.navigationBar.hidden = false
     }
     
+    override func viewDidAppear(animated: Bool) {
+        let pet = Pet()
+        pet.email = Defaults[.emailKey]
+        RappleActivityIndicatorView.startAnimatingWithLabel("Getting your pets...", attributes: RappleAppleAttributes)
+        pet.list(
+            { (response) in
+                // retrieve the individual videos from the JSON document.
+                if let topLevelObj = response as? Array<AnyObject> {
+                    for i in topLevelObj {
+                        self.pets.append(i)
+                    }
+                }
+                dispatch_async(dispatch_get_main_queue(), {
+                    RappleActivityIndicatorView.stopAnimating()
+                    self.tableView.reloadData()
+                })
+            }) { (error) in
+                dispatch_async(dispatch_get_main_queue(),{
+                    RappleActivityIndicatorView.stopAnimating()
+                    let alert = UIAlertController(title: "Alert!", message: "There was an error fetching your pets", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+                        self.navigationController?.popToRootViewControllerAnimated(false)
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                })
+                
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -34,23 +65,29 @@ class RegisteredPetsTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return pets.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("petCell", forIndexPath: indexPath)
 
-        // Configure the cell...
+        //        cell.textLabel!.text = object.description
+        if let object = pets[indexPath.row] as? Dictionary<String, AnyObject> {
+                
+                // setup text.
+                cell.textLabel!.text = object["name"]! as? String
+                cell.detailTextLabel?.text = object["observations"]! as? String
+        }
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
