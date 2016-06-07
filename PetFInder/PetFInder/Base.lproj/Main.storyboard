@@ -228,14 +228,27 @@
                                                     <action selector="mobilePressed:" destination="VYs-oG-GGv" eventType="touchUpInside" id="3Zp-VZ-dta"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jX-rJ-aDW">
+                                                <rect key="frame" x="12" y="370" width="46" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4di-gB-nEX">
+                                                <rect key="frame" x="74" y="366" width="482" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="emailPressed:" destination="VYs-oG-GGv" eventType="touchUpInside" id="nKM-g4-ajE"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Observations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnt-NA-dsl">
-                                                <rect key="frame" x="12" y="370" width="102" height="21"/>
+                                                <rect key="frame" x="12" y="399" width="102" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PcN-fE-dzO">
-                                                <rect key="frame" x="12" y="399" width="544" height="128"/>
+                                                <rect key="frame" x="12" y="428" width="544" height="99"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -255,7 +268,10 @@
                                             <constraint firstItem="HUF-Fk-QeV" firstAttribute="top" secondItem="Gr4-MZ-7aA" secondAttribute="top" constant="29" id="FiG-ps-zIX"/>
                                             <constraint firstItem="YmR-sL-0ho" firstAttribute="baseline" secondItem="CN7-gh-bIo" secondAttribute="baseline" id="Hu6-ci-Uzt"/>
                                             <constraint firstAttribute="trailing" secondItem="YmR-sL-0ho" secondAttribute="trailing" constant="13" id="L3b-M4-sAr"/>
+                                            <constraint firstItem="9jX-rJ-aDW" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="LkC-vp-sSQ"/>
+                                            <constraint firstItem="tnt-NA-dsl" firstAttribute="top" secondItem="9jX-rJ-aDW" secondAttribute="top" constant="29" id="LsD-Oo-VF2"/>
                                             <constraint firstItem="fDs-8O-mgl" firstAttribute="leading" secondItem="s3z-1R-Su9" secondAttribute="trailing" constant="15" id="MLW-30-bWv"/>
+                                            <constraint firstAttribute="trailing" secondItem="4di-gB-nEX" secondAttribute="trailing" constant="13" id="Oeb-gj-zPm"/>
                                             <constraint firstItem="AtD-4x-naP" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="Ofd-Vt-cOm"/>
                                             <constraint firstAttribute="bottom" secondItem="PcN-fE-dzO" secondAttribute="bottom" constant="14" id="PLb-YI-afy"/>
                                             <constraint firstItem="CN7-gh-bIo" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="Pof-h3-8IL"/>
@@ -265,10 +281,12 @@
                                             <constraint firstItem="AtD-4x-naP" firstAttribute="top" secondItem="s3z-1R-Su9" secondAttribute="top" constant="29" id="Z7n-Vy-ewn"/>
                                             <constraint firstAttribute="height" constant="541" id="Zac-Kj-kLo"/>
                                             <constraint firstItem="0Qe-qO-RSV" firstAttribute="leading" secondItem="aMz-fE-4Pi" secondAttribute="trailing" constant="8" id="cj4-Q6-FOe"/>
+                                            <constraint firstItem="4di-gB-nEX" firstAttribute="leading" secondItem="9jX-rJ-aDW" secondAttribute="trailing" constant="16" id="fPK-eS-Lvq"/>
                                             <constraint firstItem="HUF-Fk-QeV" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="fUg-R2-VSP"/>
                                             <constraint firstItem="YmR-sL-0ho" firstAttribute="trailing" secondItem="gby-DN-7AL" secondAttribute="trailing" id="gBz-xr-GnH"/>
                                             <constraint firstAttribute="trailing" secondItem="fDs-8O-mgl" secondAttribute="trailing" constant="13" id="hlS-DA-bsM"/>
                                             <constraint firstItem="PcN-fE-dzO" firstAttribute="top" secondItem="tnt-NA-dsl" secondAttribute="top" constant="29" id="iXh-oa-mAu"/>
+                                            <constraint firstItem="4di-gB-nEX" firstAttribute="top" secondItem="YmR-sL-0ho" secondAttribute="top" constant="29" id="jo0-dD-Gdo"/>
                                             <constraint firstItem="PcN-fE-dzO" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="k2B-jT-A1t"/>
                                             <constraint firstItem="fDs-8O-mgl" firstAttribute="top" secondItem="HcN-Iq-qej" secondAttribute="top" constant="29" id="lUk-Q0-RNZ"/>
                                             <constraint firstItem="0Qe-qO-RSV" firstAttribute="top" secondItem="rOm-MC-sAj" secondAttribute="top" constant="8" id="qm7-pP-n1f"/>
@@ -276,8 +294,8 @@
                                             <constraint firstItem="HcN-Iq-qej" firstAttribute="top" secondItem="HUF-Fk-QeV" secondAttribute="top" constant="188" id="sQb-fU-tiA"/>
                                             <constraint firstItem="YmR-sL-0ho" firstAttribute="leading" secondItem="gby-DN-7AL" secondAttribute="leading" id="tMs-YY-8s2"/>
                                             <constraint firstItem="gby-DN-7AL" firstAttribute="leading" secondItem="AtD-4x-naP" secondAttribute="trailing" constant="8" id="tge-aA-SH5"/>
-                                            <constraint firstItem="tnt-NA-dsl" firstAttribute="top" secondItem="CN7-gh-bIo" secondAttribute="top" constant="29" id="ydk-iZ-gKU"/>
                                             <constraint firstItem="Gr4-MZ-7aA" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="zfZ-g6-VoY"/>
+                                            <constraint firstItem="9jX-rJ-aDW" firstAttribute="top" secondItem="CN7-gh-bIo" secondAttribute="top" constant="29" id="zyI-PZ-I5b"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -299,6 +317,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailButton" destination="4di-gB-nEX" id="B7M-Au-eL3"/>
                         <outlet property="mapView" destination="HUF-Fk-QeV" id="DoC-JG-vUf"/>
                         <outlet property="mobileButton" destination="YmR-sL-0ho" id="9iM-6a-jKP"/>
                         <outlet property="observationsArea" destination="PcN-fE-dzO" id="nI5-HE-dGe"/>

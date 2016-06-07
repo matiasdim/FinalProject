@@ -18,12 +18,14 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mobileButton: UIButton!
     @IBOutlet weak var phoneButton: UIButton!
+    @IBOutlet weak var emailButton: UIButton!
     
     var detailItem: AnyObject?
     
     var mobile: String!
     var phone: String!
     var currentPetName: String!
+    var email: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,8 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
             phone = (report["reporterPhone"] as? String)
             phoneButton.setTitle(phone, forState: UIControlState.Normal)
             repoterName.text = (report["reporterName"] as? String)
+            email = (report["reporterEmail"] as? String)
+            emailButton.setTitle(email, forState: UIControlState.Normal)
             
             let latitude = CLLocationDegrees((report["lat"] as? String)!)
             let longitude = CLLocationDegrees((report["lat"] as? String)!)
@@ -91,6 +95,11 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    @IBAction func emailPressed(sender: AnyObject) {
+        if let url = NSURL(string: "mailto:\(email)"){
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
 
     /*
     // MARK: - Navigation
