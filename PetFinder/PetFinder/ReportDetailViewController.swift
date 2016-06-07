@@ -7,23 +7,33 @@
 //
 
 import UIKit
+import MapKit
 
 class ReportDetailViewController: UIViewController {
 
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var observationsArea: UITextView!
     var detailItem: AnyObject?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.title = "Report"
+        scrollView.autoresizingMask = UIViewAutoresizing.None
     }
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBar.hidden = false
+        //Small and not nice hack to always load textarea on its top scroll
+        dispatch_async(dispatch_get_main_queue(), {
+            self.observationsArea.scrollRangeToVisible(NSMakeRange(0, 0))
+        })
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
 
     /*
