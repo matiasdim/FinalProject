@@ -11,16 +11,44 @@ import MapKit
 
 class ReportDetailViewController: UIViewController, MKMapViewDelegate {
 
+    @IBOutlet weak var petName: UILabel!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var repoterName: UILabel!
     @IBOutlet weak var observationsArea: UITextView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var mobileButton: UIButton!
+    @IBOutlet weak var phoneButton: UIButton!
+    
     var detailItem: AnyObject?
+    
+    var mobile: String!
+    var phone: String!
+    var currentPetName: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.title = "Report"
         
-        configMap(CLLocationCoordinate2D(latitude: 42.9634, longitude: -85.6681), title: "Pet name", subtitle: "Your pet is here")
+        if let report = detailItem as? Dictionary<String,AnyObject> {
+            if let pet = report["pet"] as? Dictionary<String, AnyObject>{
+                currentPetName = (pet["name"] as? String)
+                petName.text = currentPetName
+            }
+            observationsArea.text = (report["reporterObservations"] as? String)
+            mobile = (report["reporterCel"] as? String)
+            mobileButton.setTitle(mobile, forState: UIControlState.Normal)
+            phone = (report["reporterPhone"] as? String)
+            phoneButton.setTitle(phone, forState: UIControlState.Normal)
+            repoterName.text = (report["reporterName"] as? String)
+            
+            let latitude = CLLocationDegrees((report["lat"] as? String)!)
+            let longitude = CLLocationDegrees((report["lat"] as? String)!)
+            configMap(CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!), title: currentPetName, subtitle: "Is here!")
+        }
+
+        //Get coordinates from detailItem
+        
         
     }
     
@@ -52,6 +80,16 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
         mapView.addAnnotation(anotation)
     }
 
+    @IBAction func phonePressed(sender: AnyObject) {
+        if let url = NSURL(string: "tel://\(phone)") {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    @IBAction func mobilePressed(sender: AnyObject) {
+        if let url = NSURL(string: "tel://\(mobile)") {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
     
 
     /*

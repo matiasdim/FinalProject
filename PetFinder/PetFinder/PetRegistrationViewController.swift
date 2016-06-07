@@ -18,10 +18,9 @@ class PetRegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Register Pet"
-        
         let borderColor = UIColor(colorLiteralRed: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
         observationText.layer.borderColor = borderColor.CGColor;
-        observationText.layer.borderWidth = 1.0;
+        observationText.layer.borderWidth = 0.5;
         observationText.layer.cornerRadius = 5.0;
     }
     override func viewWillAppear(animated: Bool) {

@@ -196,18 +196,38 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDs-8O-mgl">
+                                                <rect key="frame" x="77" y="283" width="479" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtD-4x-naP">
                                                 <rect key="frame" x="12" y="312" width="54" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gby-DN-7AL">
+                                                <rect key="frame" x="74" y="307" width="482" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="phonePressed:" destination="VYs-oG-GGv" eventType="touchUpInside" id="kxj-Lo-ZWf"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CN7-gh-bIo">
                                                 <rect key="frame" x="12" y="341" width="56" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmR-sL-0ho">
+                                                <rect key="frame" x="74" y="337" width="482" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="mobilePressed:" destination="VYs-oG-GGv" eventType="touchUpInside" id="3Zp-VZ-dta"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Observations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnt-NA-dsl">
                                                 <rect key="frame" x="12" y="370" width="102" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -233,19 +253,29 @@
                                             <constraint firstItem="s3z-1R-Su9" firstAttribute="top" secondItem="HcN-Iq-qej" secondAttribute="top" constant="29" id="EFk-kc-zeq"/>
                                             <constraint firstItem="tnt-NA-dsl" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="Feo-N9-tWX"/>
                                             <constraint firstItem="HUF-Fk-QeV" firstAttribute="top" secondItem="Gr4-MZ-7aA" secondAttribute="top" constant="29" id="FiG-ps-zIX"/>
+                                            <constraint firstItem="YmR-sL-0ho" firstAttribute="baseline" secondItem="CN7-gh-bIo" secondAttribute="baseline" id="Hu6-ci-Uzt"/>
+                                            <constraint firstAttribute="trailing" secondItem="YmR-sL-0ho" secondAttribute="trailing" constant="13" id="L3b-M4-sAr"/>
+                                            <constraint firstItem="fDs-8O-mgl" firstAttribute="leading" secondItem="s3z-1R-Su9" secondAttribute="trailing" constant="15" id="MLW-30-bWv"/>
                                             <constraint firstItem="AtD-4x-naP" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="Ofd-Vt-cOm"/>
                                             <constraint firstAttribute="bottom" secondItem="PcN-fE-dzO" secondAttribute="bottom" constant="14" id="PLb-YI-afy"/>
                                             <constraint firstItem="CN7-gh-bIo" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="Pof-h3-8IL"/>
+                                            <constraint firstAttribute="trailing" secondItem="gby-DN-7AL" secondAttribute="trailing" constant="13" id="QIK-KW-Bh7"/>
                                             <constraint firstItem="aMz-fE-4Pi" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="RUe-HG-9P5"/>
                                             <constraint firstItem="aMz-fE-4Pi" firstAttribute="top" secondItem="rOm-MC-sAj" secondAttribute="top" constant="8" id="VLf-r0-UnU"/>
                                             <constraint firstItem="AtD-4x-naP" firstAttribute="top" secondItem="s3z-1R-Su9" secondAttribute="top" constant="29" id="Z7n-Vy-ewn"/>
                                             <constraint firstAttribute="height" constant="541" id="Zac-Kj-kLo"/>
                                             <constraint firstItem="0Qe-qO-RSV" firstAttribute="leading" secondItem="aMz-fE-4Pi" secondAttribute="trailing" constant="8" id="cj4-Q6-FOe"/>
                                             <constraint firstItem="HUF-Fk-QeV" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="fUg-R2-VSP"/>
+                                            <constraint firstItem="YmR-sL-0ho" firstAttribute="trailing" secondItem="gby-DN-7AL" secondAttribute="trailing" id="gBz-xr-GnH"/>
+                                            <constraint firstAttribute="trailing" secondItem="fDs-8O-mgl" secondAttribute="trailing" constant="13" id="hlS-DA-bsM"/>
                                             <constraint firstItem="PcN-fE-dzO" firstAttribute="top" secondItem="tnt-NA-dsl" secondAttribute="top" constant="29" id="iXh-oa-mAu"/>
                                             <constraint firstItem="PcN-fE-dzO" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="k2B-jT-A1t"/>
+                                            <constraint firstItem="fDs-8O-mgl" firstAttribute="top" secondItem="HcN-Iq-qej" secondAttribute="top" constant="29" id="lUk-Q0-RNZ"/>
                                             <constraint firstItem="0Qe-qO-RSV" firstAttribute="top" secondItem="rOm-MC-sAj" secondAttribute="top" constant="8" id="qm7-pP-n1f"/>
+                                            <constraint firstItem="gby-DN-7AL" firstAttribute="top" secondItem="fDs-8O-mgl" secondAttribute="top" constant="24" id="qnj-xh-olb"/>
                                             <constraint firstItem="HcN-Iq-qej" firstAttribute="top" secondItem="HUF-Fk-QeV" secondAttribute="top" constant="188" id="sQb-fU-tiA"/>
+                                            <constraint firstItem="YmR-sL-0ho" firstAttribute="leading" secondItem="gby-DN-7AL" secondAttribute="leading" id="tMs-YY-8s2"/>
+                                            <constraint firstItem="gby-DN-7AL" firstAttribute="leading" secondItem="AtD-4x-naP" secondAttribute="trailing" constant="8" id="tge-aA-SH5"/>
                                             <constraint firstItem="tnt-NA-dsl" firstAttribute="top" secondItem="CN7-gh-bIo" secondAttribute="top" constant="29" id="ydk-iZ-gKU"/>
                                             <constraint firstItem="Gr4-MZ-7aA" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="zfZ-g6-VoY"/>
                                         </constraints>
@@ -270,7 +300,11 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="HUF-Fk-QeV" id="DoC-JG-vUf"/>
+                        <outlet property="mobileButton" destination="YmR-sL-0ho" id="9iM-6a-jKP"/>
                         <outlet property="observationsArea" destination="PcN-fE-dzO" id="nI5-HE-dGe"/>
+                        <outlet property="petName" destination="0Qe-qO-RSV" id="kbY-Yo-yMJ"/>
+                        <outlet property="phoneButton" destination="gby-DN-7AL" id="rgA-Lk-jK8"/>
+                        <outlet property="repoterName" destination="fDs-8O-mgl" id="FpC-zd-vim"/>
                         <outlet property="scrollView" destination="OeL-pf-X4D" id="zzg-ev-33U"/>
                     </connections>
                 </viewController>

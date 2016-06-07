@@ -17,10 +17,6 @@ class PetDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Pet Detail"
-        let borderColor = UIColor(colorLiteralRed: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
-        petObservations.layer.borderColor = borderColor.CGColor;
-        petObservations.layer.borderWidth = 1.0;
-        petObservations.layer.cornerRadius = 5.0;
         
         if let pet = detailItem as? Dictionary<String,AnyObject> {
             petName.text = pet["name"]  as? String
