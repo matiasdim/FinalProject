@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ReportDetailViewController: UIViewController {
+class ReportDetailViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -19,8 +19,11 @@ class ReportDetailViewController: UIViewController {
         super.viewDidLoad()
 
         self.navigationItem.title = "Report"
-        scrollView.autoresizingMask = UIViewAutoresizing.None
+        
+        configMap(CLLocationCoordinate2D(latitude: 42.9634, longitude: -85.6681), title: "Pet name", subtitle: "Your pet is here")
+        
     }
+    
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBar.hidden = false
         //Small and not nice hack to always load textarea on its top scroll
@@ -32,6 +35,21 @@ class ReportDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func configMap(coordinate: CLLocationCoordinate2D, title: String, subtitle: String)
+    {
+        let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(0.05, 0.05)
+        let location:CLLocationCoordinate2D = coordinate
+        let theRegion:MKCoordinateRegion = MKCoordinateRegionMake(location, theSpan)
+        
+        mapView.setRegion(theRegion, animated: true)
+        
+        let anotation = MKPointAnnotation()
+        anotation.coordinate = coordinate
+        anotation.title = title
+        anotation.subtitle = subtitle
+        mapView.addAnnotation(anotation)
     }
 
     

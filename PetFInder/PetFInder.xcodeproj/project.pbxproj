@@ -13,6 +13,7 @@
 		EC30897F1D05FC200082FC55 /* PetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30897E1D05FC200082FC55 /* PetDetailViewController.swift */; };
 		EC3089811D060EB20082FC55 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3089801D060EB20082FC55 /* Report.swift */; };
 		EC3089841D06325A0082FC55 /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3089831D06325A0082FC55 /* ReportDetailViewController.swift */; };
+		EC3089861D0653920082FC55 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3089851D0653920082FC55 /* MapKit.framework */; };
 		EC7200101CFBCD66004ED765 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC72000F1CFBCD66004ED765 /* AppDelegate.swift */; };
 		EC7200151CFBCD66004ED765 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC7200131CFBCD66004ED765 /* Main.storyboard */; };
 		EC7200181CFBCD66004ED765 /* PetFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC7200161CFBCD66004ED765 /* PetFinder.xcdatamodeld */; };
@@ -62,6 +63,7 @@
 		EC30897E1D05FC200082FC55 /* PetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetDetailViewController.swift; sourceTree = "<group>"; };
 		EC3089801D060EB20082FC55 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		EC3089831D06325A0082FC55 /* ReportDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
+		EC3089851D0653920082FC55 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EC72000C1CFBCD66004ED765 /* PetFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC72000F1CFBCD66004ED765 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC7200141CFBCD66004ED765 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC3089861D0653920082FC55 /* MapKit.framework in Frameworks */,
 				73F86F378787DC24D30C5CE1 /* Pods_PetFinder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +126,7 @@
 		605659144E44A70C0C56FACE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC3089851D0653920082FC55 /* MapKit.framework */,
 				ECAA9A861D03443400232DAF /* Alamofire.framework */,
 				FE45B9CCE60485A9D2705E68 /* Pods_PetFinder.framework */,
 				99431BE44A47AC566DB3443C /* Pods_PetFinderTests.framework */,
@@ -320,6 +324,11 @@
 				TargetAttributes = {
 					EC72000B1CFBCD66004ED765 = {
 						CreatedOnToolsVersion = 7.3.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					EC7200221CFBCD66004ED765 = {
 						CreatedOnToolsVersion = 7.3.1;
