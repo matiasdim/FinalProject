@@ -41,7 +41,7 @@ class User {
     
     func create(successCallback: (AnyObject) -> (), failCallback: (String) -> ())
     {
-        let parameters = ["email": email,"password": password]//, "name": name, "mobile": mobile]
+        let parameters = ["email": email,"password": password, "name": name!, "mobile": mobile!]
         
         networkManager.createUser(parameters, successCallback:
             { (response) in

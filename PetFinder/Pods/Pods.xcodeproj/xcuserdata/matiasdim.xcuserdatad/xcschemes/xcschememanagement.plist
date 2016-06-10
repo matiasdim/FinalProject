@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>IQKeyboardManagerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-PetFinder.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,6 +47,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>1520003FEBEC114D6C84F832AFEDB994</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
@@ -52,12 +62,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>87FF4A6EFD3E965B17EC8D467BB19ED2</key>
+		<key>DBBB3B72304E01C2CB24ACC571BF6FE6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>93B7A95BC8B75315B61EC688AA431C93</key>
+		<key>DD5580018E569DC90661589E10B94CF2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E1F61BF3E2CC354E2A1ECBB50F51C27E</key>
+		<key>E531D78770CD4B796782761115EA3963</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FB9EF649E3435E7B63AFC04834E9ADAA</key>
+		<key>E55702531A5786FDD2E7068514D231B7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

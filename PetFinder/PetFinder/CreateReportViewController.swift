@@ -44,6 +44,7 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
         observationsText.layer.cornerRadius = 5.0;
         
         
+        
         let reportButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(CreateReportViewController.reportPressed))
         self.navigationItem.rightBarButtonItem = reportButton
         

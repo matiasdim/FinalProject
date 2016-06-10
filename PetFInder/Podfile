@@ -10,6 +10,7 @@ target 'PetFinder' do
     pod 'Alamofire'
     pod 'RappleProgressHUD'
     pod 'SwiftQRCode'
+    pod 'IQKeyboardManagerSwift'
 
   target 'PetFinderTests' do
     inherit! :search_paths

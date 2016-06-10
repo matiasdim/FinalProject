@@ -11,6 +11,7 @@ import SwiftyUserDefaults
 
 extension DefaultsKeys {
     static let emailKey = DefaultsKey<String>("email")
+    static let nameKey = DefaultsKey<String>("name")
     static let userAuthenticated = DefaultsKey<Bool>("authenticated")
 }
 
@@ -32,7 +33,7 @@ class MenuTableViewController: UITableViewController {
         
         if Defaults.hasKey(.userAuthenticated) {
             self.navigationItem.rightBarButtonItem?.title = "Log Out"
-            self.navigationItem.title = Defaults[.emailKey]
+            self.navigationItem.title = Defaults[.nameKey]
         }else{
             self.navigationItem.rightBarButtonItem?.title = "Log In/Sign Up"
             self.navigationItem.title = ""
@@ -118,6 +119,7 @@ class MenuTableViewController: UITableViewController {
             if Defaults[.userAuthenticated] {
                 Defaults.remove(.userAuthenticated)
                 Defaults.remove(.emailKey)
+                Defaults.remove(.nameKey)
                 self.navigationItem.rightBarButtonItem?.title = "Log In/Sign Up"
                 self.navigationItem.title = ""
             }else{
