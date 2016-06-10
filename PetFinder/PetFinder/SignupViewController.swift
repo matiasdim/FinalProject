@@ -13,7 +13,9 @@ import RappleProgressHUD
 class SignupViewController: UIViewController {
 
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var name: UITextField!
     @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var mobile: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Sign Up"
@@ -31,7 +33,7 @@ class SignupViewController: UIViewController {
     
     @IBAction func sendPressed(sender: AnyObject) {
         RappleActivityIndicatorView.startAnimatingWithLabel("Registring user...", attributes: RappleAppleAttributes)
-        User.init(email: email.text!, password: password.text!)?.create(
+        User.init(email: email.text!, password: password.text!, mobile: mobile.text!, name: name.text!)?.create(
             { (response) in
                 Defaults[.userAuthenticated] = true
                 let userObject: Dictionary = (response as? Dictionary<String, AnyObject>)!

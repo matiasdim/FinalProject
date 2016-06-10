@@ -117,7 +117,7 @@ class NetworkManager {
     
     func showPet(parameters: Dictionary<String,String>, successCallback: (AnyObject) -> (), failCallback: (String) -> ())
     {
-        basicGet("/pets/\(parameters["petId"])", timeOut: 240, successCallback:
+        basicGet("/pets/\(parameters["petId"]!)", timeOut: 240, successCallback:
             { (response) in
                 successCallback(response)
         }) { (error) in

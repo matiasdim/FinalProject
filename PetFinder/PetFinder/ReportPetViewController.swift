@@ -8,21 +8,39 @@
 
 import UIKit
 import SwiftyUserDefaults
+import SwiftQRCode
 
 class ReportPetViewController: UIViewController {
 
+    let scanner = QRCode()
+    var qrString: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if !Defaults.hasKey(.userAuthenticated) {
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewControllerWithIdentifier("loginVC")
-            self.navigationController?.pushViewController(vc, animated: false)
-        }
 
         self.navigationItem.title = "Report Pet"
         self.navigationController?.navigationBar.hidden = false
+//        scanner.prepareScan(view) { (stringValue) -> () in
+//            print(stringValue)
+//            dispatch_async(dispatch_get_main_queue(), {
+                self.qrString = "1"// stringValue
+                self.performSegueWithIdentifier("createReportSegue", sender: self)
+//            })
+//            
+//        }
+        // test scan frame
+        scanner.scanFrame = view.bounds
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let vc = segue.destinationViewController as! CreateReportViewController
+        vc.qrString = self.qrString
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        scanner.startScan()
     }
 
     override func didReceiveMemoryWarning() {

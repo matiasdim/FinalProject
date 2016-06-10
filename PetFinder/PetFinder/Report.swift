@@ -17,6 +17,8 @@ class Report {
     var reporterPhone: String?
     var reporterEmail: String?
     var reporterObservations: String?
+    var lat: String?
+    var lon: String?
     var petId: String?
     
     let networkManager: NetworkManager = NetworkManager()
@@ -33,11 +35,14 @@ class Report {
     
     func create(successCallback: (AnyObject) -> (), failCallback: (String) -> ())
     {
-        let parameters = ["reporterNmail": reporterName!,
-                          "reporterCel": reporterCel!,
-                          "reporterObservations": reporterObservations!,
-                          "reporterPhone": reporterPhone!,
-                          "reporterEmail": reporterEmail!]
+        let parameters = ["reporter_name": reporterName!,
+                          "reporter_cel": reporterCel!,
+                          "reporter_observations": reporterObservations!,
+                          "reporter_phone": "",
+                          "reporter_email": reporterEmail!,
+                          "lat": lat!,
+                          "lon": lon!,
+                          "pet_id": petId!]
         
         networkManager.createReport(parameters, successCallback:
             { (response) in

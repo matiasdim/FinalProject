@@ -33,6 +33,7 @@
 		EC72005D1CFD24CE004ED765 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC72005C1CFD24CE004ED765 /* User.swift */; };
 		EC87F0EC1CFD2BD6007ECD46 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87F0EB1CFD2BD6007ECD46 /* Pet.swift */; };
 		EC95C5741D033B5500B840DD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95C5731D033B5500B840DD /* NetworkManager.swift */; };
+		ECBAA42B1D08F00D00EDF79C /* CreateReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBAA42A1D08F00D00EDF79C /* CreateReportViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		EC87F0EB1CFD2BD6007ECD46 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		EC95C5731D033B5500B840DD /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		ECAA9A861D03443400232DAF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/PetFinder-ajoyooulvidmbohjzmjvgurtoblc/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		ECBAA42A1D08F00D00EDF79C /* CreateReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateReportViewController.swift; sourceTree = "<group>"; };
 		F59539B6E6973B601D713248 /* Pods-PetFinderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFinderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PetFinderTests/Pods-PetFinderTests.release.xcconfig"; sourceTree = "<group>"; };
 		FE45B9CCE60485A9D2705E68 /* Pods_PetFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -213,6 +215,7 @@
 				EC72004F1CFCA674004ED765 /* ReportedPetsTableViewController.swift */,
 				EC3089831D06325A0082FC55 /* ReportDetailViewController.swift */,
 				EC7200491CFCA561004ED765 /* ReportPetViewController.swift */,
+				ECBAA42A1D08F00D00EDF79C /* CreateReportViewController.swift */,
 				EC7200471CFCA54E004ED765 /* AboutUsViewController.swift */,
 				EC7200511CFCBFC5004ED765 /* LoginViewController.swift */,
 				EC7200531CFCC464004ED765 /* SignupViewController.swift */,
@@ -255,12 +258,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC7200371CFBCD66004ED765 /* Build configuration list for PBXNativeTarget "PetFinder" */;
 			buildPhases = (
-				C89E018709B35CB3FF430B61 /* 📦 Check Pods Manifest.lock */,
+				C89E018709B35CB3FF430B61 /* [CP] Check Pods Manifest.lock */,
 				EC7200081CFBCD66004ED765 /* Sources */,
 				EC7200091CFBCD66004ED765 /* Frameworks */,
 				EC72000A1CFBCD66004ED765 /* Resources */,
-				C0108F6737C87F614B1BC5BF /* 📦 Embed Pods Frameworks */,
-				E3BBF1CFAB4F04FA72BBFCE9 /* 📦 Copy Pods Resources */,
+				C0108F6737C87F614B1BC5BF /* [CP] Embed Pods Frameworks */,
+				E3BBF1CFAB4F04FA72BBFCE9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -275,12 +278,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC72003A1CFBCD66004ED765 /* Build configuration list for PBXNativeTarget "PetFinderTests" */;
 			buildPhases = (
-				D9626F2AE297CD0F2605325F /* 📦 Check Pods Manifest.lock */,
+				D9626F2AE297CD0F2605325F /* [CP] Check Pods Manifest.lock */,
 				EC72001F1CFBCD66004ED765 /* Sources */,
 				EC7200201CFBCD66004ED765 /* Frameworks */,
 				EC7200211CFBCD66004ED765 /* Resources */,
-				00629CB1CE316893A1963034 /* 📦 Embed Pods Frameworks */,
-				61952F18F0CF6D5000765CC1 /* 📦 Copy Pods Resources */,
+				00629CB1CE316893A1963034 /* [CP] Embed Pods Frameworks */,
+				61952F18F0CF6D5000765CC1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -296,11 +299,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC72003D1CFBCD66004ED765 /* Build configuration list for PBXNativeTarget "PetFinderUITests" */;
 			buildPhases = (
-				25D575113026D4575CC495EC /* 📦 Check Pods Manifest.lock */,
+				25D575113026D4575CC495EC /* [CP] Check Pods Manifest.lock */,
 				EC72002A1CFBCD66004ED765 /* Sources */,
 				EC72002B1CFBCD66004ED765 /* Frameworks */,
 				EC72002C1CFBCD66004ED765 /* Resources */,
-				0B707CE4892A63FF4C098099 /* 📦 Copy Pods Resources */,
+				0B707CE4892A63FF4C098099 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -389,14 +392,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		00629CB1CE316893A1963034 /* 📦 Embed Pods Frameworks */ = {
+		00629CB1CE316893A1963034 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,14 +407,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PetFinderTests/Pods-PetFinderTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		0B707CE4892A63FF4C098099 /* 📦 Copy Pods Resources */ = {
+		0B707CE4892A63FF4C098099 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,14 +422,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PetFinderUITests/Pods-PetFinderUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		25D575113026D4575CC495EC /* 📦 Check Pods Manifest.lock */ = {
+		25D575113026D4575CC495EC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,14 +437,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		61952F18F0CF6D5000765CC1 /* 📦 Copy Pods Resources */ = {
+		61952F18F0CF6D5000765CC1 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,14 +452,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PetFinderTests/Pods-PetFinderTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C0108F6737C87F614B1BC5BF /* 📦 Embed Pods Frameworks */ = {
+		C0108F6737C87F614B1BC5BF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,14 +467,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PetFinder/Pods-PetFinder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C89E018709B35CB3FF430B61 /* 📦 Check Pods Manifest.lock */ = {
+		C89E018709B35CB3FF430B61 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,14 +482,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D9626F2AE297CD0F2605325F /* 📦 Check Pods Manifest.lock */ = {
+		D9626F2AE297CD0F2605325F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,14 +497,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E3BBF1CFAB4F04FA72BBFCE9 /* 📦 Copy Pods Resources */ = {
+		E3BBF1CFAB4F04FA72BBFCE9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,6 +531,7 @@
 				EC7200421CFBD61B004ED765 /* MenuTableViewController.swift in Sources */,
 				EC7200501CFCA674004ED765 /* ReportedPetsTableViewController.swift in Sources */,
 				EC72005D1CFD24CE004ED765 /* User.swift in Sources */,
+				ECBAA42B1D08F00D00EDF79C /* CreateReportViewController.swift in Sources */,
 				EC7200481CFCA54E004ED765 /* AboutUsViewController.swift in Sources */,
 				EC95C5741D033B5500B840DD /* NetworkManager.swift in Sources */,
 				EC7200521CFCBFC5004ED765 /* LoginViewController.swift in Sources */,
@@ -677,6 +681,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PetFinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matiasdim.PetFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -690,6 +695,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PetFinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matiasdim.PetFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";

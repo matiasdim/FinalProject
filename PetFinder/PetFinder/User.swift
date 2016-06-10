@@ -14,8 +14,11 @@ import Alamofire
 
 class User {
     //To manage user defaults easly
-        var email: String
+    var email: String
     var password: String
+    var name: String!
+    var mobile: String!
+    
     let networkManager: NetworkManager = NetworkManager()
     
     init?(email: String, password: String){
@@ -24,14 +27,21 @@ class User {
         }
         self.email = email
         self.password = password
-//        if !self.isValidEmail(){
-//            return nil
-//        }
+    }
+    
+    init?(email: String, password: String, mobile: String, name: String){
+        if email.isEmpty || password.isEmpty || name.isEmpty || mobile.isEmpty {
+            return nil
+        }
+        self.email = email
+        self.password = password
+        self.name = name
+        self.mobile = mobile
     }
     
     func create(successCallback: (AnyObject) -> (), failCallback: (String) -> ())
     {
-        let parameters = ["email": email,"password": password]
+        let parameters = ["email": email,"password": password]//, "name": name, "mobile": mobile]
         
         networkManager.createUser(parameters, successCallback:
             { (response) in

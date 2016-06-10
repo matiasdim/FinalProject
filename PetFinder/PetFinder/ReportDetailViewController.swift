@@ -47,13 +47,11 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
             emailButton.setTitle(email, forState: UIControlState.Normal)
             
             let latitude = CLLocationDegrees((report["lat"] as? String)!)
-            let longitude = CLLocationDegrees((report["lat"] as? String)!)
+            let longitude = CLLocationDegrees((report["lon"] as? String)!)
             configMap(CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!), title: currentPetName, subtitle: "Is here!")
         }
 
         //Get coordinates from detailItem
-        
-        
     }
     
     override func viewWillAppear(animated: Bool) {

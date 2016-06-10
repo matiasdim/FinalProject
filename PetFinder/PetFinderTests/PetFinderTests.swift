@@ -17,15 +17,32 @@ class PetFinderTests: XCTestCase {
     //MARK: User model test
     func testUserInitialization() {
         // Success case.
+        
         let user = User(email: "email@email.co", password: "123123123")
         XCTAssertNotNil(user)
         
         // Failure cases.
-        let noEmailUser = User(email: "", password: "234234234")
+        let noEmailUser = User(email: "", password: "123123123")
         XCTAssertNil(noEmailUser, "Empty email is invalid")
         
-        let noPasswordUser = User(email: "m@m.co", password: "")
+        let noPasswordUser = User(email: "email@email.co", password: "")
         XCTAssertNil(noPasswordUser, "Empty password is invalid")
+        
+//        let user = User(email: "email@email.co", password: "123123123", mobile: "838167812", name: "TestName")
+//        XCTAssertNotNil(user)
+//        
+//        // Failure cases.
+//        let noEmailUser = User(email: "", password: "123123123", mobile: "838167812", name: "TestName")
+//        XCTAssertNil(noEmailUser, "Empty email is invalid")
+//        
+//        let noPasswordUser = User(email: "email@email.co", password: "", mobile: "838167812", name: "TestName")
+//        XCTAssertNil(noPasswordUser, "Empty password is invalid")
+//        
+//        let noMobileUser = User(email: "email@email.co", password: "", mobile: "", name: "TestName")
+//        XCTAssertNil(noMobileUser, "Empty mobile is invalid")
+//        
+//        let noNameUser = User(email: "email@email.co", password: "", mobile: "838167812", name: "")
+//        XCTAssertNil(noNameUser, "Empty name is invalid")
     }
     
     //MARK: User model validations

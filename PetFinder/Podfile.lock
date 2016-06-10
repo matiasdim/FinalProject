@@ -1,18 +1,21 @@
 PODS:
   - Alamofire (3.4.0)
   - RappleProgressHUD (1.1.0)
+  - SwiftQRCode (2.0.2)
   - SwiftyUserDefaults (2.2.0)
 
 DEPENDENCIES:
   - Alamofire
   - RappleProgressHUD
+  - SwiftQRCode
   - SwiftyUserDefaults
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   RappleProgressHUD: 8b20270859792fb03ea8b2cece54126daa31b84e
+  SwiftQRCode: 68e920781686e376d70646b90c8ad87fd6523309
   SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
 
-PODFILE CHECKSUM: cf68e680e3208cabfff1e56b830231a1b9e2dce9
+PODFILE CHECKSUM: bf9e392103314e68b341f007b852cba053686503
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1
