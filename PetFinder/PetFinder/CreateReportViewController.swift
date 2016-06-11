@@ -79,7 +79,7 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
         }) { (error) in
             dispatch_async(dispatch_get_main_queue(),{
                 RappleActivityIndicatorView.stopAnimating()
-                let alert = UIAlertController(title: "Alert", message: "There was an error getting pet owner info. Please scan again!", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert = UIAlertController(title: "Alert", message: "There was an error getting pet owner info or may be pet is not registered. Please scan again!", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
                     self.navigationController?.popToRootViewControllerAnimated(false)
                 }))
