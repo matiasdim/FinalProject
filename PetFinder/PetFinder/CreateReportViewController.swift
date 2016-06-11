@@ -17,7 +17,7 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
     var myLocation:CLLocationCoordinate2D? = CLLocationCoordinate2D()
     
     let locationManager = CLLocationManager()
-
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var petOwnerName: UILabel!
@@ -33,16 +33,15 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
-        
         let borderColor = UIColor(colorLiteralRed: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
         observationsText.layer.borderColor = borderColor.CGColor;
         observationsText.layer.borderWidth = 0.5;
         observationsText.layer.cornerRadius = 5.0;
         
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         
         
         let reportButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(CreateReportViewController.reportPressed))
@@ -52,6 +51,13 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
         self.navigationItem.leftBarButtonItem = cancelButton
         
         let pet = Pet()
+        if (qrString.isEmpty) {
+            let alert = UIAlertController(title: "Alert", message: "There was an error reading code. Please scan again!", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+                self.navigationController?.popToRootViewControllerAnimated(false)
+            }))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
         RappleActivityIndicatorView.startAnimatingWithLabel("Getting info...", attributes: RappleAppleAttributes)
         pet.detail(qrString, successCallback:
             { (response) in
@@ -70,29 +76,71 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
                         self.locationManager.startMonitoringSignificantLocationChanges()
                     }
                 }
-            }) { (error) in
-                dispatch_async(dispatch_get_main_queue(),{
-                    RappleActivityIndicatorView.stopAnimating()
-                    let alert = UIAlertController(title: "Alert", message: "There was an error getting pet owner info. Please scan again!", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
-                        self.navigationController?.popToRootViewControllerAnimated(false)
-                    }))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                })
+        }) { (error) in
+            dispatch_async(dispatch_get_main_queue(),{
+                RappleActivityIndicatorView.stopAnimating()
+                let alert = UIAlertController(title: "Alert", message: "There was an error getting pet owner info. Please scan again!", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+                    self.navigationController?.popToRootViewControllerAnimated(false)
+                }))
+                self.presentViewController(alert, animated: true, completion: nil)
+            })
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
     }
     
     func reportPressed()
     {
-        let report = Report()
-        report.reporterName = reporterName.text!
-        report.reporterCel = reporterMobile.text!
-        report.reporterEmail = reporterEmail.text!
-        report.reporterObservations = observationsText.text!
-        report.petId = qrString
-        report.lat = "\(myLocation!.latitude)"
-        report.lon = "\(myLocation!.longitude)"
-        
+        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Denied || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Restricted
+        {
+            let alert = UIAlertController(title: "Alert", message: "Yo need to turn on location permission on device settings", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }else{
+            if (reporterName.text?.isEmpty)!{
+                let alert = UIAlertController(title: "Alert", message: "You must provide your name to create a report.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }else if !((reporterMobile.text?.isEmpty)!) || !((reporterEmail.text?.isEmpty)!) || !((observationsText.text?.isEmpty)!) {
+                let report = Report()
+                report.reporterName = reporterName.text!
+                report.reporterCel = reporterMobile.text!
+                report.reporterEmail = reporterEmail.text!
+                report.reporterObservations = observationsText.text!
+                report.petId = qrString
+                report.lat = "\(myLocation!.latitude)"
+                report.lon = "\(myLocation!.longitude)"
+                if (report.lat?.isEmpty)! || (report.lon?.isEmpty)! || (report.lat == "0.0" && report.lon == "0.0") {
+                    let alert = UIAlertController(title: "Alert", message: "Something went wrong getting your localization. Please try again.", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil ))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }else{
+                    if !report.reporterEmail!.isEmpty {
+                        if report.isValidEmail(){
+                            createReport(report)
+                        }else{
+                            let alert = UIAlertController(title: "Alert", message: "Please enter a valid email to continue.", preferredStyle: UIAlertControllerStyle.Alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil ))
+                            self.presentViewController(alert, animated: true, completion: nil)
+                        }
+                    }else{
+                        createReport(report)
+                    }
+                }
+            }else{
+                let alert = UIAlertController(title: "Alert", message: "You must provide at least one of the following data: \n Mobile number \n Email \n Observations", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            
+        }
+    }
+    
+    func createReport(report: Report)
+    {
         RappleActivityIndicatorView.startAnimatingWithLabel("Creating Report", attributes: RappleAppleAttributes)
         report.create(
             { (response) in
@@ -104,13 +152,13 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
                     }))
                     self.presentViewController(alert, animated: true, completion: nil)
                 })
-            }) { (error) in
-                dispatch_async(dispatch_get_main_queue(),{
-                    RappleActivityIndicatorView.stopAnimating()
-                    let alert = UIAlertController(title: "Alert", message: "There was an error creating report. Please scan again or call pet owner!", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                })
+        }) { (error) in
+            dispatch_async(dispatch_get_main_queue(),{
+                RappleActivityIndicatorView.stopAnimating()
+                let alert = UIAlertController(title: "Alert", message: "There was an error creating report. Please scan again or call pet owner!", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            })
         }
     }
     
@@ -118,7 +166,7 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
     {
         self.navigationController?.popToRootViewControllerAnimated(false)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -130,26 +178,18 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
             UIApplication.sharedApplication().openURL(url)
         }
     }
-
+    
     @IBAction func emailPressed(sender: AnyObject) {
         if let url = NSURL(string: "mailto://\(self.petOwnerEmail)") {
             UIApplication.sharedApplication().openURL(url)
         }
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         
         myLocation = locValue
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

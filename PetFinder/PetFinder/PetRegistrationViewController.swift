@@ -46,29 +46,36 @@ class PetRegistrationViewController: UIViewController {
     }
     
     @IBAction func sendPressed(sender: AnyObject) {
-        RappleActivityIndicatorView.startAnimatingWithLabel("Creating pet...", attributes: RappleAppleAttributes)
-        let pet = Pet()
-        pet.email = Defaults[.emailKey]
-        pet.observations = observationText.text!
-        pet.name = nameText.text!
-        pet.create(
-            { (response) in
-                dispatch_async(dispatch_get_main_queue(),{
-                    RappleActivityIndicatorView.stopAnimating()
-                    let alert = UIAlertController(title: "Success", message: "Pet successfully created", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
-                        self.navigationController?.popToRootViewControllerAnimated(false)
-                    }))
-                    self.presentViewController(alert, animated: true, completion: nil)
+        if (nameText.text?.isEmpty)! {
+            let alert = UIAlertController(title: "Alert", message: "You need provide the name of your pet", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }else{
+            RappleActivityIndicatorView.startAnimatingWithLabel("Creating pet...", attributes: RappleAppleAttributes)
+            let pet = Pet()
+            pet.email = Defaults[.emailKey]
+            pet.observations = observationText.text!
+            pet.name = nameText.text!
+            pet.create(
+                { (response) in
+                    dispatch_async(dispatch_get_main_queue(),{
+                        RappleActivityIndicatorView.stopAnimating()
+                        let alert = UIAlertController(title: "Success", message: "Pet successfully created", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+                            self.navigationController?.popToRootViewControllerAnimated(false)
+                        }))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        
+                    })
+                }, failCallback: { (error) in
+                    dispatch_async(dispatch_get_main_queue(),{
+                        RappleActivityIndicatorView.stopAnimating()
+                        let alert = UIAlertController(title: "Alert", message: "Error creating pet. Try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    })
+            })
 
-                })
-            }, failCallback: { (error) in
-                dispatch_async(dispatch_get_main_queue(),{
-                    RappleActivityIndicatorView.stopAnimating()
-                    let alert = UIAlertController(title: "Alert", message: "Error creating pet. Try again!", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                })
-        })
+        }
     }
 }

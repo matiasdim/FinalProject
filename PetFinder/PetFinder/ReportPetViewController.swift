@@ -23,7 +23,7 @@ class ReportPetViewController: UIViewController {
 //        scanner.prepareScan(view) { (stringValue) -> () in
 //            print(stringValue)
 //            dispatch_async(dispatch_get_main_queue(), {
-                self.qrString = "1"// stringValue
+                self.qrString = "5"// stringValue
                 self.performSegueWithIdentifier("createReportSegue", sender: self)
 //            })
 //            

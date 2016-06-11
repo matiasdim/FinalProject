@@ -19,7 +19,57 @@ class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Sign Up"
-        // Do any additional setup after loading the view.
+        
+        let reportButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(SignupViewController.sendPressed))
+        self.navigationItem.rightBarButtonItem = reportButton
+        
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(SignupViewController.cancelPressed))
+        self.navigationItem.leftBarButtonItem = cancelButton
+    }
+    
+    func sendPressed()
+    {
+        if (email.text?.isEmpty)! || (password.text?.isEmpty)! || (name.text?.isEmpty)! || (mobile.text?.isEmpty)! {
+            let alert = UIAlertController(title: "Alert", message: "You must provide a username, password, name and mobile number.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }else{
+            let user = User.init(email: email.text!, password: password.text!, mobile: mobile.text!, name: name.text!)
+            if user!.isValidEmail() && user!.isValidPassword() {
+                RappleActivityIndicatorView.startAnimatingWithLabel("Registring user...", attributes: RappleAppleAttributes)
+                user?.create(
+                    { (response) in
+                        Defaults[.userAuthenticated] = true
+                        let userObject: Dictionary = (response as? Dictionary<String, AnyObject>)!
+                        Defaults[.emailKey] = userObject["email"] as! String
+                        Defaults[.nameKey] = userObject["name"] as! String
+                        
+                        dispatch_async(dispatch_get_main_queue(),{
+                            RappleActivityIndicatorView.stopAnimating()
+                            self.navigationController?.popToRootViewControllerAnimated(false)
+                        })
+                    },
+                    failCallback: { (error) in
+                        dispatch_async(dispatch_get_main_queue(),{
+                            RappleActivityIndicatorView.stopAnimating()
+                            let alert = UIAlertController(title: "Alert", message: "Sign up error. \n Try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                            self.presentViewController(alert, animated: true, completion: nil)
+                        })
+                })
+            }else{
+                let alert = UIAlertController(title: "Alert", message: "Email must have correct format and password must not have less than 8 characters.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+            }
+            
+        }
+    }
+    
+    func cancelPressed()
+    {
+        self.navigationController?.popToRootViewControllerAnimated(false)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -30,42 +80,5 @@ class SignupViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func sendPressed(sender: AnyObject) {
-        RappleActivityIndicatorView.startAnimatingWithLabel("Registring user...", attributes: RappleAppleAttributes)
-        User.init(email: email.text!, password: password.text!, mobile: mobile.text!, name: name.text!)?.create(
-            { (response) in
-                Defaults[.userAuthenticated] = true
-                let userObject: Dictionary = (response as? Dictionary<String, AnyObject>)!
-                Defaults[.emailKey] = userObject["email"] as! String
-                Defaults[.nameKey] = userObject["name"] as! String
-                
-                dispatch_async(dispatch_get_main_queue(),{
-                    RappleActivityIndicatorView.stopAnimating()
-                    self.navigationController?.popToRootViewControllerAnimated(false)
-                })
-            },
-            failCallback: { (error) in
-                dispatch_async(dispatch_get_main_queue(),{
-                    RappleActivityIndicatorView.stopAnimating()
-                    let alert = UIAlertController(title: "Alert", message: "Sign up error. \n Try again!", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                })
-        })
-    }
-    @IBAction func closePressed(sender: AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(false)
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
