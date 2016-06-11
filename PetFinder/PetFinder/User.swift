@@ -72,4 +72,12 @@ class User {
         return emailTest.evaluateWithObject(email)
     }
     
+    func isValidPassword() -> Bool {
+        // println("validate calendar: \(testStr)")
+        if password.characters.count < 8{
+            return false
+        }
+        return true
+    }
+    
 }

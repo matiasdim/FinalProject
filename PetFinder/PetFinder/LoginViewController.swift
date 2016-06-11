@@ -30,28 +30,42 @@ class LoginViewController: UIViewController {
     
 
     @IBAction func sendPressed(sender: AnyObject) {
-        RappleActivityIndicatorView.startAnimatingWithLabel("Loging user...", attributes: RappleAppleAttributes)
-        User(email: email.text!, password: password.text!)?.login(
-            { (response) in
-                Defaults[.userAuthenticated] = true
-                let userObject: Dictionary = (response as? Dictionary<String, AnyObject>)!
-                Defaults[.emailKey] = userObject["email"] as! String
-                Defaults[.nameKey] = userObject["name"] as! String
-                    
-                dispatch_async(dispatch_get_main_queue(),{
-                    RappleActivityIndicatorView.stopAnimating()
-                    self.navigationController?.popViewControllerAnimated(false)
-                    //self.navigationController?.popToRootViewControllerAnimated(false)
+        if (email.text?.isEmpty)! || (password.text?.isEmpty)! {
+            let alert = UIAlertController(title: "Alert", message: "You must provide a username and password.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }else{
+            let user = User(email: email.text!, password: password.text!)
+            if user!.isValidEmail() && user!.isValidPassword() {
+                RappleActivityIndicatorView.startAnimatingWithLabel("Loging user...", attributes: RappleAppleAttributes)
+                user!.login(
+                    { (response) in
+                        Defaults[.userAuthenticated] = true
+                        let userObject: Dictionary = (response as? Dictionary<String, AnyObject>)!
+                        Defaults[.emailKey] = userObject["email"] as! String
+                        Defaults[.nameKey] = userObject["name"] as! String
+                        
+                        dispatch_async(dispatch_get_main_queue(),{
+                            RappleActivityIndicatorView.stopAnimating()
+                            self.navigationController?.popViewControllerAnimated(false)
+                            //self.navigationController?.popToRootViewControllerAnimated(false)
+                        })
+                    },
+                    failCallback: { (error) in
+                        dispatch_async(dispatch_get_main_queue(),{
+                            RappleActivityIndicatorView.stopAnimating()
+                            let alert = UIAlertController(title: "Alert", message: "Login error. \n Try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                            self.presentViewController(alert, animated: true, completion: nil)
+                        })
                 })
-            },
-            failCallback: { (error) in
-                dispatch_async(dispatch_get_main_queue(),{
-                    RappleActivityIndicatorView.stopAnimating()
-                    let alert = UIAlertController(title: "Alert", message: "Login error. \n Try again!", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                })
-        })
+            }else{
+                let alert = UIAlertController(title: "Alert", message: "Email must have correct format and password must not have less than 8 characters.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            
+        }
     }
     
     @IBAction func signupPressed(sender: AnyObject) {
