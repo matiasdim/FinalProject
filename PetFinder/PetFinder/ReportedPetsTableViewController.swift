@@ -28,33 +28,39 @@ class ReportedPetsTableViewController: UITableViewController {
             let vc = sb.instantiateViewControllerWithIdentifier("loginVC")
             self.navigationController?.pushViewController(vc, animated: false)
         }else{
-            RappleActivityIndicatorView.startAnimatingWithLabel("Getting Reports...", attributes: RappleAppleAttributes)
-            let report = Report()
-            report.petOwnerEmail = Defaults[.emailKey]
-            report.list(
-                { (response) in
-                    if let topLevelObj = response as? Array<AnyObject> {
-                        self.reports.removeAll()
-                        for i in topLevelObj {
-                            self.reports.append(i)
+            if NetworkManager.isInternetReachable(){
+                RappleActivityIndicatorView.startAnimatingWithLabel("Getting Reports...", attributes: RappleAppleAttributes)
+                let report = Report()
+                report.petOwnerEmail = Defaults[.emailKey]
+                report.list(
+                    { (response) in
+                        if let topLevelObj = response as? Array<AnyObject> {
+                            self.reports.removeAll()
+                            for i in topLevelObj {
+                                self.reports.append(i)
+                            }
                         }
-                    }
-                    dispatch_async(dispatch_get_main_queue(), {
-                        RappleActivityIndicatorView.stopAnimating()
-                        self.tableView.reloadData()
-                    })
-
-                }, failCallback:
-                { (error) in
-                    dispatch_async(dispatch_get_main_queue(),{
-                        RappleActivityIndicatorView.stopAnimating()
-                        let alert = UIAlertController(title: "Alert!", message: "There was an error fetching the reports", preferredStyle: UIAlertControllerStyle.Alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
-                            self.navigationController?.popToRootViewControllerAnimated(false)
-                        }))
-                        self.presentViewController(alert, animated: true, completion: nil)
-                    })
-            })
+                        dispatch_async(dispatch_get_main_queue(), {
+                            RappleActivityIndicatorView.stopAnimating()
+                            self.tableView.reloadData()
+                        })
+                        
+                    }, failCallback:
+                    { (error) in
+                        dispatch_async(dispatch_get_main_queue(),{
+                            RappleActivityIndicatorView.stopAnimating()
+                            let alert = UIAlertController(title: "Alert!", message: "There was an error fetching the reports", preferredStyle: UIAlertControllerStyle.Alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+                                self.navigationController?.popToRootViewControllerAnimated(false)
+                            }))
+                            self.presentViewController(alert, animated: true, completion: nil)
+                        })
+                })
+            }else{
+                let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                presentViewController(ac, animated: true, completion: nil)
+            }
         }
     }
 

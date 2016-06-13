@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AVReachability
 
 typealias CallbackSuccessBlock = (AnyObject)
 typealias CallbackFailBlock = (String)
@@ -165,6 +166,11 @@ class NetworkManager {
         }) { (error) in
             failCallback(error)
         }
+    }
+    
+    // Connection validator
+    static func isInternetReachable() -> Bool {
+        return Reachability.isConnectedToNetwork()
     }
 
     

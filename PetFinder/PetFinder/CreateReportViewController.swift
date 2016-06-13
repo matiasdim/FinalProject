@@ -57,34 +57,41 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
                 self.navigationController?.popToRootViewControllerAnimated(false)
             }))
             self.presentViewController(alert, animated: true, completion: nil)
+            return
         }
-        RappleActivityIndicatorView.startAnimatingWithLabel("Getting info...", attributes: RappleAppleAttributes)
-        pet.detail(qrString, successCallback:
-            { (response) in
-                RappleActivityIndicatorView.stopAnimating()
-                if let pet = response as? Dictionary<String, AnyObject>{
-                    if let user = pet["user"] as? Dictionary <String, AnyObject>{
-                        self.petOwnerName.text = user["name"] as? String
-                        self.petOwnerEmail.setTitle((user["email"] as? String), forState: UIControlState.Normal)
-                        self.petOwnerPhone.setTitle((user["mobile"] as? String), forState: UIControlState.Normal)
-                        
-                        //Location setup (to get coordinates)
-                        // Core Location Manager asks for GPS location
-                        self.locationManager.delegate = self
-                        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-                        self.locationManager.requestWhenInUseAuthorization()
-                        self.locationManager.startMonitoringSignificantLocationChanges()
+        if NetworkManager.isInternetReachable(){
+            RappleActivityIndicatorView.startAnimatingWithLabel("Getting info...", attributes: RappleAppleAttributes)
+            pet.detail(qrString, successCallback:
+                { (response) in
+                    RappleActivityIndicatorView.stopAnimating()
+                    if let pet = response as? Dictionary<String, AnyObject>{
+                        if let user = pet["user"] as? Dictionary <String, AnyObject>{
+                            self.petOwnerName.text = user["name"] as? String
+                            self.petOwnerEmail.setTitle((user["email"] as? String), forState: UIControlState.Normal)
+                            self.petOwnerPhone.setTitle((user["mobile"] as? String), forState: UIControlState.Normal)
+                            
+                            //Location setup (to get coordinates)
+                            // Core Location Manager asks for GPS location
+                            self.locationManager.delegate = self
+                            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                            self.locationManager.requestWhenInUseAuthorization()
+                            self.locationManager.startMonitoringSignificantLocationChanges()
+                        }
                     }
-                }
-        }) { (error) in
-            dispatch_async(dispatch_get_main_queue(),{
-                RappleActivityIndicatorView.stopAnimating()
-                let alert = UIAlertController(title: "Alert", message: "There was an error getting pet owner info or may be pet is not registered. Please scan again!", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
-                    self.navigationController?.popToRootViewControllerAnimated(false)
-                }))
-                self.presentViewController(alert, animated: true, completion: nil)
-            })
+            }) { (error) in
+                dispatch_async(dispatch_get_main_queue(),{
+                    RappleActivityIndicatorView.stopAnimating()
+                    let alert = UIAlertController(title: "Alert", message: "There was an error getting pet owner info or may be pet is not registered. Please scan again!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+                        self.navigationController?.popToRootViewControllerAnimated(false)
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                })
+            }
+        }else{
+            let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
         }
     }
     
@@ -141,24 +148,30 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
     
     func createReport(report: Report)
     {
-        RappleActivityIndicatorView.startAnimatingWithLabel("Creating Report", attributes: RappleAppleAttributes)
-        report.create(
-            { (response) in
+        if NetworkManager.isInternetReachable(){
+            RappleActivityIndicatorView.startAnimatingWithLabel("Creating Report", attributes: RappleAppleAttributes)
+            report.create(
+                { (response) in
+                    dispatch_async(dispatch_get_main_queue(),{
+                        RappleActivityIndicatorView.stopAnimating()
+                        let alert = UIAlertController(title: "Alert", message: "Report successfully created.", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+                            self.navigationController?.popToRootViewControllerAnimated(false)
+                        }))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    })
+            }) { (error) in
                 dispatch_async(dispatch_get_main_queue(),{
                     RappleActivityIndicatorView.stopAnimating()
-                    let alert = UIAlertController(title: "Alert", message: "Report successfully created.", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
-                        self.navigationController?.popToRootViewControllerAnimated(false)
-                    }))
+                    let alert = UIAlertController(title: "Alert", message: "There was an error creating report. Please scan again or call pet owner!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil))
                     self.presentViewController(alert, animated: true, completion: nil)
                 })
-        }) { (error) in
-            dispatch_async(dispatch_get_main_queue(),{
-                RappleActivityIndicatorView.stopAnimating()
-                let alert = UIAlertController(title: "Alert", message: "There was an error creating report. Please scan again or call pet owner!", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-            })
+            }
+        }else{
+            let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
         }
     }
     

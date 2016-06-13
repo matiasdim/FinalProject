@@ -40,37 +40,43 @@ class MenuTableViewController: UITableViewController {
     func getReports()
     {
         if Defaults.hasKey(.userAuthenticated) {
-            let report = Report()
-            report.petOwnerEmail = Defaults[.emailKey]
-            report.list(
-                { (reports) in
-                    if reports.count > Defaults[.reportsNumberKey]{
-                        if self.timer.valid{
-                            self.timer.invalidate()
+            if NetworkManager.isInternetReachable(){
+                let report = Report()
+                report.petOwnerEmail = Defaults[.emailKey]
+                report.list(
+                    { (reports) in
+                        if reports.count > Defaults[.reportsNumberKey]{
+                            if self.timer.valid{
+                                self.timer.invalidate()
+                            }
+                            // Build notificacion but before it update current reports number
+                            let user = User(email: Defaults[.emailKey])
+                            user?.reportsNum = String(reports.count)
+                            user?.updateReportsNum(
+                                { (response) in
+                                    dispatch_async(dispatch_get_main_queue(),{
+                                        self.createNotification(reports.count)
+                                        Defaults[.reportsNumberKey] = reports.count
+                                        if self.timer.valid{
+                                            self.startTimer()
+                                        }
+                                    })
+                                }, failCallback: { (error) in
+                                    dispatch_async(dispatch_get_main_queue(),{
+                                        self.createNotification(reports.count)
+                                        if self.timer.valid{
+                                            self.startTimer()
+                                        }
+                                    })
+                            })
                         }
-                        // Build notificacion but before it update current reports number
-                        let user = User(email: Defaults[.emailKey])
-                        user?.reportsNum = String(reports.count)
-                        user?.updateReportsNum(
-                            { (response) in
-                                dispatch_async(dispatch_get_main_queue(),{
-                                    self.createNotification(reports.count)
-                                    Defaults[.reportsNumberKey] = reports.count
-                                    if self.timer.valid{
-                                        self.startTimer()
-                                    }
-                                })
-                            }, failCallback: { (error) in
-                                dispatch_async(dispatch_get_main_queue(),{
-                                    self.createNotification(reports.count)
-                                    if self.timer.valid{
-                                        self.startTimer()
-                                    }
-                                })
-                        })
-                    }
-            }) { (error) in
-                return
+                }) { (error) in
+                    return
+                }
+            }else{
+                let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                presentViewController(ac, animated: true, completion: nil)
             }
         }
     }

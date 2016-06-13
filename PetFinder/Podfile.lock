@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (3.4.0)
+  - AVReachability (0.1.1)
   - IQKeyboardManagerSwift (4.0.3)
   - RappleProgressHUD (1.1.0)
   - SwiftQRCode (2.0.2)
@@ -7,6 +8,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - AVReachability
   - IQKeyboardManagerSwift
   - RappleProgressHUD
   - SwiftQRCode
@@ -14,11 +16,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  AVReachability: 4ee27382ea0975f25784e71a716c75aa62ef1f72
   IQKeyboardManagerSwift: b6883b720b0e76473692fdc80828442566e1075f
   RappleProgressHUD: 8b20270859792fb03ea8b2cece54126daa31b84e
   SwiftQRCode: 68e920781686e376d70646b90c8ad87fd6523309
   SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
 
-PODFILE CHECKSUM: 9e669354bb61e74ea7a4a5f3a8f15270d760a938
+PODFILE CHECKSUM: b02f22cbe3e810301f1ce91c22e51c8f729d4845
 
 COCOAPODS: 1.0.1

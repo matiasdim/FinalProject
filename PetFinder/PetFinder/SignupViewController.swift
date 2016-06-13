@@ -34,37 +34,42 @@ class SignupViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }else{
-            let user = User.init(email: email.text!, password: password.text!, mobile: mobile.text!, name: name.text!)
-            if user!.isValidEmail() && user!.isValidPassword() {
-                RappleActivityIndicatorView.startAnimatingWithLabel("Registring user...", attributes: RappleAppleAttributes)
-                user?.create(
-                    { (response) in
-                        Defaults[.userAuthenticated] = true
-                        let userObject: Dictionary = (response as? Dictionary<String, AnyObject>)!
-                        Defaults[.emailKey] = userObject["email"] as! String
-                        Defaults[.nameKey] = userObject["name"] as! String
-                        Defaults[.reportsNumberKey] = 0
-                        
-                        dispatch_async(dispatch_get_main_queue(),{
-                            RappleActivityIndicatorView.stopAnimating()
-                            self.navigationController?.popToRootViewControllerAnimated(false)
-                        })
-                    },
-                    failCallback: { (error) in
-                        dispatch_async(dispatch_get_main_queue(),{
-                            RappleActivityIndicatorView.stopAnimating()
-                            let alert = UIAlertController(title: "Alert", message: "Sign up error. \n Try again!", preferredStyle: UIAlertControllerStyle.Alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                            self.presentViewController(alert, animated: true, completion: nil)
-                        })
-                })
+            if NetworkManager.isInternetReachable(){
+                let user = User.init(email: email.text!, password: password.text!, mobile: mobile.text!, name: name.text!)
+                if user!.isValidEmail() && user!.isValidPassword() {
+                    RappleActivityIndicatorView.startAnimatingWithLabel("Registring user...", attributes: RappleAppleAttributes)
+                    user?.create(
+                        { (response) in
+                            Defaults[.userAuthenticated] = true
+                            let userObject: Dictionary = (response as? Dictionary<String, AnyObject>)!
+                            Defaults[.emailKey] = userObject["email"] as! String
+                            Defaults[.nameKey] = userObject["name"] as! String
+                            Defaults[.reportsNumberKey] = 0
+                            
+                            dispatch_async(dispatch_get_main_queue(),{
+                                RappleActivityIndicatorView.stopAnimating()
+                                self.navigationController?.popToRootViewControllerAnimated(false)
+                            })
+                        },
+                        failCallback: { (error) in
+                            dispatch_async(dispatch_get_main_queue(),{
+                                RappleActivityIndicatorView.stopAnimating()
+                                let alert = UIAlertController(title: "Alert", message: "Sign up error. \n Try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                                self.presentViewController(alert, animated: true, completion: nil)
+                            })
+                    })
+                }else{
+                    let alert = UIAlertController(title: "Alert", message: "Email must have correct format and password must not have less than 8 characters.", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                }
             }else{
-                let alert = UIAlertController(title: "Alert", message: "Email must have correct format and password must not have less than 8 characters.", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-                
+                let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                presentViewController(ac, animated: true, completion: nil)
             }
-            
         }
     }
     

@@ -51,31 +51,36 @@ class PetRegistrationViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }else{
-            RappleActivityIndicatorView.startAnimatingWithLabel("Creating pet...", attributes: RappleAppleAttributes)
-            let pet = Pet()
-            pet.email = Defaults[.emailKey]
-            pet.observations = observationText.text!
-            pet.name = nameText.text!
-            pet.create(
-                { (response) in
-                    dispatch_async(dispatch_get_main_queue(),{
-                        RappleActivityIndicatorView.stopAnimating()
-                        let alert = UIAlertController(title: "Success", message: "Pet successfully created", preferredStyle: UIAlertControllerStyle.Alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
-                            self.navigationController?.popToRootViewControllerAnimated(false)
-                        }))
-                        self.presentViewController(alert, animated: true, completion: nil)
-                        
-                    })
-                }, failCallback: { (error) in
-                    dispatch_async(dispatch_get_main_queue(),{
-                        RappleActivityIndicatorView.stopAnimating()
-                        let alert = UIAlertController(title: "Alert", message: "Error creating pet. Try again!", preferredStyle: UIAlertControllerStyle.Alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                        self.presentViewController(alert, animated: true, completion: nil)
-                    })
-            })
-
+            if NetworkManager.isInternetReachable(){
+                RappleActivityIndicatorView.startAnimatingWithLabel("Creating pet...", attributes: RappleAppleAttributes)
+                let pet = Pet()
+                pet.email = Defaults[.emailKey]
+                pet.observations = observationText.text!
+                pet.name = nameText.text!
+                pet.create(
+                    { (response) in
+                        dispatch_async(dispatch_get_main_queue(),{
+                            RappleActivityIndicatorView.stopAnimating()
+                            let alert = UIAlertController(title: "Success", message: "Pet successfully created", preferredStyle: UIAlertControllerStyle.Alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+                                self.navigationController?.popToRootViewControllerAnimated(false)
+                            }))
+                            self.presentViewController(alert, animated: true, completion: nil)
+                            
+                        })
+                    }, failCallback: { (error) in
+                        dispatch_async(dispatch_get_main_queue(),{
+                            RappleActivityIndicatorView.stopAnimating()
+                            let alert = UIAlertController(title: "Alert", message: "Error creating pet. Try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                            self.presentViewController(alert, animated: true, completion: nil)
+                        })
+                })
+            }else{
+                let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                presentViewController(ac, animated: true, completion: nil)
+            }
         }
     }
 }

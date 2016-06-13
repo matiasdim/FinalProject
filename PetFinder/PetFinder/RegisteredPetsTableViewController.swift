@@ -28,30 +28,36 @@ class RegisteredPetsTableViewController: UITableViewController {
             let vc = sb.instantiateViewControllerWithIdentifier("loginVC")
             self.navigationController?.pushViewController(vc, animated: false)
         }else{
-            let pet = Pet()
-            pet.email = Defaults[.emailKey]
-            RappleActivityIndicatorView.startAnimatingWithLabel("Getting your pets...", attributes: RappleAppleAttributes)
-            pet.list(
-                { (response) in
-                    if let topLevelObj = response as? Array<AnyObject> {
-                        self.pets.removeAll()
-                        for i in topLevelObj {
-                            self.pets.append(i)
+            if NetworkManager.isInternetReachable(){
+                let pet = Pet()
+                pet.email = Defaults[.emailKey]
+                RappleActivityIndicatorView.startAnimatingWithLabel("Getting your pets...", attributes: RappleAppleAttributes)
+                pet.list(
+                    { (response) in
+                        if let topLevelObj = response as? Array<AnyObject> {
+                            self.pets.removeAll()
+                            for i in topLevelObj {
+                                self.pets.append(i)
+                            }
                         }
-                    }
-                    dispatch_async(dispatch_get_main_queue(), {
+                        dispatch_async(dispatch_get_main_queue(), {
+                            RappleActivityIndicatorView.stopAnimating()
+                            self.tableView.reloadData()
+                        })
+                }) { (error) in
+                    dispatch_async(dispatch_get_main_queue(),{
                         RappleActivityIndicatorView.stopAnimating()
-                        self.tableView.reloadData()
+                        let alert = UIAlertController(title: "Alert!", message: "There was an error fetching your pets", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+                            self.navigationController?.popToRootViewControllerAnimated(false)
+                        }))
+                        self.presentViewController(alert, animated: true, completion: nil)
                     })
-            }) { (error) in
-                dispatch_async(dispatch_get_main_queue(),{
-                    RappleActivityIndicatorView.stopAnimating()
-                    let alert = UIAlertController(title: "Alert!", message: "There was an error fetching your pets", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
-                        self.navigationController?.popToRootViewControllerAnimated(false)
-                    }))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                })
+                }
+            }else{
+                let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                presentViewController(ac, animated: true, completion: nil)
             }
         }
     }

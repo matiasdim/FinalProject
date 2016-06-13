@@ -32,35 +32,40 @@
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             }else{
-                let user = User(email: email.text!, password: password.text!)
-                if user!.isValidEmail() && user!.isValidPassword() {
-                    RappleActivityIndicatorView.startAnimatingWithLabel("Loging user...", attributes: RappleAppleAttributes)
-                    user!.login(
-                        { (response) in
-                            Defaults[.userAuthenticated] = true
-                            let userObject: Dictionary = (response as? Dictionary<String, AnyObject>)!
-                            Defaults[.emailKey] = userObject["email"] as! String
-                            Defaults[.nameKey] = userObject["name"] as! String
-                            Defaults[.reportsNumberKey] = userObject["reports_count"] as! Int
-                            dispatch_async(dispatch_get_main_queue(),{
-                                RappleActivityIndicatorView.stopAnimating()
-                                self.navigationController?.popViewControllerAnimated(false)
-                            })
-                        },
-                        failCallback: { (error) in
-                            dispatch_async(dispatch_get_main_queue(),{
-                                RappleActivityIndicatorView.stopAnimating()
-                                let alert = UIAlertController(title: "Alert", message: "Login error. \n Try again!", preferredStyle: UIAlertControllerStyle.Alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                                self.presentViewController(alert, animated: true, completion: nil)
-                            })
-                    })
+                if NetworkManager.isInternetReachable(){
+                    let user = User(email: email.text!, password: password.text!)
+                    if user!.isValidEmail() && user!.isValidPassword() {
+                        RappleActivityIndicatorView.startAnimatingWithLabel("Loging user...", attributes: RappleAppleAttributes)
+                        user!.login(
+                            { (response) in
+                                Defaults[.userAuthenticated] = true
+                                let userObject: Dictionary = (response as? Dictionary<String, AnyObject>)!
+                                Defaults[.emailKey] = userObject["email"] as! String
+                                Defaults[.nameKey] = userObject["name"] as! String
+                                Defaults[.reportsNumberKey] = userObject["reports_count"] as! Int
+                                dispatch_async(dispatch_get_main_queue(),{
+                                    RappleActivityIndicatorView.stopAnimating()
+                                    self.navigationController?.popViewControllerAnimated(false)
+                                })
+                            },
+                            failCallback: { (error) in
+                                dispatch_async(dispatch_get_main_queue(),{
+                                    RappleActivityIndicatorView.stopAnimating()
+                                    let alert = UIAlertController(title: "Alert", message: "Login error. \n Try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                                    self.presentViewController(alert, animated: true, completion: nil)
+                                })
+                        })
+                    }else{
+                        let alert = UIAlertController(title: "Alert", message: "Email must have correct format and password must not have less than 8 characters.", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    }
                 }else{
-                    let alert = UIAlertController(title: "Alert", message: "Email must have correct format and password must not have less than 8 characters.", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
+                    ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                    presentViewController(ac, animated: true, completion: nil)
                 }
-                
             }
         }
         
