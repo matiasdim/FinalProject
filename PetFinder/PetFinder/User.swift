@@ -15,11 +15,19 @@ import Alamofire
 class User {
     //To manage user defaults easly
     var email: String
-    var password: String
+    var password: String!
     var name: String!
     var mobile: String!
+    var reportsNum: String!
     
     let networkManager: NetworkManager = NetworkManager()
+    
+    init?(email: String){
+        if email.isEmpty {
+            return nil
+        }
+        self.email = email
+    }
     
     init?(email: String, password: String){
         if email.isEmpty || password.isEmpty  {
@@ -41,7 +49,7 @@ class User {
     
     func create(successCallback: (AnyObject) -> (), failCallback: (String) -> ())
     {
-        let parameters = ["email": email,"password": password, "name": name!, "mobile": mobile!]
+        let parameters = ["email": email,"password": password!, "name": name!, "mobile": mobile!]
         
         networkManager.createUser(parameters, successCallback:
             { (response) in
@@ -51,9 +59,21 @@ class User {
         }
     }
     
+    func updateReportsNum(successCallback: (AnyObject) -> (), failCallback: (String) -> ())
+    {
+        let parameters = ["email": email, "reports_num": reportsNum!]
+        
+        networkManager.updateReportsNum(parameters, successCallback:
+            { (response) in
+                successCallback(response)
+        }) { (error) in
+            failCallback(error)
+        }
+    }
+    
     func login(successCallback: (AnyObject) -> (), failCallback: (String) -> ())
     {
-        let parameters = ["email": email, "password": password]
+        let parameters = ["email": email, "password": password!]
         
         networkManager.loginUser(parameters, successCallback:
             { (response) in

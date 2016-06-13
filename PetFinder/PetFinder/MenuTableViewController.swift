@@ -13,6 +13,7 @@ extension DefaultsKeys {
     static let emailKey = DefaultsKey<String>("email")
     static let nameKey = DefaultsKey<String>("name")
     static let userAuthenticated = DefaultsKey<Bool>("authenticated")
+    static let reportsNumberKey = DefaultsKey<Int>("reportsNum")
 }
 
 
@@ -20,13 +21,73 @@ extension DefaultsKeys {
 class MenuTableViewController: UITableViewController {
 
     let menuItems = ["Home", "Register Your Pet", "Registered Pets", "Reports of your Pets", "Report Pet Found", "About Us"]
+    var timer = NSTimer()
     
     @IBOutlet weak var loginButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.navigationItem.title = "Pet Finder"
-        
+        let settings = UIApplication.sharedApplication().currentUserNotificationSettings()
+        if settings!.types == .None {
+            let ac = UIAlertController(title: "Can't notify", message: "We don't have permission to show you notifications, Please turn on permission on your device settings.", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
+            return
+        }
+    }
+    
+    
+    func getReports()
+    {
+        if Defaults.hasKey(.userAuthenticated) {
+            let report = Report()
+            report.petOwnerEmail = Defaults[.emailKey]
+            report.list(
+                { (reports) in
+                    if reports.count > Defaults[.reportsNumberKey]{
+                        if self.timer.valid{
+                            self.timer.invalidate()
+                        }
+                        // Build notificacion but before it update current reports number
+                        let user = User(email: Defaults[.emailKey])
+                        user?.reportsNum = String(reports.count)
+                        user?.updateReportsNum(
+                            { (response) in
+                                dispatch_async(dispatch_get_main_queue(),{
+                                    self.createNotification(reports.count)
+                                    Defaults[.reportsNumberKey] = reports.count
+                                    if self.timer.valid{
+                                        self.startTimer()
+                                    }
+                                })
+                            }, failCallback: { (error) in
+                                dispatch_async(dispatch_get_main_queue(),{
+                                    self.createNotification(reports.count)
+                                    if self.timer.valid{
+                                        self.startTimer()
+                                    }
+                                })
+                        })
+                    }
+            }) { (error) in
+                return
+            }
+        }
+    }
+    
+    func startTimer()
+    {
+        timer = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: #selector(MenuTableViewController.getReports), userInfo: nil, repeats: true)
+    }
+    
+    func createNotification(currentReports: Int) {
+        let notification = UILocalNotification()
+        notification.fireDate = NSDate(timeIntervalSinceNow: 3)
+        notification.alertBody = "You have \(currentReports - Defaults[.reportsNumberKey]) new report(s) of your pets"
+        notification.alertAction = "to open app and see."
+        notification.soundName = UILocalNotificationDefaultSoundName
+        notification.userInfo = ["reports": ""]
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -35,6 +96,7 @@ class MenuTableViewController: UITableViewController {
         if Defaults.hasKey(.userAuthenticated) {
             self.navigationItem.rightBarButtonItem?.title = "Log Out"
             self.navigationItem.title = Defaults[.nameKey]
+            startTimer()
         }else{
             self.navigationItem.rightBarButtonItem?.title = "Log In/Sign Up"
             self.navigationItem.title = ""
@@ -121,6 +183,7 @@ class MenuTableViewController: UITableViewController {
                 Defaults.remove(.userAuthenticated)
                 Defaults.remove(.emailKey)
                 Defaults.remove(.nameKey)
+                Defaults.remove(.reportsNumberKey)
                 self.navigationItem.rightBarButtonItem?.title = "Log In/Sign Up"
                 self.navigationItem.title = ""
             }else{

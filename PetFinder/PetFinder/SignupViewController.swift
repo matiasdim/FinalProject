@@ -43,6 +43,7 @@ class SignupViewController: UIViewController {
                         let userObject: Dictionary = (response as? Dictionary<String, AnyObject>)!
                         Defaults[.emailKey] = userObject["email"] as! String
                         Defaults[.nameKey] = userObject["name"] as! String
+                        Defaults[.reportsNumberKey] = 0
                         
                         dispatch_async(dispatch_get_main_queue(),{
                             RappleActivityIndicatorView.stopAnimating()

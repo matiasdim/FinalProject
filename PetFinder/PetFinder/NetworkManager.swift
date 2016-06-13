@@ -86,13 +86,24 @@ class NetworkManager {
     
     func loginUser(parameters: Dictionary<String,String>, successCallback: (AnyObject) -> (), failCallback: (String) -> ())
     {
-        basicPut("/users/update", parameters: parameters, timeOut: 240, successCallback:
+        
+        basicPost("/users/update", parameters: parameters, timeOut: 240, successCallback:
             { (response) in
                 successCallback(response)
             }) { (error) in
                 failCallback(error)
             }
     }
+    func updateReportsNum(parameters: Dictionary<String,String>, successCallback: (AnyObject) -> (), failCallback: (String) -> ())
+    {
+        basicPut("/users/update/reports", parameters: parameters, timeOut: 240, successCallback:
+            { (response) in
+                successCallback(response)
+        }) { (error) in
+            failCallback(error)
+        }
+    }
+    
     
      // MARK: - Pet calls
     func createPet(parameters: Dictionary<String,String>, successCallback: (AnyObject) -> (), failCallback: (String) -> ())

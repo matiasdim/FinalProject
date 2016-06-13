@@ -10,20 +10,59 @@ import UIKit
 import CoreData
 import IQKeyboardManagerSwift
 
+//extension UIApplication {
+//    class func topViewController(base: UIViewController? = UIApplication.sharedApplication().keyWindow?.rootViewController) -> UIViewController? {
+//        if let nav = base as? UINavigationController {
+//            return topViewController(nav.visibleViewController)
+//        }
+//        if let tab = base as? UITabBarController {
+//            let moreNavigationController = tab.moreNavigationController
+//            
+//            if let top = moreNavigationController.topViewController where top.view.window != nil {
+//                return topViewController(top)
+//            } else if let selected = tab.selectedViewController {
+//                return topViewController(selected)
+//            }
+//        }
+//        if let presented = base?.presentedViewController {
+//            return topViewController(presented)
+//        }
+//        return base
+//    }
+//}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+//    var backgroundUpdateTask: UIBackgroundTaskIdentifier = 0
+    var timer = NSTimer()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         IQKeyboardManager.sharedManager().enable = true
+        
+        let notificationSettings = UIUserNotificationSettings(forTypes: .Alert, categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+        
+        if let options = launchOptions {
+            if let notification = options[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
+                if let _ = notification.userInfo {
+                    
+                }
+            }
+        }
 
         return true
     }
 
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        let alert = UIAlertController(title: "Alert", message: "You have new reports of your pets.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -32,10 +71,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler({
+            self.timer.invalidate()
+            self.runBackgroundTask()
+        })
+        self.runBackgroundTask()
+    }
+    
+    func runBackgroundTask() {
+        dispatch_async(dispatch_get_main_queue(),{
+            if let rootViewController = self.window?.rootViewController {
+                let vc = (rootViewController as! UINavigationController).viewControllers.first as! MenuTableViewController
+                if vc.timer.valid{
+                    vc.timer.invalidate()
+                }
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(10, target: vc.self, selector: #selector(vc.getReports), userInfo: nil, repeats: true)
+            }
+        })
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+//        UIApplication.sharedApplication().endBackgroundTask(self.backgroundUpdateTask)
+        self.timer.invalidate()
+        if let rootViewController = self.window?.rootViewController {
+            let vc = (rootViewController as! UINavigationController).viewControllers.first as! MenuTableViewController
+            vc.timer = NSTimer.scheduledTimerWithTimeInterval(10, target: vc.self, selector: #selector(vc.getReports), userInfo: nil, repeats: true)
+        }
     }
 
     func applicationDidBecomeActive(application: UIApplication) {

@@ -41,11 +41,10 @@
                             let userObject: Dictionary = (response as? Dictionary<String, AnyObject>)!
                             Defaults[.emailKey] = userObject["email"] as! String
                             Defaults[.nameKey] = userObject["name"] as! String
-                            
+                            Defaults[.reportsNumberKey] = userObject["reports_count"] as! Int
                             dispatch_async(dispatch_get_main_queue(),{
                                 RappleActivityIndicatorView.stopAnimating()
                                 self.navigationController?.popViewControllerAnimated(false)
-                                //self.navigationController?.popToRootViewControllerAnimated(false)
                             })
                         },
                         failCallback: { (error) in
