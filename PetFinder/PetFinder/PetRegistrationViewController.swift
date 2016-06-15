@@ -16,11 +16,14 @@ class PetRegistrationViewController: UIViewController {
 
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var observationText: UITextView!
+    @IBOutlet weak var sendButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
                 
         nameText.setPreferences()
         observationText.setPreferences()
+        
+        sendButton.setPreferences()
         
         self.navigationItem.title = "Register Pet"
 //        let borderColor = UIColor(colorLiteralRed: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)

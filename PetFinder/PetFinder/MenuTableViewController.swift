@@ -31,6 +31,12 @@ extension UITextView {
         self.layer.borderWidth = 2
     }
 }
+extension UIButton{
+    func setPreferences(){
+        self.layer.cornerRadius = 15
+        self.clipsToBounds = true
+    }
+}
 
 class MenuTableViewController: UITableViewController {
 
