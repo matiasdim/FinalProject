@@ -37,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 //    var backgroundUpdateTask: UIBackgroundTaskIdentifier = 0
     var timer = NSTimer()
+    var shouldRotate = true
+
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -109,6 +111,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> UIInterfaceOrientationMask {
+        
+        if (shouldRotate == true){
+            return UIInterfaceOrientationMask.All
+        }
+        
+        return UIInterfaceOrientationMask.Portrait
+        
     }
 
     // MARK: - Core Data stack
