@@ -18,6 +18,13 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var myTextFields = [UITextField]()
+        
+        myTextFields = [email, password]
+        for item in myTextFields {
+            item.setPreferences()
+        }
+        
         self.navigationItem.title = "Login"
         let reportButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(SignupViewController.sendPressed))
         self.navigationItem.rightBarButtonItem = reportButton

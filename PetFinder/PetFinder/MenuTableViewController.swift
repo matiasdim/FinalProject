@@ -17,15 +17,26 @@ extension DefaultsKeys {
     static let reportsNumberKey = DefaultsKey<Int>("reportsNum")
 }
 
+extension UITextField {
+    func setPreferences() {
+        self.layer.cornerRadius = 8
+        self.layer.borderColor = UIColor.grayColor().CGColor
+        self.layer.borderWidth = 2
+        // etc.
+    }
+}
+
 class MenuTableViewController: UITableViewController {
 
     let menuItems = ["Home", "Register Your Pet", "Registered Pets", "Reports of your Pets", "Report Pet Found", "About Us"]
     var timer = NSTimer()
     
     @IBOutlet weak var loginButton: UIBarButtonItem!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         self.navigationController!.navigationBar.barTintColor = UIColor.blackColor()
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
