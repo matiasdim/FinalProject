@@ -26,6 +26,8 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
     var phone: String!
     var currentPetName: String!
     var email: String!
+    var latitude: CLLocationDegrees!
+    var longitude: CLLocationDegrees!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,12 +48,13 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
             email = (report["reporterEmail"] as? String)
             emailButton.setTitle(email, forState: UIControlState.Normal)
             
-            let latitude = CLLocationDegrees((report["lat"] as? String)!)
-            let longitude = CLLocationDegrees((report["lon"] as? String)!)
+            latitude = CLLocationDegrees((report["lat"] as? String)!)
+            longitude = CLLocationDegrees((report["lon"] as? String)!)
             configMap(CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!), title: currentPetName, subtitle: "Is here!")
         }
-
-        //Get coordinates from detailItem
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openMaps))
+        mapView.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -81,6 +84,24 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
         anotation.subtitle = subtitle
         mapView.addAnnotation(anotation)
     }
+    
+    func openMaps()
+    {
+        if latitude != nil && longitude != nil {
+
+            let regionDistance:CLLocationDistance = 10000
+            let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+            let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+            let options = [
+                MKLaunchOptionsMapCenterKey: NSValue(MKCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: regionSpan.span)
+            ]
+            let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = "\(currentPetName)"
+            mapItem.openInMapsWithLaunchOptions(options)
+        }
+    }
 
     @IBAction func phonePressed(sender: AnyObject) {
         if let url = NSURL(string: "tel://\(phone)") {
@@ -99,14 +120,5 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

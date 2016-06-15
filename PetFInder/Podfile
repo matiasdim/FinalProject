@@ -11,6 +11,7 @@ target 'PetFinder' do
     pod 'RappleProgressHUD'
     pod 'SwiftQRCode'
     pod 'IQKeyboardManagerSwift'
+    pod 'AVReachability'
 
   target 'PetFinderTests' do
     inherit! :search_paths
