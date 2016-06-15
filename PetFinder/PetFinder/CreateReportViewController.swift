@@ -9,6 +9,7 @@
 import UIKit
 import RappleProgressHUD
 import CoreLocation
+import SCLAlertView
 
 class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -33,6 +34,8 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "Report"
+        
         let borderColor = UIColor(colorLiteralRed: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
         observationsText.layer.borderColor = borderColor.CGColor;
         observationsText.layer.borderWidth = 0.5;
@@ -52,11 +55,20 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
         
         let pet = Pet()
         if (qrString.isEmpty) {
-            let alert = UIAlertController(title: "Alert", message: "There was an error reading code. Please scan again!", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+            let appearance = SCLAlertView.SCLAppearance(
+                showCloseButton: false
+            )
+            let alertView = SCLAlertView(appearance: appearance)
+            alertView.addButton("OK") {
                 self.navigationController?.popToRootViewControllerAnimated(false)
-            }))
-            self.presentViewController(alert, animated: true, completion: nil)
+            }
+            alertView.showError("Error", subTitle: "There was an error reading code. Please scan again!")
+            
+//            let alert = UIAlertController(title: "Alert", message: "There was an error reading code. Please scan again!", preferredStyle: UIAlertControllerStyle.Alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+//                self.navigationController?.popToRootViewControllerAnimated(false)
+//            }))
+//            self.presentViewController(alert, animated: true, completion: nil)
             return
         }
         if NetworkManager.isInternetReachable(){
@@ -81,17 +93,27 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
             }) { (error) in
                 dispatch_async(dispatch_get_main_queue(),{
                     RappleActivityIndicatorView.stopAnimating()
-                    let alert = UIAlertController(title: "Alert", message: "There was an error getting pet owner info or may be pet is not registered. Please scan again!", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+                    let appearance = SCLAlertView.SCLAppearance(
+                        showCloseButton: false
+                    )
+                    let alertView = SCLAlertView(appearance: appearance)
+                    alertView.addButton("OK") {
                         self.navigationController?.popToRootViewControllerAnimated(false)
-                    }))
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    }
+                    alertView.showWarning("Error", subTitle: "There was an error getting pet owner info or may be pet is not registered.")
+                    
+//                    let alert = UIAlertController(title: "Alert", message: "There was an error getting pet owner info or may be pet is not registered. Please scan again!", preferredStyle: UIAlertControllerStyle.Alert)
+//                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+//                        self.navigationController?.popToRootViewControllerAnimated(false)
+//                    }))
+//                    self.presentViewController(alert, animated: true, completion: nil)
                 })
             }
         }else{
-            let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            presentViewController(ac, animated: true, completion: nil)
+            SCLAlertView().showWarning("Alert", subTitle: "There isn't internet connection. Please connect to internet and try again.")
+//            let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
+//            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//            presentViewController(ac, animated: true, completion: nil)
         }
     }
     
@@ -101,16 +123,21 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
     
     func reportPressed()
     {
+        self.view.endEditing(true)
         if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Denied || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Restricted
         {
-            let alert = UIAlertController(title: "Alert", message: "Yo need to turn on location permission on device settings", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            SCLAlertView().showWarning("Alert", subTitle: "You need to turn on location permission on device settings.")
+
+//            let alert = UIAlertController(title: "Alert", message: "Yo need to turn on location permission on device settings", preferredStyle: UIAlertControllerStyle.Alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+//            self.presentViewController(alert, animated: true, completion: nil)
         }else{
             if (reporterName.text?.isEmpty)!{
-                let alert = UIAlertController(title: "Alert", message: "You must provide your name to create a report.", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                SCLAlertView().showError("Error", subTitle: "You must provide your name to create a report.")
+
+//                let alert = UIAlertController(title: "Alert", message: "You must provide your name to create a report.", preferredStyle: UIAlertControllerStyle.Alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+//                self.presentViewController(alert, animated: true, completion: nil)
             }else if !((reporterMobile.text?.isEmpty)!) || !((reporterEmail.text?.isEmpty)!) || !((observationsText.text?.isEmpty)!) {
                 let report = Report()
                 report.reporterName = reporterName.text!
@@ -121,26 +148,32 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
                 report.lat = "\(myLocation!.latitude)"
                 report.lon = "\(myLocation!.longitude)"
                 if (report.lat?.isEmpty)! || (report.lon?.isEmpty)! || (report.lat == "0.0" && report.lon == "0.0") {
-                    let alert = UIAlertController(title: "Alert", message: "Something went wrong getting your localization. Please try again.", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil ))
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    SCLAlertView().showError("Error", subTitle: "Something went wrong getting your localization. Please try again.")
+
+//                    let alert = UIAlertController(title: "Alert", message: "Something went wrong getting your localization. Please try again.", preferredStyle: UIAlertControllerStyle.Alert)
+//                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil ))
+//                    self.presentViewController(alert, animated: true, completion: nil)
                 }else{
                     if !report.reporterEmail!.isEmpty {
                         if report.isValidEmail(){
                             createReport(report)
                         }else{
-                            let alert = UIAlertController(title: "Alert", message: "Please enter a valid email to continue.", preferredStyle: UIAlertControllerStyle.Alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil ))
-                            self.presentViewController(alert, animated: true, completion: nil)
+                            SCLAlertView().showError("Error", subTitle: "Please enter a valid email to continue.")
+
+//                            let alert = UIAlertController(title: "Alert", message: "Please enter a valid email to continue.", preferredStyle: UIAlertControllerStyle.Alert)
+//                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil ))
+//                            self.presentViewController(alert, animated: true, completion: nil)
                         }
                     }else{
                         createReport(report)
                     }
                 }
             }else{
-                let alert = UIAlertController(title: "Alert", message: "You must provide at least one of the following data: \n Mobile number \n Email \n Observations", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                SCLAlertView().showError("Error", subTitle: "You must provide at least one of the following data: \n Mobile number. \n Email. \n Observations.")
+
+//                let alert = UIAlertController(title: "Alert", message: "You must provide at least one of the following data: \n Mobile number \n Email \n Observations", preferredStyle: UIAlertControllerStyle.Alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+//                self.presentViewController(alert, animated: true, completion: nil)
             }
             
         }
@@ -154,24 +187,36 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
                 { (response) in
                     dispatch_async(dispatch_get_main_queue(),{
                         RappleActivityIndicatorView.stopAnimating()
-                        let alert = UIAlertController(title: "Alert", message: "Report successfully created.", preferredStyle: UIAlertControllerStyle.Alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+                        let appearance = SCLAlertView.SCLAppearance(
+                            showCloseButton: false
+                        )
+                        let alertView = SCLAlertView(appearance: appearance)
+                        alertView.addButton("OK") {
                             self.navigationController?.popToRootViewControllerAnimated(false)
-                        }))
-                        self.presentViewController(alert, animated: true, completion: nil)
+                        }
+                        alertView.showSuccess("Success", subTitle: "Report successfully created.")
+//                        let alert = UIAlertController(title: "Alert", message: "Report successfully created.", preferredStyle: UIAlertControllerStyle.Alert)
+//                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+//                            self.navigationController?.popToRootViewControllerAnimated(false)
+//                        }))
+//                        self.presentViewController(alert, animated: true, completion: nil)
                     })
             }) { (error) in
                 dispatch_async(dispatch_get_main_queue(),{
                     RappleActivityIndicatorView.stopAnimating()
-                    let alert = UIAlertController(title: "Alert", message: "There was an error creating report. Please scan again or call pet owner!", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    SCLAlertView().showError("Error", subTitle: "There was an error creating report. Please scan again or call pet owner!")
+
+//                    let alert = UIAlertController(title: "Alert", message: "There was an error creating report. Please scan again or call pet owner!", preferredStyle: UIAlertControllerStyle.Alert)
+//                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil))
+//                    self.presentViewController(alert, animated: true, completion: nil)
                 })
             }
         }else{
-            let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            presentViewController(ac, animated: true, completion: nil)
+            SCLAlertView().showWarning("Alert", subTitle: "There isn't internet connection. Please connect to internet and try again.")
+
+//            let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
+//            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//            presentViewController(ac, animated: true, completion: nil)
         }
     }
     
@@ -185,6 +230,9 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
     
     @IBAction func phonePressed(sender: AnyObject) {
         if let url = NSURL(string: "tel://\(self.petOwnerPhone)") {

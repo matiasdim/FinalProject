@@ -70,6 +70,10 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     func configMap(coordinate: CLLocationCoordinate2D, title: String, subtitle: String)
     {
         let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(0.05, 0.05)

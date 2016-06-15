@@ -3,6 +3,7 @@ PODS:
   - AVReachability (0.1.1)
   - IQKeyboardManagerSwift (4.0.3)
   - RappleProgressHUD (1.1.0)
+  - SCLAlertView (0.5.8)
   - SwiftQRCode (2.0.2)
   - SwiftyUserDefaults (2.2.0)
 
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - AVReachability
   - IQKeyboardManagerSwift
   - RappleProgressHUD
+  - SCLAlertView
   - SwiftQRCode
   - SwiftyUserDefaults
 
@@ -19,9 +21,10 @@ SPEC CHECKSUMS:
   AVReachability: 4ee27382ea0975f25784e71a716c75aa62ef1f72
   IQKeyboardManagerSwift: b6883b720b0e76473692fdc80828442566e1075f
   RappleProgressHUD: 8b20270859792fb03ea8b2cece54126daa31b84e
+  SCLAlertView: 653e84d1f9fd95333bc54671fbadb7d0c47fce49
   SwiftQRCode: 68e920781686e376d70646b90c8ad87fd6523309
   SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
 
-PODFILE CHECKSUM: b02f22cbe3e810301f1ce91c22e51c8f729d4845
+PODFILE CHECKSUM: 1dd87d114aa9ce06c8172ab1391bcc1f3f2f239d
 
 COCOAPODS: 1.0.1

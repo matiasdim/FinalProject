@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyUserDefaults
 import RappleProgressHUD
+import SCLAlertView
 
 class SignupViewController: UIViewController {
 
@@ -27,12 +28,19 @@ class SignupViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = cancelButton
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     func sendPressed()
     {
+        self.view.endEditing(true)
         if (email.text?.isEmpty)! || (password.text?.isEmpty)! || (name.text?.isEmpty)! || (mobile.text?.isEmpty)! {
-            let alert = UIAlertController(title: "Alert", message: "You must provide a username, password, name and mobile number.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            SCLAlertView().showError("Error", subTitle: "You must provide a username, password, name and mobile number.")
+
+//            let alert = UIAlertController(title: "Alert", message: "You must provide a username, password, name and mobile number.", preferredStyle: UIAlertControllerStyle.Alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+//            self.presentViewController(alert, animated: true, completion: nil)
         }else{
             if NetworkManager.isInternetReachable(){
                 let user = User.init(email: email.text!, password: password.text!, mobile: mobile.text!, name: name.text!)
@@ -54,21 +62,27 @@ class SignupViewController: UIViewController {
                         failCallback: { (error) in
                             dispatch_async(dispatch_get_main_queue(),{
                                 RappleActivityIndicatorView.stopAnimating()
-                                let alert = UIAlertController(title: "Alert", message: "Sign up error. \n Try again!", preferredStyle: UIAlertControllerStyle.Alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                                self.presentViewController(alert, animated: true, completion: nil)
+                                SCLAlertView().showError("Error", subTitle: "Sign up error. \n Try again!")
+
+//                                let alert = UIAlertController(title: "Alert", message: "Sign up error. \n Try again!", preferredStyle: UIAlertControllerStyle.Alert)
+//                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+//                                self.presentViewController(alert, animated: true, completion: nil)
                             })
                     })
                 }else{
-                    let alert = UIAlertController(title: "Alert", message: "Email must have correct format and password must not have less than 8 characters.", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    SCLAlertView().showError("Error", subTitle: "Email must have correct format and password must not have less than 8 characters.")
+
+//                    let alert = UIAlertController(title: "Alert", message: "Email must have correct format and password must not have less than 8 characters.", preferredStyle: UIAlertControllerStyle.Alert)
+//                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+//                    self.presentViewController(alert, animated: true, completion: nil)
                     
                 }
             }else{
-                let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
-                ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                presentViewController(ac, animated: true, completion: nil)
+                SCLAlertView().showWarning("Alert", subTitle: "There isn't internet connection. Please connect to internet and try again.")
+
+//                let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
+//                ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//                presentViewController(ac, animated: true, completion: nil)
             }
         }
     }

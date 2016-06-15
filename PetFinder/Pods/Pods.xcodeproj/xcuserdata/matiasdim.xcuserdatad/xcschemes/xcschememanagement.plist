@@ -44,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SCLAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftQRCode.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,17 +62,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>141CE6E9DB18F9C7238951A5145B7AD1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>1520003FEBEC114D6C84F832AFEDB994</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>248D1C858D6F6F100C6D72F7DCE00D44</key>
+		<key>153AB084E7D80B6CF7F31C383BD798CB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2C637404690F850C0A3498A51B2D144F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5E5CEC4AD4D1FB7A6A6DF86CD0E897E3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>77DDA4BEAF9B3A86E8522357C112B182</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,22 +97,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AF4AAD00881E3D05E029F0589799925A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>BA4586B65F446A8D4E156343458BB7A9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C7D65161D7F18C091199497E58B748A5</key>
+		<key>D1E2D7289FD214A21275036B109BCEF7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D1E2D7289FD214A21275036B109BCEF7</key>
+		<key>D70EF0F540CDFB9330F350BAEF2D118E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

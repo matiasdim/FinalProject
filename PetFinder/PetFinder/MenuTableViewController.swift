@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyUserDefaults
+import SCLAlertView
 
 extension DefaultsKeys {
     static let emailKey = DefaultsKey<String>("email")
@@ -15,8 +16,6 @@ extension DefaultsKeys {
     static let userAuthenticated = DefaultsKey<Bool>("authenticated")
     static let reportsNumberKey = DefaultsKey<Int>("reportsNum")
 }
-
-
 
 class MenuTableViewController: UITableViewController {
 
@@ -27,15 +26,50 @@ class MenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController!.navigationBar.barTintColor = UIColor.blackColor()
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        let image = UIImage(named: "BarImage")
+        let imageView = UIImageView(frame: CGRectMake(0, 0, 34, 34))
+        imageView.contentMode = .ScaleAspectFit
+        imageView.image = image
+        self.navigationItem.titleView = imageView
+        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
+        
+        self.performSelector(#selector(veryfyNotifPermission), withObject: nil, afterDelay: 10)
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        // 3. Lock autorotate
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return [UIInterfaceOrientationMask.Portrait]
+    }
+    
+    override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
+        
+        // 4. Only allow Landscape
+        return UIInterfaceOrientation.Portrait
+    }
+    
+    func veryfyNotifPermission()
+    {
         let settings = UIApplication.sharedApplication().currentUserNotificationSettings()
         if settings!.types == .None {
-            let ac = UIAlertController(title: "Can't notify", message: "We don't have permission to show you notifications, Please turn on permission on your device settings.", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            presentViewController(ac, animated: true, completion: nil)
-            return
+
+            SCLAlertView().showWarning("Can't notify", subTitle: "We don't have permission to show you notifications, Please turn on permission on your device settings.")
+//            let ac = UIAlertController(title: "Can't notify", message: "We don't have permission to show you notifications, Please turn on permission on your device settings.", preferredStyle: .Alert)
+//            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//            presentViewController(ac, animated: true, completion: nil)
+//            return
         }
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
     
     func getReports()
     {
@@ -74,9 +108,10 @@ class MenuTableViewController: UITableViewController {
                     return
                 }
             }else{
-                let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
-                ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                presentViewController(ac, animated: true, completion: nil)
+                SCLAlertView().showWarning("Alert", subTitle: "There isn't internet connection. Please connect to internet and try again.")
+//                let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
+//                ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//                presentViewController(ac, animated: true, completion: nil)
             }
         }
     }
@@ -97,33 +132,42 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBar.hidden = false
+        // lock the rotation
+        let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appdelegate.shouldRotate = false
         
+        // Force the device in landscape mode when the view controller gets loaded
+        UIDevice.currentDevice().setValue(UIInterfaceOrientation.Portrait.rawValue, forKey: "orientation")
+        
+        self.navigationController?.navigationBar.hidden = false
+        self.navigationItem.rightBarButtonItem?.title = ""
         if Defaults.hasKey(.userAuthenticated) {
-            self.navigationItem.rightBarButtonItem?.title = "Log Out"
-            self.navigationItem.title = Defaults[.nameKey]
+            self.navigationItem.rightBarButtonItem?.image = UIImage(named: "logout")
             startTimer()
         }else{
-            self.navigationItem.rightBarButtonItem?.title = "Log In/Sign Up"
-            self.navigationItem.title = ""
+            self.navigationItem.rightBarButtonItem?.image = UIImage(named: "login")
         }
 
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appdelegate.shouldRotate = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         if section == 1{
             return menuItems.count
         }
@@ -190,8 +234,7 @@ class MenuTableViewController: UITableViewController {
                 Defaults.remove(.emailKey)
                 Defaults.remove(.nameKey)
                 Defaults.remove(.reportsNumberKey)
-                self.navigationItem.rightBarButtonItem?.title = "Log In/Sign Up"
-                self.navigationItem.title = ""
+                self.navigationItem.rightBarButtonItem?.image = UIImage(named: "login")
             }else{
                 let sb = UIStoryboard(name: "Main", bundle: nil)
                 let vc = sb.instantiateViewControllerWithIdentifier("loginVC")

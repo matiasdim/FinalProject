@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyUserDefaults
 import RappleProgressHUD
+import SCLAlertView
 
 class RegisteredPetsTableViewController: UITableViewController {
 
@@ -20,6 +21,10 @@ class RegisteredPetsTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBar.hidden = false
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -47,17 +52,27 @@ class RegisteredPetsTableViewController: UITableViewController {
                 }) { (error) in
                     dispatch_async(dispatch_get_main_queue(),{
                         RappleActivityIndicatorView.stopAnimating()
-                        let alert = UIAlertController(title: "Alert!", message: "There was an error fetching your pets", preferredStyle: UIAlertControllerStyle.Alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+                        let appearance = SCLAlertView.SCLAppearance(
+                            showCloseButton: false
+                        )
+                        let alertView = SCLAlertView(appearance: appearance)
+                        alertView.addButton("OK") {
                             self.navigationController?.popToRootViewControllerAnimated(false)
-                        }))
-                        self.presentViewController(alert, animated: true, completion: nil)
+                        }
+                        alertView.showError("Error", subTitle: "There was an error fetching your pets.")
+                        
+//                        let alert = UIAlertController(title: "Alert!", message: "There was an error fetching your pets", preferredStyle: UIAlertControllerStyle.Alert)
+//                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
+//                            self.navigationController?.popToRootViewControllerAnimated(false)
+//                        }))
+//                        self.presentViewController(alert, animated: true, completion: nil)
                     })
                 }
             }else{
-                let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
-                ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                presentViewController(ac, animated: true, completion: nil)
+                SCLAlertView().showWarning("Alert", subTitle: "There isn't internet connection. Please connect to internet and try again.")
+//                let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
+//                ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//                presentViewController(ac, animated: true, completion: nil)
             }
         }
     }

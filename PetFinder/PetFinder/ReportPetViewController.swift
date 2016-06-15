@@ -18,7 +18,7 @@ class ReportPetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "Report Pet"
+        self.navigationItem.title = "Scan QR Code"
         self.navigationController?.navigationBar.hidden = false
 //        scanner.prepareScan(view) { (stringValue) -> () in
 //            print(stringValue)
@@ -37,6 +37,10 @@ class ReportPetViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let vc = segue.destinationViewController as! CreateReportViewController
         vc.qrString = self.qrString
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
     
     override func viewDidAppear(animated: Bool) {
