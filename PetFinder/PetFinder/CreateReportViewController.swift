@@ -34,13 +34,21 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var myTextFields = [UITextField]()
+        
+        myTextFields = [reporterName, reporterMobile, reporterEmail]
+        for item in myTextFields {
+            item.setPreferences()
+        }
+        observationsText.setPreferences()
+        
         self.navigationItem.title = "Report"
         
-        let borderColor = UIColor(colorLiteralRed: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
-        observationsText.layer.borderColor = borderColor.CGColor;
-        observationsText.layer.borderWidth = 0.5;
-        observationsText.layer.cornerRadius = 5.0;
-        
+//        let borderColor = UIColor(colorLiteralRed: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
+//        observationsText.layer.borderColor = borderColor.CGColor;
+//        observationsText.layer.borderWidth = 0.5;
+//        observationsText.layer.cornerRadius = 5.0;
+//        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()

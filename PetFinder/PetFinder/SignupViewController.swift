@@ -19,6 +19,14 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var mobile: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var myTextFields = [UITextField]()
+        
+        myTextFields = [password, name, email, mobile]
+        for item in myTextFields {
+            item.setPreferences()
+        }
+        
         self.navigationItem.title = "Sign Up"
         
         let reportButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(SignupViewController.sendPressed))

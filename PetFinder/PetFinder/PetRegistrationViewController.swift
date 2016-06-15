@@ -18,11 +18,15 @@ class PetRegistrationViewController: UIViewController {
     @IBOutlet weak var observationText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        nameText.setPreferences()
+        observationText.setPreferences()
+        
         self.navigationItem.title = "Register Pet"
-        let borderColor = UIColor(colorLiteralRed: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
-        observationText.layer.borderColor = borderColor.CGColor;
-        observationText.layer.borderWidth = 0.5;
-        observationText.layer.cornerRadius = 5.0;
+//        let borderColor = UIColor(colorLiteralRed: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
+//        observationText.layer.borderColor = borderColor.CGColor;
+//        observationText.layer.borderWidth = 0.5;
+//        observationText.layer.cornerRadius = 5.0;
     }
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBar.hidden = false

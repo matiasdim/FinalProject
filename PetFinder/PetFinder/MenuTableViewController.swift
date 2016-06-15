@@ -19,10 +19,16 @@ extension DefaultsKeys {
 
 extension UITextField {
     func setPreferences() {
-        self.layer.cornerRadius = 8
+        self.layer.cornerRadius = 15
         self.layer.borderColor = UIColor.grayColor().CGColor
         self.layer.borderWidth = 2
-        // etc.
+    }
+}
+extension UITextView {
+    func setPreferences() {
+        self.layer.cornerRadius = 15
+        self.layer.borderColor = UIColor.grayColor().CGColor
+        self.layer.borderWidth = 2
     }
 }
 
@@ -48,6 +54,9 @@ class MenuTableViewController: UITableViewController {
         self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
         
         self.performSelector(#selector(veryfyNotifPermission), withObject: nil, afterDelay: 10)
+        
+//        self.tableView!.separatorColor = UIColor.darkGrayColor()
+//        self.tableView!.backgroundColor = UIColor.grayColor()
     }
     
     override func shouldAutorotate() -> Bool {
@@ -196,6 +205,10 @@ class MenuTableViewController: UITableViewController {
             cell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
             
             cell.textLabel?.text = menuItems[indexPath.row]
+//            if indexPath.section != 0{
+//                cell.backgroundColor = UIColor.grayColor()
+//                cell.textLabel?.textColor = UIColor.whiteColor()
+//            }
         }
         
         
