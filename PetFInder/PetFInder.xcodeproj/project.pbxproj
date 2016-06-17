@@ -33,6 +33,7 @@
 		EC72005D1CFD24CE004ED765 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC72005C1CFD24CE004ED765 /* User.swift */; };
 		EC87F0EC1CFD2BD6007ECD46 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87F0EB1CFD2BD6007ECD46 /* Pet.swift */; };
 		EC95C5741D033B5500B840DD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95C5731D033B5500B840DD /* NetworkManager.swift */; };
+		ECA53C2F1D138849009B1633 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA53C2E1D138849009B1633 /* Social.framework */; };
 		ECBAA42B1D08F00D00EDF79C /* CreateReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBAA42A1D08F00D00EDF79C /* CreateReportViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		EC72005C1CFD24CE004ED765 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EC87F0EB1CFD2BD6007ECD46 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		EC95C5731D033B5500B840DD /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		ECA53C2E1D138849009B1633 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		ECAA9A861D03443400232DAF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/PetFinder-ajoyooulvidmbohjzmjvgurtoblc/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		ECBAA42A1D08F00D00EDF79C /* CreateReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateReportViewController.swift; sourceTree = "<group>"; };
 		F59539B6E6973B601D713248 /* Pods-PetFinderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFinderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PetFinderTests/Pods-PetFinderTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA53C2F1D138849009B1633 /* Social.framework in Frameworks */,
 				EC3089861D0653920082FC55 /* MapKit.framework in Frameworks */,
 				73F86F378787DC24D30C5CE1 /* Pods_PetFinder.framework in Frameworks */,
 			);
@@ -128,6 +131,7 @@
 		605659144E44A70C0C56FACE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ECA53C2E1D138849009B1633 /* Social.framework */,
 				EC3089851D0653920082FC55 /* MapKit.framework */,
 				ECAA9A861D03443400232DAF /* Alamofire.framework */,
 				FE45B9CCE60485A9D2705E68 /* Pods_PetFinder.framework */,
@@ -344,7 +348,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EC7200071CFBCD66004ED765 /* Build configuration list for PBXProject "PetFinder" */;
+			buildConfigurationList = EC7200071CFBCD66004ED765 /* Build configuration list for PBXProject "PetFInder" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -755,7 +759,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EC7200071CFBCD66004ED765 /* Build configuration list for PBXProject "PetFinder" */ = {
+		EC7200071CFBCD66004ED765 /* Build configuration list for PBXProject "PetFInder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EC7200351CFBCD66004ED765 /* Debug */,

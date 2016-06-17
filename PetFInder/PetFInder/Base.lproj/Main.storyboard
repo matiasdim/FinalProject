@@ -449,14 +449,98 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efa-BS-O1p">
-                                <rect key="frame" x="135" y="127" width="47" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlackLogo" translatesAutoresizingMaskIntoConstraints="NO" id="2KN-hE-yVT">
+                                <rect key="frame" x="225" y="72" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="vbR-TL-R94"/>
+                                    <constraint firstAttribute="height" constant="150" id="yDx-Aa-fKX"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NameLogo" translatesAutoresizingMaskIntoConstraints="NO" id="0tS-gf-wOv">
+                                <rect key="frame" x="200" y="230" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="GGO-Pz-QWD"/>
+                                    <constraint firstAttribute="height" constant="50" id="c3z-2E-SN6"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJF-00-ahd">
+                                <rect key="frame" x="234" y="294" width="132" height="24"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wc-B0-lRQ">
+                                <rect key="frame" x="223" y="326" width="154" height="24"/>
+                                <string key="text">Vinvith Mudugonda
+</string>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matías Gil" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjJ-x4-goC">
+                                <rect key="frame" x="262" y="355" width="77" height="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share us" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C16-Ml-9Or">
+                                <rect key="frame" x="276" y="387" width="49" height="14"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3F-ht-poJ">
+                                <rect key="frame" x="303" y="409" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="IGq-5i-1mZ"/>
+                                    <constraint firstAttribute="height" constant="30" id="aNM-Qo-Iq6"/>
+                                </constraints>
+                                <state key="normal" title="tw" image="TWIcon"/>
+                                <connections>
+                                    <action selector="twPressed:" destination="Me3-Ky-KTW" eventType="touchUpInside" id="RFb-AC-88S"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUf-zb-vIZ">
+                                <rect key="frame" x="267" y="409" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="YQf-gM-pMZ"/>
+                                    <constraint firstAttribute="height" constant="30" id="ueD-4x-1lk"/>
+                                </constraints>
+                                <state key="normal" title="fb" image="FBIcon"/>
+                                <connections>
+                                    <action selector="fbPressed:" destination="Me3-Ky-KTW" eventType="touchUpInside" id="fGh-iQ-7mI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmT-vt-GgL">
+                                <rect key="frame" x="236" y="447" width="128" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Vist our web page!"/>
+                                <connections>
+                                    <action selector="webLinkPressed:" destination="Me3-Ky-KTW" eventType="touchUpInside" id="gsQ-rH-0ie"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0tS-gf-wOv" firstAttribute="top" secondItem="2KN-hE-yVT" secondAttribute="top" constant="158" id="0bF-W6-60e"/>
+                            <constraint firstItem="SUf-zb-vIZ" firstAttribute="top" secondItem="C16-Ml-9Or" secondAttribute="top" constant="22" id="B1I-eD-exR"/>
+                            <constraint firstItem="k3F-ht-poJ" firstAttribute="leading" secondItem="SUf-zb-vIZ" secondAttribute="trailing" constant="6" id="DrJ-qu-IvJ"/>
+                            <constraint firstItem="FmT-vt-GgL" firstAttribute="top" secondItem="SUf-zb-vIZ" secondAttribute="bottom" constant="8" symbolic="YES" id="IVS-ee-YIM"/>
+                            <constraint firstItem="C16-Ml-9Or" firstAttribute="top" secondItem="hjJ-x4-goC" secondAttribute="top" constant="32" id="KCp-sG-ihz"/>
+                            <constraint firstItem="AJF-00-ahd" firstAttribute="centerX" secondItem="UuQ-fX-DUr" secondAttribute="centerX" id="SJq-vT-zdg"/>
+                            <constraint firstItem="AJF-00-ahd" firstAttribute="top" secondItem="0tS-gf-wOv" secondAttribute="top" constant="64" id="WbF-8A-Weo"/>
+                            <constraint firstItem="C16-Ml-9Or" firstAttribute="centerX" secondItem="UuQ-fX-DUr" secondAttribute="centerX" id="Ww9-7d-Eqv"/>
+                            <constraint firstItem="C16-Ml-9Or" firstAttribute="leading" secondItem="SUf-zb-vIZ" secondAttribute="trailing" constant="-21" id="YjW-Ps-x2T"/>
+                            <constraint firstItem="5wc-B0-lRQ" firstAttribute="centerX" secondItem="UuQ-fX-DUr" secondAttribute="centerX" id="b0p-Ef-MK3"/>
+                            <constraint firstItem="2KN-hE-yVT" firstAttribute="centerX" secondItem="UuQ-fX-DUr" secondAttribute="centerX" id="fx8-Qw-XrF"/>
+                            <constraint firstItem="0tS-gf-wOv" firstAttribute="centerX" secondItem="UuQ-fX-DUr" secondAttribute="centerX" id="gBg-LN-av6"/>
+                            <constraint firstItem="hjJ-x4-goC" firstAttribute="top" secondItem="5wc-B0-lRQ" secondAttribute="bottom" constant="5" id="luP-5B-75d"/>
+                            <constraint firstItem="2KN-hE-yVT" firstAttribute="top" secondItem="MPg-Xc-kzp" secondAttribute="bottom" constant="8" id="nuc-aw-48d"/>
+                            <constraint firstItem="5wc-B0-lRQ" firstAttribute="top" secondItem="AJF-00-ahd" secondAttribute="bottom" constant="8" id="osv-az-nUD"/>
+                            <constraint firstItem="k3F-ht-poJ" firstAttribute="top" secondItem="C16-Ml-9Or" secondAttribute="top" constant="22" id="u9A-Ka-kze"/>
+                            <constraint firstItem="hjJ-x4-goC" firstAttribute="centerX" secondItem="UuQ-fX-DUr" secondAttribute="centerX" id="xbb-pP-NCi"/>
+                            <constraint firstItem="FmT-vt-GgL" firstAttribute="centerX" secondItem="UuQ-fX-DUr" secondAttribute="centerX" id="xd4-sU-dOU"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AYn-7h-Ag6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1021,6 +1105,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BlackLogo" width="218" height="200"/>
+        <image name="FBIcon" width="1713" height="1713"/>
+        <image name="NameLogo" width="200" height="50"/>
+        <image name="TWIcon" width="720" height="720"/>
         <image name="qrIcon" width="21" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
