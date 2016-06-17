@@ -133,11 +133,6 @@ class MenuTableViewController: UITableViewController {
                 }) { (error) in
                     return
                 }
-            }else{
-                SCLAlertView().showWarning("Alert", subTitle: "There isn't internet connection. Please connect to internet and try again.")
-//                let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
-//                ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-//                presentViewController(ac, animated: true, completion: nil)
             }
         }
     }

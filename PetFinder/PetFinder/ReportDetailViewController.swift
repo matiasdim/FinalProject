@@ -12,6 +12,7 @@ import MapKit
 class ReportDetailViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var petName: UILabel!
+    @IBOutlet weak var reportTime: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var repoterName: UILabel!
     @IBOutlet weak var observationsArea: UITextView!
@@ -39,6 +40,18 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
                 currentPetName = (pet["name"] as? String)
                 petName.text = currentPetName
             }
+            let dateString = (report["created_at"] as? String)!
+           
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"//this your string date format
+//            dateFormatter.timeZone = NSTimeZone(name: "UTC")
+            let date = dateFormatter.dateFromString(dateString)
+            
+            
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"///this is you want to convert format
+            dateFormatter.timeZone = NSTimeZone(name: "UTC")
+  
+            reportTime.text = "Reported at: \(dateFormatter.stringFromDate(date!))"
             observationsArea.text = (report["reporterObservations"] as? String)
             mobile = (report["reporterCel"] as? String)
             mobileButton.setTitle(mobile, forState: UIControlState.Normal)
@@ -53,7 +66,9 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
             configMap(CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!), title: currentPetName, subtitle: "Is here!")
         }
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openMaps))
+        let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(openMaps))
+        tapGesture.minimumPressDuration = 1.0
+        tapGesture.numberOfTapsRequired = 0
         mapView.addGestureRecognizer(tapGesture)
     }
     

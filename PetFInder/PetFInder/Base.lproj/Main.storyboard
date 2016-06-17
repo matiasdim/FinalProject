@@ -57,7 +57,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Observations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPg-ck-QIO">
                                 <rect key="frame" x="20" y="138" width="110" height="20"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="t5b-QO-2Iy">
@@ -130,14 +130,14 @@
                                             <rect key="frame" x="15" y="5" width="32" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W0Z-gv-TBh">
                                             <rect key="frame" x="15" y="25" width="41" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -175,56 +175,62 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOm-MC-sAj">
                                         <rect key="frame" x="20" y="0.0" width="569" height="541"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pet name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMz-fE-4Pi">
-                                                <rect key="frame" x="12" y="8" width="82" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qe-qO-RSV">
+                                                <rect key="frame" x="12" y="8" width="544" height="20"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qe-qO-RSV">
-                                                <rect key="frame" x="102" y="8" width="42" height="19"/>
-                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report done at: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRR-qv-d0q">
+                                                <rect key="frame" x="12" y="28" width="544" height="15"/>
+                                                <fontDescription key="fontDescription" name="Arial-ItalicMT" family="Arial" pointSize="13"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gr4-MZ-7aA">
-                                                <rect key="frame" x="12" y="37" width="77" height="20"/>
+                                                <rect key="frame" x="12" y="57" width="77" height="20"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HUF-Fk-QeV">
-                                                <rect key="frame" x="12" y="66" width="544" height="180"/>
+                                                <rect key="frame" x="12" y="86" width="544" height="180"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="YYr-Q1-QmR"/>
                                                 </constraints>
                                             </mapView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap map for 1 second to open on Maps app." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuc-Im-Wpe">
+                                                <rect key="frame" x="12" y="266" width="544" height="15"/>
+                                                <fontDescription key="fontDescription" name="Arial-ItalicMT" family="Arial" pointSize="13"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reporter info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcN-Iq-qej">
-                                                <rect key="frame" x="12" y="254" width="122" height="22"/>
+                                                <rect key="frame" x="12" y="295" width="122" height="22"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="19"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3z-1R-Su9">
-                                                <rect key="frame" x="12" y="283" width="54" height="20"/>
+                                                <rect key="frame" x="12" y="324" width="54" height="20"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDs-8O-mgl">
-                                                <rect key="frame" x="81" y="283" width="475" height="19"/>
+                                                <rect key="frame" x="81" y="324" width="475" height="19"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtD-4x-naP">
-                                                <rect key="frame" x="12" y="312" width="58" height="20"/>
+                                                <rect key="frame" x="12" y="353" width="58" height="20"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gby-DN-7AL">
-                                                <rect key="frame" x="78" y="307" width="478" height="29"/>
+                                                <rect key="frame" x="78" y="348" width="478" height="29"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
@@ -232,13 +238,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CN7-gh-bIo">
-                                                <rect key="frame" x="12" y="341" width="60" height="20"/>
+                                                <rect key="frame" x="12" y="382" width="60" height="20"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YmR-sL-0ho">
-                                                <rect key="frame" x="78" y="337" width="478" height="29"/>
+                                                <rect key="frame" x="78" y="378" width="478" height="29"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
@@ -246,13 +252,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jX-rJ-aDW">
-                                                <rect key="frame" x="12" y="370" width="52" height="20"/>
+                                                <rect key="frame" x="12" y="411" width="52" height="20"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4di-gB-nEX">
-                                                <rect key="frame" x="80" y="366" width="476" height="29"/>
+                                                <rect key="frame" x="80" y="407" width="476" height="29"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
@@ -260,13 +266,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Observations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnt-NA-dsl">
-                                                <rect key="frame" x="12" y="399" width="110" height="20"/>
+                                                <rect key="frame" x="12" y="440" width="110" height="20"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcN-fE-dzO">
-                                                <rect key="frame" x="12" y="428" width="544" height="99"/>
+                                                <rect key="frame" x="12" y="469" width="544" height="58"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
@@ -275,17 +281,19 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="Gr4-MZ-7aA" firstAttribute="top" secondItem="FRR-qv-d0q" secondAttribute="top" constant="29" id="2u4-Is-zq3"/>
                                             <constraint firstAttribute="trailing" secondItem="PcN-fE-dzO" secondAttribute="trailing" constant="13" id="3VR-nw-KbF"/>
                                             <constraint firstItem="PcN-fE-dzO" firstAttribute="leading" secondItem="s3z-1R-Su9" secondAttribute="leading" id="3nm-wI-bke"/>
                                             <constraint firstItem="HcN-Iq-qej" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="4js-pe-C9G"/>
                                             <constraint firstAttribute="trailing" secondItem="HUF-Fk-QeV" secondAttribute="trailing" constant="13" id="9Zg-zQ-lnx"/>
-                                            <constraint firstItem="Gr4-MZ-7aA" firstAttribute="top" secondItem="aMz-fE-4Pi" secondAttribute="top" constant="29" id="DUJ-PQ-0dw"/>
+                                            <constraint firstAttribute="trailing" secondItem="uuc-Im-Wpe" secondAttribute="trailing" constant="13" id="D3U-A7-wbc"/>
                                             <constraint firstItem="CN7-gh-bIo" firstAttribute="top" secondItem="AtD-4x-naP" secondAttribute="top" constant="29" id="E2B-GC-TK1"/>
                                             <constraint firstItem="s3z-1R-Su9" firstAttribute="top" secondItem="HcN-Iq-qej" secondAttribute="top" constant="29" id="EFk-kc-zeq"/>
                                             <constraint firstItem="tnt-NA-dsl" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="Feo-N9-tWX"/>
                                             <constraint firstItem="HUF-Fk-QeV" firstAttribute="top" secondItem="Gr4-MZ-7aA" secondAttribute="top" constant="29" id="FiG-ps-zIX"/>
                                             <constraint firstItem="YmR-sL-0ho" firstAttribute="baseline" secondItem="CN7-gh-bIo" secondAttribute="baseline" id="Hu6-ci-Uzt"/>
                                             <constraint firstAttribute="trailing" secondItem="YmR-sL-0ho" secondAttribute="trailing" constant="13" id="L3b-M4-sAr"/>
+                                            <constraint firstItem="FRR-qv-d0q" firstAttribute="top" secondItem="0Qe-qO-RSV" secondAttribute="top" constant="20" id="LQg-r6-nOB"/>
                                             <constraint firstItem="9jX-rJ-aDW" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="LkC-vp-sSQ"/>
                                             <constraint firstItem="tnt-NA-dsl" firstAttribute="top" secondItem="9jX-rJ-aDW" secondAttribute="top" constant="29" id="LsD-Oo-VF2"/>
                                             <constraint firstItem="fDs-8O-mgl" firstAttribute="leading" secondItem="s3z-1R-Su9" secondAttribute="trailing" constant="15" id="MLW-30-bWv"/>
@@ -294,11 +302,10 @@
                                             <constraint firstAttribute="bottom" secondItem="PcN-fE-dzO" secondAttribute="bottom" constant="14" id="PLb-YI-afy"/>
                                             <constraint firstItem="CN7-gh-bIo" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="Pof-h3-8IL"/>
                                             <constraint firstAttribute="trailing" secondItem="gby-DN-7AL" secondAttribute="trailing" constant="13" id="QIK-KW-Bh7"/>
-                                            <constraint firstItem="aMz-fE-4Pi" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="RUe-HG-9P5"/>
-                                            <constraint firstItem="aMz-fE-4Pi" firstAttribute="top" secondItem="rOm-MC-sAj" secondAttribute="top" constant="8" id="VLf-r0-UnU"/>
                                             <constraint firstItem="AtD-4x-naP" firstAttribute="top" secondItem="s3z-1R-Su9" secondAttribute="top" constant="29" id="Z7n-Vy-ewn"/>
                                             <constraint firstAttribute="height" constant="541" id="Zac-Kj-kLo"/>
-                                            <constraint firstItem="0Qe-qO-RSV" firstAttribute="leading" secondItem="aMz-fE-4Pi" secondAttribute="trailing" constant="8" id="cj4-Q6-FOe"/>
+                                            <constraint firstItem="uuc-Im-Wpe" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="cC8-GR-lIE"/>
+                                            <constraint firstAttribute="trailing" secondItem="FRR-qv-d0q" secondAttribute="trailing" constant="13" id="day-6C-aJ7"/>
                                             <constraint firstItem="4di-gB-nEX" firstAttribute="leading" secondItem="9jX-rJ-aDW" secondAttribute="trailing" constant="16" id="fPK-eS-Lvq"/>
                                             <constraint firstItem="HUF-Fk-QeV" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="fUg-R2-VSP"/>
                                             <constraint firstItem="YmR-sL-0ho" firstAttribute="trailing" secondItem="gby-DN-7AL" secondAttribute="trailing" id="gBz-xr-GnH"/>
@@ -306,12 +313,16 @@
                                             <constraint firstItem="PcN-fE-dzO" firstAttribute="top" secondItem="tnt-NA-dsl" secondAttribute="top" constant="29" id="iXh-oa-mAu"/>
                                             <constraint firstItem="4di-gB-nEX" firstAttribute="top" secondItem="YmR-sL-0ho" secondAttribute="top" constant="29" id="jo0-dD-Gdo"/>
                                             <constraint firstItem="PcN-fE-dzO" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="k2B-jT-A1t"/>
+                                            <constraint firstAttribute="trailing" secondItem="0Qe-qO-RSV" secondAttribute="trailing" constant="13" id="kFn-JL-mrC"/>
                                             <constraint firstItem="fDs-8O-mgl" firstAttribute="top" secondItem="HcN-Iq-qej" secondAttribute="top" constant="29" id="lUk-Q0-RNZ"/>
+                                            <constraint firstItem="HcN-Iq-qej" firstAttribute="top" secondItem="uuc-Im-Wpe" secondAttribute="top" constant="29" id="o1X-PK-YRb"/>
+                                            <constraint firstItem="0Qe-qO-RSV" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="osd-tl-hJW"/>
                                             <constraint firstItem="0Qe-qO-RSV" firstAttribute="top" secondItem="rOm-MC-sAj" secondAttribute="top" constant="8" id="qm7-pP-n1f"/>
                                             <constraint firstItem="gby-DN-7AL" firstAttribute="top" secondItem="fDs-8O-mgl" secondAttribute="top" constant="24" id="qnj-xh-olb"/>
-                                            <constraint firstItem="HcN-Iq-qej" firstAttribute="top" secondItem="HUF-Fk-QeV" secondAttribute="top" constant="188" id="sQb-fU-tiA"/>
+                                            <constraint firstItem="FRR-qv-d0q" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="sId-uS-Edv"/>
                                             <constraint firstItem="YmR-sL-0ho" firstAttribute="leading" secondItem="gby-DN-7AL" secondAttribute="leading" id="tMs-YY-8s2"/>
                                             <constraint firstItem="gby-DN-7AL" firstAttribute="leading" secondItem="AtD-4x-naP" secondAttribute="trailing" constant="8" id="tge-aA-SH5"/>
+                                            <constraint firstItem="uuc-Im-Wpe" firstAttribute="top" secondItem="HUF-Fk-QeV" secondAttribute="top" constant="180" id="zaq-b7-KWo"/>
                                             <constraint firstItem="Gr4-MZ-7aA" firstAttribute="leading" secondItem="rOm-MC-sAj" secondAttribute="leading" constant="12" id="zfZ-g6-VoY"/>
                                             <constraint firstItem="9jX-rJ-aDW" firstAttribute="top" secondItem="CN7-gh-bIo" secondAttribute="top" constant="29" id="zyI-PZ-I5b"/>
                                         </constraints>
@@ -341,6 +352,7 @@
                         <outlet property="observationsArea" destination="PcN-fE-dzO" id="nI5-HE-dGe"/>
                         <outlet property="petName" destination="0Qe-qO-RSV" id="kbY-Yo-yMJ"/>
                         <outlet property="phoneButton" destination="gby-DN-7AL" id="rgA-Lk-jK8"/>
+                        <outlet property="reportTime" destination="FRR-qv-d0q" id="CaR-Ms-Ga3"/>
                         <outlet property="repoterName" destination="fDs-8O-mgl" id="FpC-zd-vim"/>
                         <outlet property="scrollView" destination="OeL-pf-X4D" id="zzg-ev-33U"/>
                     </connections>
@@ -367,19 +379,19 @@
                                     <constraint firstAttribute="width" constant="75" id="tm9-Dc-3t7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fw2-MK-Pf6">
                                 <rect key="frame" x="103" y="73" width="477" height="19"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Observations:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbM-J6-BqZ">
                                 <rect key="frame" x="20" y="100" width="115" height="20"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHV-df-gqp">
@@ -471,14 +483,14 @@
                                             <rect key="frame" x="15" y="5" width="32" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p6j-g6-pxa">
                                             <rect key="frame" x="15" y="25" width="41" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -551,7 +563,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyP-Ht-oGN">
                                 <rect key="frame" x="21" y="155" width="56" height="20"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gib-9c-Hh4">
@@ -562,7 +574,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile number*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9M-DT-DK7">
                                 <rect key="frame" x="20" y="222" width="130" height="20"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jje-r9-api">
@@ -643,7 +655,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igg-PQ-QCR">
                                 <rect key="frame" x="292" y="178" width="16" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynq-NS-Y6S">
@@ -710,25 +722,25 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pet Owner Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpa-u0-7fh">
                                                 <rect key="frame" x="8" y="8" width="584" height="27"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="23"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC5-KF-t0U">
                                                 <rect key="frame" x="8" y="44" width="54" height="20"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7w-Te-0ci">
                                                 <rect key="frame" x="70" y="44" width="522" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kc-CB-uIe">
                                                 <rect key="frame" x="8" y="73" width="58" height="20"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8K2-fL-fPv">
@@ -741,7 +753,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTv-xY-ula">
                                                 <rect key="frame" x="8" y="102" width="52" height="20"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRw-EX-3Tb">
@@ -754,19 +766,19 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Contact Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qh-2N-YL3">
                                                 <rect key="frame" x="8" y="148" width="584" height="25"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="21"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please provide your contact info to create a report and advice to the pet owner or just call him." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8A0-ut-PDg">
                                                 <rect key="frame" x="8" y="177" width="584" height="14"/>
                                                 <fontDescription key="fontDescription" name="Arial-ItalicMT" family="Arial" pointSize="12"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Utp-lR-kPb">
                                                 <rect key="frame" x="11" y="206" width="56" height="20"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PeZ-Zq-mWv">
@@ -777,7 +789,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELc-he-IDx">
                                                 <rect key="frame" x="11" y="273" width="55" height="20"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I0N-ZI-OCG">
@@ -788,7 +800,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDX-dL-qK1">
                                                 <rect key="frame" x="11" y="340" width="46" height="20"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EFo-CA-mOl">
@@ -799,7 +811,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Observations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHl-UA-iud">
                                                 <rect key="frame" x="8" y="407" width="110" height="20"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JQl-iR-1zt">

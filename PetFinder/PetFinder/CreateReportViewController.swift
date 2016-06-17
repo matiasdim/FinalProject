@@ -53,6 +53,7 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        locationManager.distanceFilter = 10
         
         
         let reportButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(CreateReportViewController.reportPressed))
@@ -134,7 +135,7 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
         self.view.endEditing(true)
         if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Denied || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Restricted
         {
-            SCLAlertView().showWarning("Alert", subTitle: "You need to turn on location permission on device settings.")
+            SCLAlertView().showWarning("Alert", subTitle: "To send the report with your current location, you need to turn on location permission on device settings. Go to your app settings > PetFinder > Location and set it to When in use.")
 
 //            let alert = UIAlertController(title: "Alert", message: "Yo need to turn on location permission on device settings", preferredStyle: UIAlertControllerStyle.Alert)
 //            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
