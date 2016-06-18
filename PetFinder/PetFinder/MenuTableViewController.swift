@@ -225,12 +225,12 @@ class MenuTableViewController: UITableViewController {
     
     func startTimer()
     {
-        timer = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: #selector(MenuTableViewController.getReports), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: #selector(MenuTableViewController.getReports), userInfo: nil, repeats: true)
     }
     
     func createNotification(currentReports: Int) {
         let notification = UILocalNotification()
-        notification.fireDate = NSDate(timeIntervalSinceNow: 3)
+        notification.fireDate = NSDate(timeIntervalSinceNow: 1)
         notification.alertBody = "You have \(currentReports - Defaults[.reportsNumberKey]) new report(s) of your pets"
         notification.alertAction = "to open app and see."
         notification.soundName = UILocalNotificationDefaultSoundName

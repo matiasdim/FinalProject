@@ -360,7 +360,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EC7200071CFBCD66004ED765 /* Build configuration list for PBXProject "PetFinder" */;
+			buildConfigurationList = EC7200071CFBCD66004ED765 /* Build configuration list for PBXProject "PetFInder" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -699,7 +699,6 @@
 			baseConfigurationReference = 38248E52C6AAC8F34811A75C /* Pods-PetFinder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PetFinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -714,7 +713,6 @@
 			baseConfigurationReference = 42D7EF92EE13A09FF2B130F4 /* Pods-PetFinder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PetFinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -777,7 +775,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EC7200071CFBCD66004ED765 /* Build configuration list for PBXProject "PetFinder" */ = {
+		EC7200071CFBCD66004ED765 /* Build configuration list for PBXProject "PetFInder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EC7200351CFBCD66004ED765 /* Debug */,
