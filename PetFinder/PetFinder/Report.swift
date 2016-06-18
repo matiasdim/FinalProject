@@ -53,17 +53,17 @@ class Report {
         
     }
     
-    func detail(petId: String, successCallback: (AnyObject) -> (), failCallback: (String) -> ())
-    {
-        let parameters = ["reportId": petId]
-        
-        networkManager.showReport(parameters, successCallback:
-            { (response) in
-                successCallback(response)
-        }) { (error) in
-            failCallback(error)
-        }
-    }
+//    func detail(petId: String, successCallback: (AnyObject) -> (), failCallback: (String) -> ())
+//    {
+//        let parameters = ["reportId": petId]
+//        
+//        networkManager.showReport(parameters, successCallback:
+//            { (response) in
+//                successCallback(response)
+//        }) { (error) in
+//            failCallback(error)
+//        }
+//    }
     
     func list(successCallback: (AnyObject) -> (), failCallback: (String) -> ())
     {
