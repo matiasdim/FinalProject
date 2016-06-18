@@ -13,13 +13,15 @@ import AVReachability
 typealias CallbackSuccessBlock = (AnyObject)
 typealias CallbackFailBlock = (String)
 
+/*
+ * Class to manage network stuff
+ */
 class NetworkManager {
     
     let manager = Alamofire.NetworkReachabilityManager(host: "www.apple.com")
     let url = "http://peaceful-gorge-92356.herokuapp.com"
     
     // MARK: - Basic calls
-    
     func basicPost(apiPath: String,
                    parameters: Dictionary<String, String>,
                    timeOut: Int,

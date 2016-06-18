@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.sharedManager().enable = true
         
-        let notificationSettings = UIUserNotificationSettings(forTypes: .Alert, categories: nil)
+        let notificationSettings = UIUserNotificationSettings(forTypes: [.Sound, .Alert], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
         
         if let options = launchOptions {

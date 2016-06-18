@@ -192,27 +192,4 @@ class NetworkManagerTests: XCTestCase {
             }
         }
     }
-    
-//    func testNetworkManagerShowReport()
-//    {
-//        let asyncExpectation = expectationWithDescription("asynchronous request")
-//        
-//        let nm = NetworkManager()
-//
-//        nm.showReport(["reportId": ""], successCallback:
-//            { (response) in
-//                XCTAssertNotNil(response, "WebServices succesfully called. Reports fetched")
-//                asyncExpectation.fulfill()
-//            }) { (error) in
-//                XCTAssertNotNil(error, "WebServices succesfully called. Reports not fetched")
-//                asyncExpectation.fulfill()
-//        }
-//        
-//        waitForExpectationsWithTimeout(5) { error in
-//            if let error = error {
-//                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
-//            }
-//        }
-//    }
-
 }

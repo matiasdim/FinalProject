@@ -307,6 +307,7 @@
                                             <constraint firstItem="VN7-43-zD8" firstAttribute="top" secondItem="grq-u4-h8Q" secondAttribute="bottom" constant="19" id="WyF-Mz-FSv"/>
                                             <constraint firstItem="DRu-kS-Gbq" firstAttribute="top" secondItem="tZb-oj-JRH" secondAttribute="top" id="ZO2-q4-GsS"/>
                                             <constraint firstItem="c3i-0c-1hW" firstAttribute="leading" secondItem="rLg-yH-hXj" secondAttribute="trailing" constant="4" id="aJK-V7-xHC"/>
+                                            <constraint firstItem="c3i-0c-1hW" firstAttribute="top" secondItem="grq-u4-h8Q" secondAttribute="bottom" constant="19" id="avQ-uW-8qd"/>
                                             <constraint firstItem="az7-7x-yip" firstAttribute="leading" secondItem="dow-73-Bzc" secondAttribute="trailing" constant="32" id="b9J-0h-rGh"/>
                                             <constraint firstItem="dqU-6y-zzO" firstAttribute="top" secondItem="DRu-kS-Gbq" secondAttribute="top" constant="22" id="bGy-g1-9ep"/>
                                             <constraint firstAttribute="trailing" secondItem="wAv-qg-Lh3" secondAttribute="trailing" constant="18" id="bz0-e5-BUN"/>
@@ -362,6 +363,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4Pi-53-iWf" secondAttribute="bottom" id="Dwp-pd-fhY"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ldh-R7-pla" secondAttribute="bottom" id="LkI-TW-O8m"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Pi-53-iWf" secondAttribute="trailing" constant="-20" id="PXn-zG-eLk"/>
                             <constraint firstItem="4Pi-53-iWf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="htU-WF-1wG"/>
                             <constraint firstItem="4Pi-53-iWf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="uax-gA-8ln"/>

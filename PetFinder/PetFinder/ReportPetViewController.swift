@@ -23,15 +23,20 @@ class ReportPetViewController: UIViewController {
 //        scanner.prepareScan(view) { (stringValue) -> () in
 //            print(stringValue)
 //            dispatch_async(dispatch_get_main_queue(), {
-                self.qrString = "2"// stringValue
+                self.qrString = "2"// = stringValue
                 self.performSegueWithIdentifier("createReportSegue", sender: self)
 //            })
 //            
 //        }
         // test scan frame
         scanner.scanFrame = view.bounds
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appdelegate.shouldRotate = true
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -44,23 +49,17 @@ class ReportPetViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        // lock the rotation
+        let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appdelegate.shouldRotate = false
+        
+        // Force the device in landscape mode when the view controller gets loaded
+        UIDevice.currentDevice().setValue(UIInterfaceOrientation.Portrait.rawValue, forKey: "orientation")
+        
         scanner.startScan()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    }    
 }

@@ -13,7 +13,7 @@ import Alamofire
 //import NetworkManager
 
 class User {
-    //To manage user defaults easly
+    // MARK: - Attributes
     var email: String
     var password: String!
     var name: String!
@@ -22,6 +22,7 @@ class User {
     
     let networkManager: NetworkManager = NetworkManager()
     
+    // MARK: - Initializers
     init?(email: String){
         if email.isEmpty {
             return nil
@@ -47,6 +48,7 @@ class User {
         self.mobile = mobile
     }
     
+    // MARK: - Methods
     func create(successCallback: (AnyObject) -> (), failCallback: (String) -> ())
     {
         let parameters = ["email": email,"password": password!, "name": name!, "mobile": mobile!]
@@ -83,7 +85,7 @@ class User {
         }
     }
     
-    //Validations
+    // MARK: - Validations
     func isValidEmail() -> Bool {
         // println("validate calendar: \(testStr)")
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"

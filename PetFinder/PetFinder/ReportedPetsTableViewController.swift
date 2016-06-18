@@ -36,21 +36,20 @@ class ReportedPetsTableViewController: UITableViewController {
                 report.petOwnerEmail = Defaults[.emailKey]
                 report.list(
                     { (response) in
-                        if let topLevelObj = response as? Array<AnyObject> {
-                            self.reports.removeAll()
-                            for i in topLevelObj {
-                                self.reports.append(i)
-                            }
-                        }
-                        
-                        dispatch_async(dispatch_get_main_queue(), {
+                        dispatch_async(dispatch_get_main_queue(), {[unowned self] in
                             RappleActivityIndicatorView.stopAnimating()
+                            if let topLevelObj = response as? Array<AnyObject> {
+                                self.reports.removeAll()
+                                for i in topLevelObj {
+                                    self.reports.append(i)
+                                }
+                            }
                             self.tableView.reloadData()
                         })
                         
                     }, failCallback:
                     { (error) in
-                        dispatch_async(dispatch_get_main_queue(),{
+                        dispatch_async(dispatch_get_main_queue(),{[unowned self] in
                             RappleActivityIndicatorView.stopAnimating()
                             let appearance = SCLAlertView.SCLAppearance(
                                 showCloseButton: false
@@ -60,26 +59,16 @@ class ReportedPetsTableViewController: UITableViewController {
                                 self.navigationController?.popToRootViewControllerAnimated(false)
                             }
                             alertView.showError("Error", subTitle: "There was an error fetching the reports.")
-                            
-//                            let alert = UIAlertController(title: "Alert!", message: "There was an error fetching the reports", preferredStyle: UIAlertControllerStyle.Alert)
-//                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
-//                                self.navigationController?.popToRootViewControllerAnimated(false)
-//                            }))
-//                            self.presentViewController(alert, animated: true, completion: nil)
                         })
                 })
             }else{
                 SCLAlertView().showWarning("Alert", subTitle: "There isn't internet connection. Please connect to internet and try again.")
-//                let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
-//                ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-//                presentViewController(ac, animated: true, completion: nil)
             }
         }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -87,7 +76,6 @@ class ReportedPetsTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1

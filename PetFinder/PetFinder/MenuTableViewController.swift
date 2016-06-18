@@ -10,6 +10,7 @@ import UIKit
 import SwiftyUserDefaults
 import SCLAlertView
 
+// MARK: - Extensions
 extension DefaultsKeys {
     static let emailKey = DefaultsKey<String>("email")
     static let nameKey = DefaultsKey<String>("name")
@@ -62,11 +63,9 @@ class MenuTableViewController: UITableViewController {
         self.performSelector(#selector(veryfyNotifPermission), withObject: nil, afterDelay: 10)
         
         self.tableView!.separatorColor = UIColor.blackColor()
-//        self.tableView!.backgroundColor = UIColor.grayColor()
     }
     
     override func shouldAutorotate() -> Bool {
-        // 3. Lock autorotate
         return false
     }
     
@@ -80,84 +79,14 @@ class MenuTableViewController: UITableViewController {
         return UIInterfaceOrientation.Portrait
     }
     
-    func veryfyNotifPermission()
-    {
-        let settings = UIApplication.sharedApplication().currentUserNotificationSettings()
-        if settings!.types == .None {
-
-            SCLAlertView().showWarning("Can't notify", subTitle: "We don't have permission to show you notifications, Please turn on permission on your device settings.")
-//            let ac = UIAlertController(title: "Can't notify", message: "We don't have permission to show you notifications, Please turn on permission on your device settings.", preferredStyle: .Alert)
-//            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-//            presentViewController(ac, animated: true, completion: nil)
-//            return
-        }
-    }
-    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
     
-    func getReports()
-    {
-        if Defaults.hasKey(.userAuthenticated) {
-            if NetworkManager.isInternetReachable(){
-                let report = Report()
-                report.petOwnerEmail = Defaults[.emailKey]
-                report.list(
-                    { (reports) in
-                        if reports.count > Defaults[.reportsNumberKey]{
-                            if self.timer.valid{
-                                self.timer.invalidate()
-                            }
-                            // Build notificacion but before it update current reports number
-                            let user = User(email: Defaults[.emailKey])
-                            user?.reportsNum = String(reports.count)
-                            user?.updateReportsNum(
-                                { (response) in
-                                    dispatch_async(dispatch_get_main_queue(),{
-                                        self.createNotification(reports.count)
-                                        Defaults[.reportsNumberKey] = reports.count
-                                        if self.timer.valid{
-                                            self.startTimer()
-                                        }
-                                    })
-                                }, failCallback: { (error) in
-                                    dispatch_async(dispatch_get_main_queue(),{
-                                        self.createNotification(reports.count)
-                                        if self.timer.valid{
-                                            self.startTimer()
-                                        }
-                                    })
-                            })
-                        }
-                }) { (error) in
-                    return
-                }
-            }
-        }
-    }
-    
-    func startTimer()
-    {
-        timer = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: #selector(MenuTableViewController.getReports), userInfo: nil, repeats: true)
-    }
-    
-    func createNotification(currentReports: Int) {
-        let notification = UILocalNotification()
-        notification.fireDate = NSDate(timeIntervalSinceNow: 3)
-        notification.alertBody = "You have \(currentReports - Defaults[.reportsNumberKey]) new report(s) of your pets"
-        notification.alertAction = "to open app and see."
-        notification.soundName = UILocalNotificationDefaultSoundName
-        notification.userInfo = ["reports": ""]
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
-    }
-    
     override func viewWillAppear(animated: Bool) {
-        // lock the rotation
         let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appdelegate.shouldRotate = false
         
-        // Force the device in landscape mode when the view controller gets loaded
         UIDevice.currentDevice().setValue(UIInterfaceOrientation.Portrait.rawValue, forKey: "orientation")
         
         self.navigationController?.navigationBar.hidden = false
@@ -183,7 +112,6 @@ class MenuTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -233,6 +161,7 @@ class MenuTableViewController: UITableViewController {
         return true
     }
 
+    // MARK: - Button Actions
     @IBAction func loginButtonPressed(sender: AnyObject) {
         if Defaults.hasKey(.userAuthenticated) {
             if Defaults[.userAuthenticated] {
@@ -253,6 +182,69 @@ class MenuTableViewController: UITableViewController {
         }
     }
     
+    // MARK: - Other functions
+    func getReports()
+    {
+        if Defaults.hasKey(.userAuthenticated) {
+            if NetworkManager.isInternetReachable(){
+                let report = Report()
+                report.petOwnerEmail = Defaults[.emailKey]
+                report.list(
+                    { (reports) in
+                        if reports.count > Defaults[.reportsNumberKey]{
+                            if self.timer.valid{
+                                self.timer.invalidate()
+                            }
+                            // Build notificacion but before it update current reports number
+                            let user = User(email: Defaults[.emailKey])
+                            user?.reportsNum = String(reports.count)
+                            user?.updateReportsNum(
+                                { (response) in
+                                    dispatch_async(dispatch_get_main_queue(),{[unowned self] in
+                                        self.createNotification(reports.count)
+                                        Defaults[.reportsNumberKey] = reports.count
+                                        if self.timer.valid{
+                                            self.startTimer()
+                                        }
+                                        })
+                                }, failCallback: { (error) in
+                                    dispatch_async(dispatch_get_main_queue(),{[unowned self] in
+                                        self.createNotification(reports.count)
+                                        if self.timer.valid{
+                                            self.startTimer()
+                                        }
+                                        })
+                            })
+                        }
+                }) { (error) in
+                    return
+                }
+            }
+        }
+    }
     
+    func startTimer()
+    {
+        timer = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: #selector(MenuTableViewController.getReports), userInfo: nil, repeats: true)
+    }
+    
+    func createNotification(currentReports: Int) {
+        let notification = UILocalNotification()
+        notification.fireDate = NSDate(timeIntervalSinceNow: 3)
+        notification.alertBody = "You have \(currentReports - Defaults[.reportsNumberKey]) new report(s) of your pets"
+        notification.alertAction = "to open app and see."
+        notification.soundName = UILocalNotificationDefaultSoundName
+        notification.userInfo = ["reports": ""]
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
+    
+    func veryfyNotifPermission()
+    {
+        let settings = UIApplication.sharedApplication().currentUserNotificationSettings()
+        if settings!.types == .None {
+            
+            SCLAlertView().showWarning("Can't notify", subTitle: "We don't have permission to show you notifications, Please turn on permission on your device settings.")
+        }
+    }
 
 }

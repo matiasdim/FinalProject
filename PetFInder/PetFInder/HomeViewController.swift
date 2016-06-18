@@ -39,6 +39,7 @@ class HomeViewController: UIViewController {
         return UIStatusBarStyle.LightContent
     }
     
+    // MARK: - Other functions
     func cancelPressed()
     {
         self.navigationController?.popToRootViewControllerAnimated(false)

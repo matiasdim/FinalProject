@@ -26,10 +26,6 @@ class PetRegistrationViewController: UIViewController {
         sendButton.setPreferences()
         
         self.navigationItem.title = "Register Pet"
-//        let borderColor = UIColor(colorLiteralRed: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
-//        observationText.layer.borderColor = borderColor.CGColor;
-//        observationText.layer.borderWidth = 0.5;
-//        observationText.layer.cornerRadius = 5.0;
     }
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBar.hidden = false
@@ -41,7 +37,6 @@ class PetRegistrationViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -57,13 +52,11 @@ class PetRegistrationViewController: UIViewController {
         view.endEditing(true)
     }
     
+    // MARK: - Button actions
     @IBAction func sendPressed(sender: AnyObject) {
         self.view.endEditing(true)
         if (nameText.text?.isEmpty)! {
             SCLAlertView().showError("Error", subTitle: "You need provide the name of your pet.")
-//            let alert = UIAlertController(title: "Alert", message: "You need provide the name of your pet", preferredStyle: UIAlertControllerStyle.Alert)
-//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-//            self.presentViewController(alert, animated: true, completion: nil)
         }else{
             if NetworkManager.isInternetReachable(){
                 RappleActivityIndicatorView.startAnimatingWithLabel("Creating pet...", attributes: RappleAppleAttributes)
@@ -73,7 +66,7 @@ class PetRegistrationViewController: UIViewController {
                 pet.name = nameText.text!
                 pet.create(
                     { (response) in
-                        dispatch_async(dispatch_get_main_queue(),{
+                        dispatch_async(dispatch_get_main_queue(),{[unowned self] in
                             RappleActivityIndicatorView.stopAnimating()
                             
                             let appearance = SCLAlertView.SCLAppearance(
@@ -84,29 +77,15 @@ class PetRegistrationViewController: UIViewController {
                                 self.navigationController?.popToRootViewControllerAnimated(false)
                             }
                             alertView.showSuccess("Success", subTitle: "Pet successfully created.")
-                            
-//                            let alert = UIAlertController(title: "Success", message: "Pet successfully created", preferredStyle: UIAlertControllerStyle.Alert)
-//                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
-//                                self.navigationController?.popToRootViewControllerAnimated(false)
-//                            }))
-//                            self.presentViewController(alert, animated: true, completion: nil)
-                            
                         })
                     }, failCallback: { (error) in
                         dispatch_async(dispatch_get_main_queue(),{
                             RappleActivityIndicatorView.stopAnimating()
                             SCLAlertView().showError("Error", subTitle: "Error creating pet. Try again!")
-
-//                            let alert = UIAlertController(title: "Alert", message: "Error creating pet. Try again!", preferredStyle: UIAlertControllerStyle.Alert)
-//                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-//                            self.presentViewController(alert, animated: true, completion: nil)
                         })
                 })
             }else{
                 SCLAlertView().showWarning("Alert", subTitle: "There isn't internet connection. Please connect to internet and try again.")
-//                let ac = UIAlertController(title: "Alert", message: "There isn't internet connection. Please connect to internet and try again.", preferredStyle: .Alert)
-//                ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-//                presentViewController(ac, animated: true, completion: nil)
             }
         }
     }

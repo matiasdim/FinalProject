@@ -47,7 +47,7 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
             let date = dateFormatter.dateFromString(dateString)
             
             
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"///this is you want to convert format
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
             dateFormatter.timeZone = NSTimeZone(name: "UTC")
   
             reportTime.text = "Reported at: \(dateFormatter.stringFromDate(date!))"
@@ -81,13 +81,31 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
+
+    // MARK: - Button actions
+    @IBAction func phonePressed(sender: AnyObject) {
+        if let url = NSURL(string: "tel://\(phone)") { //
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    @IBAction func mobilePressed(sender: AnyObject) {
+        if let url = NSURL(string: "tel://\(mobile)") {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
     
+    @IBAction func emailPressed(sender: AnyObject) {
+        if let url = NSURL(string: "mailto:\(email)"){
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+
+    // MARK: - Other functions
     func configMap(coordinate: CLLocationCoordinate2D, title: String, subtitle: String)
     {
         let theSpan:MKCoordinateSpan = MKCoordinateSpanMake(0.05, 0.05)
@@ -106,7 +124,7 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
     func openMaps()
     {
         if latitude != nil && longitude != nil {
-
+            
             let regionDistance:CLLocationDistance = 10000
             let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
             let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
@@ -120,23 +138,4 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
             mapItem.openInMapsWithLaunchOptions(options)
         }
     }
-
-    @IBAction func phonePressed(sender: AnyObject) {
-        if let url = NSURL(string: "tel://\(phone)") { //
-            UIApplication.sharedApplication().openURL(url)
-        }
-    }
-    @IBAction func mobilePressed(sender: AnyObject) {
-        if let url = NSURL(string: "tel://\(mobile)") {
-            UIApplication.sharedApplication().openURL(url)
-        }
-    }
-    
-    @IBAction func emailPressed(sender: AnyObject) {
-        if let url = NSURL(string: "mailto:\(email)"){
-            UIApplication.sharedApplication().openURL(url)
-        }
-    }
-
-    
 }

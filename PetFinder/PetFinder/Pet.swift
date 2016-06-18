@@ -10,8 +10,8 @@ import UIKit
 import SwiftyUserDefaults
 
 class Pet {
-    //To manage user defaults easly
     
+    // MARK: - Attrbiutes
     var email: String?
     var name: String?
     var observations: String?
@@ -19,6 +19,7 @@ class Pet {
     
     let networkManager: NetworkManager = NetworkManager()
 
+    // MARK: - Methods
     func create(successCallback: (AnyObject) -> (), failCallback: (String) -> ())
     {
         let parameters = ["email": email!,"name": name!, "observations": observations!]
@@ -55,7 +56,7 @@ class Pet {
         }
     }
     
-    //Validations
+    // MARK: - Validations
     func isValidEmail() -> Bool {
         // println("validate calendar: \(testStr)")
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
