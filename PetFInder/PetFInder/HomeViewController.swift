@@ -14,8 +14,18 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Home"
+        self.navigationItem.title = "How it works"
+
+        self.navigationController!.navigationBar.barTintColor = UIColor.blackColor()
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(SignupViewController.cancelPressed))
+        self.navigationItem.leftBarButtonItem = cancelButton
+        
+        cancelButton.setTitleTextAttributes([
+            NSFontAttributeName: UIFont(name: "Arial Rounded MT Bold", size: 17.0)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()],
+                                            forState: UIControlState.Normal)
     }
+    
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBar.hidden = false
     }
@@ -27,5 +37,10 @@ class HomeViewController: UIViewController {
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
+    }
+    
+    func cancelPressed()
+    {
+        self.navigationController?.popToRootViewControllerAnimated(false)
     }
 }
