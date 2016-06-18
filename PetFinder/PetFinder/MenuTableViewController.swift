@@ -61,7 +61,7 @@ class MenuTableViewController: UITableViewController {
         
         self.performSelector(#selector(veryfyNotifPermission), withObject: nil, afterDelay: 10)
         
-//        self.tableView!.separatorColor = UIColor.darkGrayColor()
+        self.tableView!.separatorColor = UIColor.blackColor()
 //        self.tableView!.backgroundColor = UIColor.grayColor()
     }
     
@@ -206,6 +206,9 @@ class MenuTableViewController: UITableViewController {
             cell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
             
             cell.textLabel?.text = menuItems[indexPath.row]
+            cell.accessoryView = UIImageView(image: UIImage(named:"Footprint"))
+            cell.accessoryView?.frame = CGRectMake(0, 0, 15, 15)
+            cell.textLabel?.font = UIFont(name:"Arial Rounded MT Bold", size: 17.0)
 //            if indexPath.section != 0{
 //                cell.backgroundColor = UIColor.grayColor()
 //                cell.textLabel?.textColor = UIColor.whiteColor()

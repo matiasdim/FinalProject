@@ -17,6 +17,7 @@ class RegisteredPetsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Your Pets"
+        self.tableView!.separatorColor = UIColor.blackColor()
       }
     
     override func viewWillAppear(animated: Bool) {
@@ -104,6 +105,8 @@ class RegisteredPetsTableViewController: UITableViewController {
                 // setup text.
                 cell.textLabel!.text = object["name"]! as? String
                 cell.detailTextLabel?.text = object["observations"]! as? String
+                cell.accessoryView = UIImageView(image: UIImage(named:"Footprint"))
+                cell.accessoryView?.frame = CGRectMake(0, 0, 15, 15)
         }
 
         return cell
@@ -120,6 +123,11 @@ class RegisteredPetsTableViewController: UITableViewController {
                 controller.detailItem = pet
             }
         }
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        return 70.0
     }
 
 }

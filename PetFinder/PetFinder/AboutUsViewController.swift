@@ -37,8 +37,8 @@ class AboutUsViewController: UIViewController {
         UIDevice.currentDevice().setValue(UIInterfaceOrientation.Portrait.rawValue, forKey: "orientation")
     }
     
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
         
         let appdelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appdelegate.shouldRotate = true

@@ -10,6 +10,10 @@
 		2E67874755CE87F89C353FBC /* Pods_PetFinderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99431BE44A47AC566DB3443C /* Pods_PetFinderTests.framework */; };
 		3D059BA8DCDE80BF9F1C6088 /* Pods_PetFinderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51E7636BDC544C7BE5EB84EB /* Pods_PetFinderUITests.framework */; };
 		73F86F378787DC24D30C5CE1 /* Pods_PetFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE45B9CCE60485A9D2705E68 /* Pods_PetFinder.framework */; };
+		EC188D4C1D1509ED00BD0D1C /* UserModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC188D4B1D1509ED00BD0D1C /* UserModelTests.swift */; };
+		EC188D4E1D150C3200BD0D1C /* PetModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC188D4D1D150C3200BD0D1C /* PetModelTests.swift */; };
+		EC188D501D150ED100BD0D1C /* ReportModeltests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC188D4F1D150ED100BD0D1C /* ReportModeltests.swift */; };
+		EC188D521D15104400BD0D1C /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC188D511D15104400BD0D1C /* NetworkManagerTests.swift */; };
 		EC30897F1D05FC200082FC55 /* PetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC30897E1D05FC200082FC55 /* PetDetailViewController.swift */; };
 		EC3089811D060EB20082FC55 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3089801D060EB20082FC55 /* Report.swift */; };
 		EC3089841D06325A0082FC55 /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3089831D06325A0082FC55 /* ReportDetailViewController.swift */; };
@@ -62,6 +66,10 @@
 		99431BE44A47AC566DB3443C /* Pods_PetFinderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetFinderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA75F02C08BB09D78A7BC5B /* Pods-PetFinderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFinderUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PetFinderUITests/Pods-PetFinderUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E33EEF4A414662BFA7554DA9 /* Pods-PetFinderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetFinderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PetFinderUITests/Pods-PetFinderUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC188D4B1D1509ED00BD0D1C /* UserModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModelTests.swift; sourceTree = "<group>"; };
+		EC188D4D1D150C3200BD0D1C /* PetModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetModelTests.swift; sourceTree = "<group>"; };
+		EC188D4F1D150ED100BD0D1C /* ReportModeltests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportModeltests.swift; sourceTree = "<group>"; };
+		EC188D511D15104400BD0D1C /* NetworkManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		EC30897E1D05FC200082FC55 /* PetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetDetailViewController.swift; sourceTree = "<group>"; };
 		EC3089801D060EB20082FC55 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		EC3089831D06325A0082FC55 /* ReportDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +202,10 @@
 			isa = PBXGroup;
 			children = (
 				EC7200271CFBCD66004ED765 /* PetFinderTests.swift */,
+				EC188D4B1D1509ED00BD0D1C /* UserModelTests.swift */,
+				EC188D4D1D150C3200BD0D1C /* PetModelTests.swift */,
+				EC188D4F1D150ED100BD0D1C /* ReportModeltests.swift */,
+				EC188D511D15104400BD0D1C /* NetworkManagerTests.swift */,
 				EC7200291CFBCD66004ED765 /* Info.plist */,
 			);
 			path = PetFinderTests;
@@ -348,7 +360,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EC7200071CFBCD66004ED765 /* Build configuration list for PBXProject "PetFInder" */;
+			buildConfigurationList = EC7200071CFBCD66004ED765 /* Build configuration list for PBXProject "PetFinder" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -548,7 +560,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC188D521D15104400BD0D1C /* NetworkManagerTests.swift in Sources */,
+				EC188D4C1D1509ED00BD0D1C /* UserModelTests.swift in Sources */,
+				EC188D501D150ED100BD0D1C /* ReportModeltests.swift in Sources */,
 				EC7200281CFBCD66004ED765 /* PetFinderTests.swift in Sources */,
+				EC188D4E1D150C3200BD0D1C /* PetModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,6 +699,7 @@
 			baseConfigurationReference = 38248E52C6AAC8F34811A75C /* Pods-PetFinder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PetFinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -697,6 +714,7 @@
 			baseConfigurationReference = 42D7EF92EE13A09FF2B130F4 /* Pods-PetFinder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PetFinder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -759,7 +777,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EC7200071CFBCD66004ED765 /* Build configuration list for PBXProject "PetFInder" */ = {
+		EC7200071CFBCD66004ED765 /* Build configuration list for PBXProject "PetFinder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EC7200351CFBCD66004ED765 /* Debug */,

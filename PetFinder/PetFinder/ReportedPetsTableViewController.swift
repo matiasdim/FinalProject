@@ -17,6 +17,7 @@ class ReportedPetsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Reports"
+        self.tableView!.separatorColor = UIColor.blackColor()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -41,6 +42,7 @@ class ReportedPetsTableViewController: UITableViewController {
                                 self.reports.append(i)
                             }
                         }
+                        
                         dispatch_async(dispatch_get_main_queue(), {
                             RappleActivityIndicatorView.stopAnimating()
                             self.tableView.reloadData()
@@ -107,6 +109,8 @@ class ReportedPetsTableViewController: UITableViewController {
                 cell.textLabel!.text = "Report about: " + (pet["name"]! as! String)
             }
             cell.detailTextLabel?.text = "Reporter: \(object["reporterName"]! as! String) - \(object["reporterEmail"]! as! String)"
+            cell.accessoryView = UIImageView(image: UIImage(named:"Footprint"))
+            cell.accessoryView?.frame = CGRectMake(0, 0, 15, 15)
         }
         
         return cell
@@ -124,6 +128,10 @@ class ReportedPetsTableViewController: UITableViewController {
                 controller.detailItem = report
             }
         }
+    }
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        return 70.0
     }
 
 }

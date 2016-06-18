@@ -43,8 +43,7 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
             let dateString = (report["created_at"] as? String)!
            
             let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"//this your string date format
-//            dateFormatter.timeZone = NSTimeZone(name: "UTC")
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
             let date = dateFormatter.dateFromString(dateString)
             
             
@@ -123,7 +122,7 @@ class ReportDetailViewController: UIViewController, MKMapViewDelegate {
     }
 
     @IBAction func phonePressed(sender: AnyObject) {
-        if let url = NSURL(string: "tel://\(phone)") {
+        if let url = NSURL(string: "tel://\(phone)") { //
             UIApplication.sharedApplication().openURL(url)
         }
     }

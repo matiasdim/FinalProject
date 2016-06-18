@@ -33,6 +33,15 @@ class LoginViewController: UIViewController {
         
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(SignupViewController.cancelPressed))
         self.navigationItem.leftBarButtonItem = cancelButton
+        
+        reportButton.setTitleTextAttributes([
+            NSFontAttributeName: UIFont(name: "Arial Rounded MT Bold", size: 17.0)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()],
+                                          forState: UIControlState.Normal)
+        cancelButton.setTitleTextAttributes([
+            NSFontAttributeName: UIFont(name: "Arial Rounded MT Bold", size: 17.0)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()],
+                                            forState: UIControlState.Normal)
     }
     
     func sendPressed()

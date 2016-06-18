@@ -168,7 +168,7 @@ class NetworkManager {
         }
     }
     
-    // Connection validator
+    // MARK: - Connection validator
     static func isInternetReachable() -> Bool {
         return Reachability.isConnectedToNetwork()
     }
