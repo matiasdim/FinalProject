@@ -20,14 +20,14 @@ class ReportPetViewController: UIViewController {
 
         self.navigationItem.title = "Scan QR Code"
         self.navigationController?.navigationBar.hidden = false
-//        scanner.prepareScan(view) { (stringValue) -> () in
-//            print(stringValue)
-//            dispatch_async(dispatch_get_main_queue(), {
-                self.qrString = "2"// = stringValue
+        scanner.prepareScan(view) { (stringValue) -> () in
+            print(stringValue)
+            dispatch_async(dispatch_get_main_queue(), {
+                self.qrString = stringValue //"2"// = stringValue
                 self.performSegueWithIdentifier("createReportSegue", sender: self)
-//            })
-//            
-//        }
+            })
+            
+        }
         // test scan frame
         scanner.scanFrame = view.bounds
     }
