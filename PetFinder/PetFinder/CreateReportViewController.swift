@@ -132,13 +132,13 @@ class CreateReportViewController: UIViewController, CLLocationManagerDelegate {
     
     // MARK: - Button actions
     @IBAction func phonePressed(sender: AnyObject) {
-        if let url = NSURL(string: "tel://\(self.petOwnerPhone)") {
+        if let url = NSURL(string: "tel://\((self.petOwnerPhone.titleLabel?.text)!)") {
             UIApplication.sharedApplication().openURL(url)
         }
     }
     
     @IBAction func emailPressed(sender: AnyObject) {
-        if let url = NSURL(string: "mailto://\(self.petOwnerEmail)") {
+        if let url = NSURL(string: "mailto://\((self.petOwnerEmail.titleLabel?.text)!)") {
             UIApplication.sharedApplication().openURL(url)
         }
     }
